@@ -9,10 +9,14 @@ theme:
     - header.autohide
     - navigation.tabs
     - navigation.footer
+    - content.action.edit
   language: sv
   palette:
     primary: yellow
     accent: orange
+  icon: 
+    edit: material/pencil
+    view: material/eye
 
 extra:
   social:
@@ -21,6 +25,9 @@ extra:
     - icon: fontawesome/brands/facebook
       link: https://www.facebook.com/Lysator.liu.se/
 
+repo_name: lysdocs-gitlab
+repo_url: https://git.lysator.liu.se/littlefox/lysdoc
+edit_uri: tree/main/lysdoc/docs
 plugins:
   - search
   - tags
