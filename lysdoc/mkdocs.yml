@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+
+site_name: Lysdocs
+
+theme:
+  name: material
+  logo: assets/lyslogo.svg
+  features: 
+    - header.autohide
+    - navigation.tabs
+    - navigation.footer
+  language: sv
+  palette:
+    primary: yellow
+    accent: orange
+
+extra:
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://lysator.liu.se
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/Lysator.liu.se/
+
+plugins:
+  - search
+  - tags
