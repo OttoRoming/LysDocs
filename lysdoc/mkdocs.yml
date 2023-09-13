@@ -10,6 +10,7 @@ theme:
     - navigation.tabs
     - navigation.footer
     - content.action.edit
+    - navigation.sections
   language: sv
   palette:
     primary: yellow
