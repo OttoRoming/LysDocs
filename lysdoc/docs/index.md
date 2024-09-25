@@ -1,22 +1,23 @@
 ---
+title: Startsida
 hide:
   - footer
+  - navigation
+  - toc
 ---
 
-# Welcome to MkDocs
+# Välkommen till LysDocs
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Denna sida ämnar att dokumentera Lysators infrastruktur, så att du som medlem vet hur allt hänger ihop!
 
-## Commands
+Det finns även strö-guider för allt möjligt, [kanske att du själv har ett bra sätt att förklara något?](#bidra)
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## Hur funkar sidan?
 
-## Project layout
+Sidan är skapad i [`MkDocs`](https://www.mkdocs.org/) med temat [`mkdocs-material`](https://squidfunk.github.io/mkdocs-material/).
+Det finns några tangentbordsgenvägar inbyggt i sidan, se [här](https://squidfunk.github.io/mkdocs-material/).
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Under [Guider](/guider/guider)
+
+## Bidra
+Denna sida är ett [git-repo](https://git.lysator.liu.se/lysdocs/lysdoc), vilket betyder att du kan skapa pull-requests med innehåll som du tycker skulle passa in!
