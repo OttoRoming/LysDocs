@@ -8,7 +8,9 @@
 5. Byt mapp till `lysdocs/`
 6. Kör kommandot `mkdocs serve` för att serva sidan lokalt.
 7. Mer information går att hitta på https://squidfunk.github.io/mkdocs-material/
+
 ## TODO:
+- [X] Aktivera darkmode
 - [ ] Byt färgtema till lysators "officiella" färger.
 - [ ] Lägg till länk till detta Git-repo.
 - [ ] Lägg till "Contribution guidelines" så att folk vet hur de ska göra.
