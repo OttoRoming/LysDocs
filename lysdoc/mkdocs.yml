@@ -2,6 +2,7 @@
 
 site_name: Lysdocs
 
+
 theme:
   name: material
   logo: assets/lyslogo.svg
@@ -13,8 +14,19 @@ theme:
     - navigation.sections
   language: sv
   palette:
+  - scheme: default
     primary: yellow
     accent: orange
+    toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+  - scheme: slate
+    primary: yellow
+    accent: orange
+    toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
   icon: 
     edit: material/pencil
     view: material/eye
@@ -27,7 +39,7 @@ extra:
       link: https://www.facebook.com/Lysator.liu.se/
 
 repo_name: lysdocs-gitlab
-repo_url: https://git.lysator.liu.se/littlefox/lysdoc
+repo_url: https://git.lysator.liu.se/lysdocs/lysdoc
 edit_uri: tree/main/lysdoc/docs
 plugins:
   - search
