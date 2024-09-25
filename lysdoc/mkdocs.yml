@@ -1,7 +1,6 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 
-site_name: Lysdocs
-
+site_name: LysDocs
 
 theme:
   name: material
@@ -15,13 +14,13 @@ theme:
   language: sv
   palette:
   - scheme: default
-    primary: yellow
+    primary: custom
     accent: orange
     toggle:
         icon: material/brightness-7 
         name: Switch to dark mode
   - scheme: slate
-    primary: yellow
+    primary: custom
     accent: orange
     toggle:
         icon: material/brightness-4
@@ -30,6 +29,9 @@ theme:
   icon: 
     edit: material/pencil
     view: material/eye
+
+extra_css:
+  - extra.css
 
 extra:
   social:
@@ -44,3 +46,4 @@ edit_uri: tree/main/lysdoc/docs
 plugins:
   - search
   - tags
+  - open-in-new-tab

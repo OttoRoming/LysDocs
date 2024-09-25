@@ -1,0 +1,12 @@
+:root {
+    --md-primary-fg-color: #FF0;
+}
+
+header *, nav.md-tabs{
+    color: black;
+}
+
+main a[href^="http"]::after{
+    content: "⤴";
+    font-size: small;
+}
