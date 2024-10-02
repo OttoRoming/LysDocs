@@ -1,6 +1,8 @@
 # Lysdocs
 
 ## Sätta upp utvecklingsmiljö
+
+### Manuellt
 1. Hämta hem detta repo till godtycklig mapp
 2. I toppkatalogen på detta repo kör `python3 -m venv venv`
 3. Kör `source venv/bin/activate` för att aktivera python miljön.
@@ -8,6 +10,13 @@
 5. Byt mapp till `lysdocs/`
 6. Kör kommandot `mkdocs serve` för att serva sidan lokalt.
 7. Mer information går att hitta på https://squidfunk.github.io/mkdocs-material/
+
+### Med `direnv`
+Efter att ha skapat din venv för första gången, kan du installera `direnv` och köra
+```
+direnv allow
+```
+för att automatiskt aktivera venv:en så fort du är i repo:t!
 
 ## TODO:
 - [X] Aktivera darkmode
