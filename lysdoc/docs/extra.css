@@ -10,3 +10,7 @@ main a[href^="http"]::after{
     content: "⤴";
     font-size: small;
 }
+
+body[data-md-color-scheme="default"] main a{
+	color: var(--fbc-blue-60) !important;
+}
