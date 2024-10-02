@@ -6,6 +6,7 @@ job:
     - pip install -r requirements.txt
     - cd lysdoc/
     - mkdocs build --site-dir public
+    - rsync -avzP --delete public/ shipon.lysator.liu.se:/lysator/www/roxen/lysdocs/
   artifacts:
     name: "$CI_JOB_NAME"
     paths:
