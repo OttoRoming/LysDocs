@@ -1,12 +1,20 @@
+default:
+  cache:                      # Pip's cache doesn't store the python packages
+    paths:                    # https://pip.pypa.io/en/stable/topics/caching/
+      - .cache/pip
+  before_script:
+    - python -V               # Print out python version for debugging
+    - python3 -m venv venv
+    - source venv/bin/activate
+    - pip install -r requirements.txt
+
 variables:
   GIT_DEPTH: 1
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
 job:
   stage: build
   script:
-    - python3 -m venv venv
-    - source venv/bin/activate
-    - pip install -r requirements.txt
     - cd lysdoc/
     - mkdocs build --site-dir public
     - rsync -avzP --delete public/ littlefox@totoro.lysator.liu.se:/lysator/www/roxen/lysdocs/
