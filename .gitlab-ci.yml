@@ -9,7 +9,6 @@ job:
     - pip install -r requirements.txt
     - cd lysdoc/
     - mkdocs build --site-dir public
-    - ssh -v littlefox@shipon.lysator.liu.se echo "i'm in boys"
     - rsync -avzP --delete public/ littlefox@totoro.lysator.liu.se:/lysator/www/roxen/lysdocs/
   artifacts:
     name: "$CI_JOB_NAME"
