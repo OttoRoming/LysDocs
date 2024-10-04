@@ -48,6 +48,7 @@ hide:
 <td style="background-color:red"><a href="../guider/osorterat/Lösenord">Lösenord</a></td>
 <td style="background-color:red"><a href="../guider/osorterat/Lysrdiff">Lysrdiff</a></td>
 <td style="background-color:red"><a href="../guider/osorterat/Screen">Screen</a></td>
+<td style="background-color:green"><a href="../guider/osorterat/GPG">GPG</a></td>
 </tr>
 <tr>
 <th><a href="../guider/osorterat">Projekt</th>
