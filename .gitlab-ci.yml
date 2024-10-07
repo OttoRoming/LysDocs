@@ -11,12 +11,18 @@ job:
     - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
     - if: $CI_COMMIT_TAG
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  cache:                      # Pip's cache doesn't store the python packages
-    paths:                    # https://pip.pypa.io/en/stable/topics/caching/
-      - .cache/pip
-      - venv/
+  cache:
+  - paths:
+      - .cache/pip # general cache
+  - key:
+      files:
+        - requirements.txt
+    paths:
+    - venv/ # only cache venv if no requirements changed
+
+
   before_script:
-    - test -f venv/bin/python || python3 -m venv venv
+    - test -f venv/bin/python || python3 -m venv venv # Either venv is restored from cache, or needs to be create
     - source venv/bin/activate
     - pip install -r requirements.txt
   script:
