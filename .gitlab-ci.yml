@@ -14,9 +14,9 @@ job:
   cache:                      # Pip's cache doesn't store the python packages
     paths:                    # https://pip.pypa.io/en/stable/topics/caching/
       - .cache/pip
+      - venv/
   before_script:
-    - python3 -V               # Print out python version for debugging
-    - python3 -m venv venv
+    - test -f venv/bin/python || python3 -m venv venv
     - source venv/bin/activate
     - pip install -r requirements.txt
   script:
