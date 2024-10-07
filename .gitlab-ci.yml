@@ -28,7 +28,6 @@ job:
   script:
     - cd lysdoc/
     - mkdocs build --site-dir public
-    - ssh -v littlefox@totoro.lysator.liu.se echo "im in!"
     - rsync -avzP --delete public/ littlefox@totoro.lysator.liu.se:/lysator/www/roxen/lysdocs/
   artifacts:
     name: "$CI_JOB_NAME"
