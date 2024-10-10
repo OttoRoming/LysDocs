@@ -1,13 +1,12 @@
 variables:
   GIT_DEPTH: 1
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
-  SRC_DIR: "src"
 
 job:
   stage: build
   rules:
     - changes:
-      - "$SRC_DIR/**/*"
+      - "src/**/*"
       - .gitlab-ci.yml
     - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
     - if: $CI_COMMIT_TAG
@@ -27,7 +26,7 @@ job:
     - source venv/bin/activate
     - pip install -r requirements.txt
   script:
-    - cd $SRC_DIR
+    - cd src
     - mkdocs build --site-dir public
     - rsync -a --delete public/ littlefox@totoro.lysator.liu.se:/lysator/www/roxen/lysdocs/
 # artifacts:
