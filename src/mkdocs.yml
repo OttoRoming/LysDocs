@@ -4,7 +4,8 @@ site_name: LysDocs
 
 theme:
   name: material
-  logo: assets/lyslogo.svg
+  favicon: assets/lysdocs.svg
+  logo: assets/lysdocs.svg
   features: 
     - header.autohide
     - navigation.tabs
@@ -41,8 +42,8 @@ extra:
       link: https://www.facebook.com/Lysator.liu.se/
 
 repo_name: lysdocs-gitlab
-repo_url: https://git.lysator.liu.se/lysdocs/lysdoc
-edit_uri: tree/main/lysdoc/docs
+repo_url: https://git.lysator.liu.se/lysdocs/lysdocs
+edit_uri: tree/main/src/docs
 plugins:
   - search
   - tags
