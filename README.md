@@ -1,4 +1,5 @@
 # Lysdocs
+Skapa gärna merge-request om du vill bidra!
 
 ## Sätta upp utvecklingsmiljö
 
