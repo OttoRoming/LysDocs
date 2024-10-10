@@ -1,12 +1,13 @@
 variables:
   GIT_DEPTH: 1
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  SRC_DIR: "src"
 
 job:
   stage: build
   rules:
     - changes:
-      - lysdoc/**/*
+      - "$SRC_DIR/**/*"
       - .gitlab-ci.yml
     - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
     - if: $CI_COMMIT_TAG
@@ -26,11 +27,11 @@ job:
     - source venv/bin/activate
     - pip install -r requirements.txt
   script:
-    - cd lysdoc/
+    - cd $SRC_DIR
     - mkdocs build --site-dir public
     - rsync -a --delete public/ littlefox@totoro.lysator.liu.se:/lysator/www/roxen/lysdocs/
-  artifacts:
-    name: "$CI_JOB_NAME"
-    paths:
-      - lysdoc/public
+# artifacts:
+#   name: "$CI_JOB_NAME"
+#   paths:
+#     - lysdoc/public
 
