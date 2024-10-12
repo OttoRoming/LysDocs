@@ -33,9 +33,6 @@ theme:
   icon: 
     edit: material/pencil
     view: material/eye
-  font:
-    text: Atkinson Hyperlegible
-    code: Fira Code
 
 extra_css:
   - extra.css
