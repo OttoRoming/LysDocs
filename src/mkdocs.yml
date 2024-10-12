@@ -14,22 +14,28 @@ theme:
     - navigation.sections
   language: sv
   palette:
-  - scheme: default
-    primary: custom
-    accent: orange
-    toggle:
-        icon: material/brightness-7 
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      primary: yellow
+      accent: yellow
+      toggle:
+        icon: material/brightness-7
         name: Switch to dark mode
-  - scheme: slate
-    primary: custom
-    accent: orange
-    toggle:
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: yellow
+      accent: yellow
+      toggle:
         icon: material/brightness-4
-        name: Switch to light mode
-
+        name: Switch to system preference
   icon: 
     edit: material/pencil
     view: material/eye
+  font:
+    text: Atkinson Hyperlegible
+    code: Fira Code
 
 extra_css:
   - extra.css
@@ -40,6 +46,7 @@ extra:
       link: https://lysator.liu.se
     - icon: fontawesome/brands/facebook
       link: https://www.facebook.com/Lysator.liu.se/
+  generator: false
 
 repo_name: lysdocs-gitlab
 repo_url: https://git.lysator.liu.se/lysdocs/lysdocs
