@@ -19,11 +19,18 @@ Som användarnamn används ditt vanliga användarnamn.
 Som lösenord ska du använda det lösenord du satt för mail i [admin](https://admin.lysator.liu.se/mail).
 
 Portar för att ansluta klienten:
+
+*Inkommande server:*
 ```
 	MAP 	    imap.lysator.liu.se 	port 143
 	IMAP/TLS 	imap.lysator.liu.se 	port 993
    	POP3 	    pop.lysator.liu.se 	    port 110
 	POP3/TLS 	pop.lysator.liu.se 	    port 995
+```
+
+*Utgående server:*
+```
+    SMTP        mail.lysator.liu.se     port 26
 ```
 
 ### Läsa mail lokalt
