@@ -52,3 +52,9 @@ plugins:
   - search
   - tags
   - open-in-new-tab
+
+markdown_extensions:
+  - footnotes
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
