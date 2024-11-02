@@ -44,7 +44,11 @@ Alla lysators system monterar användarens mail-mapp på `/var/mail/<användarna
 Följande avsnitt beskriver vad de flesta av dessa filer är och hur de används.
 
 ### Vidarebefordring
+Om du vill att din e-post ska vidarebefordras till någon annan brevlåda (exempelvis din studentmail eller annat) så måste du redigera din `.forward` i din mail-mapp.
 
+För att vidarebefordra mail skriver du enkelt in adressen till den brevlåda du vill ha e-posten levererad till och sparar filen. **E-post kommer inte att sparas på lysators mailserver om detta görs! E-posten blir endast vidarebefordrad.**
+
+`.forward` kan även skicka vidare e-post till andra ställen också, exempelvis mailsorteringsprogrammet procmail som bland annat kan användas för att filtrera bort spam-mail. Exempel på hur du använder procmail finner du i nästa avsnitt.
 
 ### Spamhantering och andra automatiska regler
 
