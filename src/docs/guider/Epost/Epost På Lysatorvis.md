@@ -170,10 +170,15 @@ Man kan sätta upp regel för att automatiskt skapa kataloger beroende på vilke
 
 ## Extra adresser
 
+Skulle du behöva extra adresser eller adresser som du kan använda en gång och sen glömma bort för all framtid? Då finns det två smidiga sätt att utöka din ordinarie mailadress. Dessa kan även vara hjälpsamma vid filtrering!
+
+Vilken du väljer att använda beror mest på tycke och smak. I bägge fallen så kommer e-post att levereras till din ordinarie Lysator brevlåda varefter de regler som du satt upp för mailhantering styr vad som händer med e-posten.
+
 ### Plus syntax
 `användarnamn+prylemoj@lysator.liu.se`
+(prylemoj är endast ett exempel, det kan stå vad du vill)
 
 ### User-domän
-
 `prylemoj@<användarnamn>.user.lysator.liu.se`
+(prylemoj är endast ett exempel, det kan stå vad du vill)
 
