@@ -1,3 +1,5 @@
+# Tjänster för icke-root
+
 Vill du kunna ha långtidskörande bakgrundprocesser på ett smidigt och pålitligt sätt? Har du fram tills nu kanske kört på en `tmux`/`screen`-session och behövt starta upp den manuellt, de få gånger Lysator har haft nedtid?
 
 Här kommer en bättre lösning: skapa en `systemd`-tjänst.
@@ -34,5 +36,8 @@ WantedBy=default.target
 
 Detta ser precis ut som en vanlig systemtjänst. Enda skillnaden är kanske `%h`. Detta är en specifierare som kommer omvandlas till användarens hemkatalog. [Det finns en hel del sådana.](https://man.archlinux.org/man/systemd.unit.5#SPECIFIERS)
 
-Läs mer detaljerat om att skapa `systemd` user-unit:s på Arch Wiki: <https://wiki.archlinux.org/title/Systemd/User>
+För att installera och starta tjänsten, kör `systemctl --user enable --now <TJÄNSTNAMN>`
+
+!!! info "Mer om användartjänster"
+    Läs mer detaljerat om att skapa `systemd` user-unit:s på Arch Wiki: <https://wiki.archlinux.org/title/Systemd/User>
 
