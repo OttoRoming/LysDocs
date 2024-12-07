@@ -55,7 +55,7 @@ nyckelserver. Du kan ladda upp din gpg-nyckel till samma server som
 lysator använder med
 
 ```
-gpg --send-keys [Fingeravtryck]
+gpg --keyserver keyserver.ubuntu.com --send-keys [Fingeravtryck]
 ```
 
 ## Ladda ner nyckel
