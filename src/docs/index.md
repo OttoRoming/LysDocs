@@ -18,7 +18,7 @@ Sidan är skapad i [`MkDocs`](https://www.mkdocs.org/) med temat [`mkdocs-materi
 
 > **TIPS:** Det finns några tangentbordsgenvägar inbyggt i sidan, [se här](https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/?h=keyb#keyboard-shortcuts)
 
-Under [Guider](guider) finns information och vägledning till mycket man kan tänkas vilja göra på Lysators system, exempelvis E-post, GitLab, WWW (personlig hemsida).
+Under [Guider](guider/index.md) finns information och vägledning till mycket man kan tänkas vilja göra på Lysators system, exempelvis E-post, GitLab, WWW (personlig hemsida).
 
 ## Bidra till LysDocs
 Denna sida är ett [git-repo](https://git.lysator.liu.se/lysdocs/lysdoc), vilket betyder att du kan skapa pull-requests med innehåll som du tycker skulle passa in!
