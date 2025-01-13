@@ -2,6 +2,8 @@
 
 site_name: LysDocs
 
+site_dir : 'public'
+
 theme:
   name: material
   favicon: assets/lysdocs.svg
