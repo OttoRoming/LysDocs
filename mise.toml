@@ -1,0 +1,18 @@
+[tools]
+python = "latest"
+
+[env]
+_.python.venv = { path = ".venv", create = true }
+
+[tasks.install-pip-requirements]
+run = "pip install -r requirements.txt"
+
+[tasks.build]
+dir = "src"
+run = "mkdocs build"
+outputs = ["public"]
+sources = ["**"]
+
+[tasks.serve]
+dir = "src"
+run = "mkdocs serve"
