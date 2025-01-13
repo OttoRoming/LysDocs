@@ -1,4 +1,7 @@
 venv/
-lysdoc/.cache/
+.venv/
+
+src/.cache/
+src/public/
 
 **~

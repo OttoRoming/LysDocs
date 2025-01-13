@@ -10,14 +10,19 @@ Skapa gärna merge-request om du vill bidra!
 4. Kör `pip install -r requirements.txt` för att installera alla beroenden.
 5. Byt mapp till `src/`
 6. Kör kommandot `mkdocs serve` för att serva sidan lokalt.
-7. Mer information om mkdocs går att hitta på https://squidfunk.github.io/mkdocs-material/
 
-### Med `direnv`
-Efter att ha skapat din venv för första gången, kan du installera `direnv` och köra
-```
-direnv allow
-```
-för att automatiskt aktivera venv:en så fort du är i repo:t!
+Mer information går att hitta på <https://squidfunk.github.io/mkdocs-material/>
+
+### Med `mise`
+[`mise`](https://mise.jdx.dev/getting-started.html) är ett fantastiskt sätt att fixa reproducerbara utvecklingsmiljöer. I detta repo finns en konfiguration `mise.toml`.
+
+1. Installera [`mise`](https://mise.jdx.dev/getting-started.html).
+2. Kör `mise trust` i repon:s katalog.
+3. Kör `mise install` och `mise install-pip-requirements`
+
+Nu har du allt du behöver! Det finns färdiga "tasks" som nästan bara är aliaser.
+
+Exempelvis kör `mise serve` bara `mkdocs serve` (i korrekt katalog, oavsett var du är).
 
 ## TODO:
 - [X] Aktivera darkmode
