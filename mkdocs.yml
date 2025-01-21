@@ -4,6 +4,8 @@ site_name: LysDocs
 
 site_dir : 'public'
 
+repo_url: https://git.lysator.liu.se/lysdocs/lysdocs
+
 theme:
   name: material
   favicon: assets/lysdocs.svg
@@ -35,6 +37,7 @@ theme:
   icon: 
     edit: material/pencil
     view: material/eye
+    repo: fontawesome/brands/gitlab
 
 extra_css:
   - extra.css
@@ -47,9 +50,6 @@ extra:
       link: https://www.facebook.com/Lysator.liu.se/
   generator: false
 
-repo_name: lysdocs-gitlab
-repo_url: https://git.lysator.liu.se/lysdocs/lysdocs
-edit_uri: tree/main/src/docs
 plugins:
   - search
   - tags
