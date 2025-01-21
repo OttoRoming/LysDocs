@@ -8,8 +8,7 @@ Skapa gärna merge-request om du vill bidra!
 2. I toppkatalogen på detta repo kör `python3 -m venv venv`
 3. Kör `source venv/bin/activate` för att aktivera python miljön.
 4. Kör `pip install -r requirements.txt` för att installera alla beroenden.
-5. Byt mapp till `src/`
-6. Kör kommandot `mkdocs serve` för att serva sidan lokalt.
+5. Kör kommandot `mkdocs serve` för att serva sidan lokalt.
 
 Mer information går att hitta på <https://squidfunk.github.io/mkdocs-material/>
 
