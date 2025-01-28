@@ -97,6 +97,6 @@ Brödtext
 ### Publicera artikeln
 
 För att publicera artikeln trycker du ditt modifierade repo till gitlabben och
-lägger en pull-request. För att göra detta följer du Lysators 
+lägger en merge-request. För att göra detta följer du Lysators 
 [Gitlab guide](https://www.lysator.liu.se/lysdocs/guider/Versionshantering/GitLab/).
 
