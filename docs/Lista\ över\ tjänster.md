@@ -9,7 +9,7 @@ Varje tjänst har en kort beskrivning och en länk till relevanta guider och res
 Lysator har tre lokaler på Campus Valla.
 
 ### Haček
-`(grav) och '(akut) (samlings namn haček) som finns på övervåningen i HusETT är de primära föreningslokalerna.
+`(grav) och ´(akut) (samlings namn haček) som finns på övervåningen i HusETT är de primära föreningslokalerna.
 
 Alla medlemmar med Lysator konto har tillgång till lokalerna genom att logga in på [Lysator admin](https://admin.lysator.liu.se/lokal).
 
