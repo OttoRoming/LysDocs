@@ -2,17 +2,18 @@
 
 site_name: LysDocs
 
-site_dir : 'public'
+site_dir: "public"
 
-site_url : https://lysator.liu.se/lysdocs
+site_url: https://lysator.liu.se/lysdocs
 
 repo_url: https://git.lysator.liu.se/lysdocs/lysdocs
+repo_name: lysdocs/lysdocs
 
 theme:
   name: material
   favicon: assets/lysdocs.svg
   logo: assets/lysdocs.svg
-  features: 
+  features:
     - header.autohide
     - navigation.instant
     - navigation.tabs
@@ -23,7 +24,7 @@ theme:
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: default 
+      scheme: default
       primary: yellow
       accent: yellow
       toggle:
@@ -37,10 +38,9 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to system preference
-  icon: 
+  icon:
     edit: material/pencil
     view: material/eye
-    repo: fontawesome/brands/gitlab
 
 extra_css:
   - extra.css
@@ -57,6 +57,9 @@ plugins:
   - search
   - tags
   - open-in-new-tab
+  - git-revision-date-localized:
+      type: timeago
+  - git-authors
 
 markdown_extensions:
   - footnotes

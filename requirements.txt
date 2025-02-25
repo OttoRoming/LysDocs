@@ -28,3 +28,5 @@ regex==2024.9.11
 requests==2.31.0
 urllib3==2.2.3
 watchdog==3.0.0
+mkdocs-git-revision-date-localized-plugin
+mkdocs-git-authors-plugin
