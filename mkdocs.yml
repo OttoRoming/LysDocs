@@ -4,6 +4,8 @@ site_name: LysDocs
 
 site_dir : 'public'
 
+site_url : https://lysator.liu.se/lysdocs
+
 repo_url: https://git.lysator.liu.se/lysdocs/lysdocs
 
 theme:
@@ -12,6 +14,7 @@ theme:
   logo: assets/lysdocs.svg
   features: 
     - header.autohide
+    - navigation.instant
     - navigation.tabs
     - navigation.footer
     - content.action.edit
