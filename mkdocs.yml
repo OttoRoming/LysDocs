@@ -18,6 +18,7 @@ theme:
     - navigation.instant
     - navigation.tabs
     - navigation.footer
+    - navigation.indexes
     - content.action.edit
     - navigation.sections
   language: sv
