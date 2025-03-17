@@ -14,6 +14,22 @@ Skapa gärna merge-request om du vill bidra!
 
 Mer information går att hitta på <https://squidfunk.github.io/mkdocs-material/>
 
+### Med `uv`
+
+[`uv`](https://docs.astral.sh/uv/) är en BLAZINGLY snabb pakethanterare för Python.
+
+1. Installera [`uv`](https://docs.astral.sh/uv/getting-started/installation/).
+
+2. Inuti detta repo, kör
+    ```sh
+    uv pip install -r requirements.txt
+    ```
+
+3.
+    - Alt 1: kör `uv run mkdocs serve` för att serva sidan lokalt.
+    - Alt 2: aktivera venv:et, precis som i [manuellt](#manuellt)
+
+
 ### Med `mise`
 
 [`mise`](https://mise.jdx.dev/getting-started.html) är ett fantastiskt sätt att fixa reproducerbara utvecklingsmiljöer. I detta repo finns en konfiguration `mise.toml`.
