@@ -60,7 +60,8 @@ plugins:
   - open-in-new-tab
   - git-revision-date-localized:
       type: timeago
-  - git-authors
+  - git-authors:
+      enabled_on_serve: false
 
 markdown_extensions:
   - footnotes
