@@ -13,4 +13,4 @@ sources = ["**"]
 outputs = ["public"]
 
 [tasks.serve]
-run = "mkdocs serve"
+run = "mkdocs serve --open"
