@@ -59,9 +59,10 @@ plugins:
   - tags
   - open-in-new-tab
   - git-revision-date-localized:
+      enabled: !ENV [IS_PRODUCTION, false]
       type: timeago
   - git-authors:
-      enabled_on_serve: false
+      enabled: !ENV [IS_PRODUCTION, false]
 
 markdown_extensions:
   - footnotes
