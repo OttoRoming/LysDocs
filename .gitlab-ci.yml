@@ -24,8 +24,7 @@ build:
   script:
     - mkdocs build
   artifacts:
-    paths:
-      - public
+    untracked: true
     expire_in: 1 hour
 
 deploy:
