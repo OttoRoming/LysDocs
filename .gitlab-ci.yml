@@ -1,9 +1,9 @@
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
-stages:
-  - build
-  - deploy
+# stages:
+#   - build
+#   - deploy
 
 build:
   stage: build
