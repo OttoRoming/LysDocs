@@ -1,10 +1,6 @@
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
-# stages:
-#   - build
-#   - deploy
-
 build:
   stage: build
   rules:
@@ -34,8 +30,8 @@ build:
 
 deploy:
   stage: deploy
-  # dependencies:
-  #   - build
+  variables:
+    GIT_STRATEGY: none # don't need to clone for this step
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   script:
