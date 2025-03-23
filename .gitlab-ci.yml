@@ -1,6 +1,9 @@
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+  # needed for `mkdocs-git-authors` and `mkdocs-git-revision-date`
   IS_PRODUCTION: true
+  GIT_DEPTH: 0 
 
 build:
   stage: build
