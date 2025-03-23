@@ -37,4 +37,4 @@ deploy:
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   script:
-    - rsync -a --delete public/ littlefox@totoro.lysator.liu.se:/lysator/www/roxen/lysdocs/
+    - rsync -avz --delete public/ littlefox@milou.lysator.liu.se:/lysator/www/roxen/lysdocs/
