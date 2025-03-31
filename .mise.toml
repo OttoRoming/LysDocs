@@ -1,11 +1,5 @@
-[tools]
-python = "latest"
-
 [env]
-_.python.venv = { path = ".venv", create = true }
-
-[hooks]
-postinstall = "pip install -r requirements.txt"
+_.python.venv = { path = ".venv" }
 
 [tasks.build]
 run = "mkdocs build"

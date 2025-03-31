@@ -2,6 +2,8 @@
 
 Skapa gärna merge-request om du vill bidra!
 
+Mer information går att hitta på <https://squidfunk.github.io/mkdocs-material/>
+
 ## Sätta upp utvecklingsmiljö
 
 ### Manuellt
@@ -12,7 +14,6 @@ Skapa gärna merge-request om du vill bidra!
 4. Kör `pip install -r requirements.txt` för att installera alla beroenden.
 5. Kör kommandot `mkdocs serve` för att serva sidan lokalt.
 
-Mer information går att hitta på <https://squidfunk.github.io/mkdocs-material/>
 
 ### Med `uv`
 
@@ -32,12 +33,11 @@ Mer information går att hitta på <https://squidfunk.github.io/mkdocs-material/
 
 ### Med `mise`
 
-[`mise`](https://mise.jdx.dev/getting-started.html) är ett fantastiskt sätt att fixa reproducerbara utvecklingsmiljöer. I detta repo finns en konfiguration `mise.toml`.
+`mise` är ett fantastiskt sätt att fixa reproducerbara utvecklingsmiljöer.
 
 1. Installera [`mise`](https://mise.jdx.dev/getting-started.html).
-2. Kör `mise settings experimental=true` (används för [`postinstall`](https://mise.jdx.dev/hooks.html#preinstall-postinstall-hook) hook som används för att installera dependencies i python venv:et.)
-3. Kör `mise trust` i repon:s katalog.
-4. Kör `mise install`.
+2. Kör `mise trust` och `mise install` i repot:s katalog.
+3. Följ stegen för [Med `uv`](#med-uv), men ditt venv bör automatiskt aktiveras när du är i repot:s katalog.
 
 Nu har du allt du behöver! Det finns färdiga "tasks" som nästan bara är aliaser.
 
