@@ -37,11 +37,10 @@ deploy:
   variables:
     GIT_STRATEGY: none # don't need to clone for this step
   rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
     - changes:
       - "docs/**"
       - .gitlab-ci.yml
       - mkdocs.yml
   script:
     - rsync -avz --delete public/ littlefox@totoro.lysator.liu.se:/lysator/www/roxen/lysdocs/
-  only: 
-    - main
