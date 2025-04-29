@@ -2,9 +2,12 @@
 _.python.venv = { path = ".venv" }
 
 [tasks.build]
+env = { IS_PRODUCTION = "true" }
 run = "mkdocs build"
-sources = ["**"]
-outputs = ["public"]
 
 [tasks.serve]
 run = "mkdocs serve --open"
+
+[tasks.deploy]
+depends = ['build']
+run = 'rsync -r --delete public/ leslie.lysator.liu.se:/var/www/html/lysdocs'
