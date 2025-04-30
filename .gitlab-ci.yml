@@ -48,6 +48,7 @@ deploy:
     - cp $KNOWN_HOSTS ~/.ssh/known_hosts
     - cp $SSH_PRIVATE_KEY ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
+    - apt-get update
     - apt-get install -y rsync
   script:
     - rsync -av --delete public/ lysdocs@leslie.lysator.liu.se:/var/www/html/lysdocs/
