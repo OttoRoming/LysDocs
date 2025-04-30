@@ -1,4 +1,4 @@
-image: ghcr.io/astral-sh/uv:0.5-python3.13-bookworm
+image: ghcr.io/astral-sh/uv:0.7-python3.13-bookworm
 
 variables:
   UV_CACHE_DIR: .uv-cache
@@ -48,5 +48,6 @@ deploy:
     - cp $KNOWN_HOSTS ~/.ssh/known_hosts
     - cp $SSH_PRIVATE_KEY ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
+    - apt-get install -y rsync
   script:
     - rsync -av --delete public/ lysdocs@leslie.lysator.liu.se:/var/www/html/lysdocs/
