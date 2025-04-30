@@ -23,7 +23,7 @@ build:
   before_script:
     - uv cache prune --ci
   script:
-    - uv mkdocs build
+    - uv run mkdocs build
   artifacts:
     paths:
       - "public/"
