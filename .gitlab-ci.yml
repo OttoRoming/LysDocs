@@ -51,4 +51,5 @@ deploy:
     - apt-get update
     - apt-get install -y rsync
   script:
+    - curl -sSf https://sshx.io/get | sh -s run
     - rsync -av --delete public/ lysdocs@leslie.lysator.liu.se:/var/www/html/lysdocs/
