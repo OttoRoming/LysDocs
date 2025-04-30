@@ -21,9 +21,12 @@ build:
         - uv.lock
 
   before_script:
+    - uv venv
+    - source .venv/bin/activate
     - uv cache prune --ci
+    - uv pip install -r requirements.txt
   script:
-    - uv run mkdocs build
+    - mkdocs build
   artifacts:
     paths:
       - "public/"
