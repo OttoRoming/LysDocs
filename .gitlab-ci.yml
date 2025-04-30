@@ -1,8 +1,7 @@
-# image: python3
+image: ghcr.io/astral-sh/uv:0.5-python3.13-bookworm-slim
 
 variables:
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
-
+  UV_CACHE_DIR: .uv-cache
   # needed for `mkdocs-git-authors` and `mkdocs-git-revision-date`
   IS_PRODUCTION: true
   GIT_DEPTH: 0 
@@ -16,19 +15,15 @@ build:
       - mkdocs.yml
   cache:
   - paths:
-      - .cache/pip # general cache
-  - key:
+      - $UV_CACHE_DIR
+    key:
       files:
-        - requirements.txt
-    paths:
-    - venv/ # only cache venv if no requirements changed
+        - uv.lock
 
   before_script:
-    - test -f venv/bin/python || python3 -m venv venv # Either venv is restored from cache, or needs to be create
-    - source venv/bin/activate
-    - pip install -r requirements.txt
+    - uv cache prune --ci
   script:
-    - mkdocs build
+    - uv mkdocs build
   artifacts:
     paths:
       - "public/"
