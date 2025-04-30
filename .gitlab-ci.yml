@@ -1,3 +1,5 @@
+image: python3
+
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
@@ -43,4 +45,4 @@ deploy:
       - .gitlab-ci.yml
       - mkdocs.yml
   script:
-    - rsync -avz --delete public/ littlefox@totoro.lysator.liu.se:/lysator/www/roxen/lysdocs/
+    - rsync -av --delete public/ lysdocs@leslie.lysator.liu.se:/var/www/html/lysdocs/
