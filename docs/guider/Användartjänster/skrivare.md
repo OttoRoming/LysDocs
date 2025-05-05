@@ -24,7 +24,9 @@ För att skriva ut en PDF med standardinställnignar: `lp -d urd <namn på dokum
 
 En scanner finns ansluten via USB till arbetsstationen Borsalino. Scannern är kabapel till att scanna in dokument i A3 storlek och mindre. Det finns även en autoscanningsfunktion likt Universitetets Xerox maskiner, men vi har ännu inte lurat ut hur man använder den. Lyckas du med det, skriv här! :D
 
-För att använda scannern, se till att den är påslagen via huvudströmbrytaren (sitter på scannerns vänsta kortsida), och att den är ordentligt ansluten via USB.
+!!! warning "Sätt på strömmen!"
+    För att använda scannern, se till att den är påslagen via huvudströmbrytaren (sitter på scannerns vänsta kortsida), och att den är ordentligt ansluten via USB.
+    ![](./scanner.jpg)
 
 ### Grafiska gränssnit
 För Gnome, KDE och Cinnamon finns applikationen "Document Scanner". Den är hyfsat intuitiv att använda och har gott om inställningar att pilla med.
