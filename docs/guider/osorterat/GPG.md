@@ -75,7 +75,7 @@ ditt lokala system om detta genom att använda
 gpg --refresh-keys
 ```
 
-## Redigera nycklel
+## Redigera nycklar
 
 För att redigera nycklar du har privat nyckel till, kör
 
