@@ -65,6 +65,7 @@ plugins:
   - git-authors:
       enabled: !ENV [IS_PRODUCTION, false]
       show_email_address: false
+  - mkdocs-nav-weight
 
 markdown_extensions:
   - footnotes
