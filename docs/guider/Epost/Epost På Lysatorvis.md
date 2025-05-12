@@ -130,7 +130,11 @@ När du med ovanstående test klargjort att procmail fungerar kan du kommentera 
 #### Spamfilter
 Här är en regel som filtrerar bort väldigt mycket spam som annars släpps igenom på Lysators servrar. Läs detaljerna under koden för att lära dig om varför det fungerar.
 
-Du kan ändra målkatalogen till `/dev/null` för att ta bort spammarkerade mail automatiskt, men smidigast är att matcha katalogen med din e-postklient. För RoundCube är det `.Junk/`.
+Du kan ändra målkatalogen till `/dev/null` för att ta bort spammarkerade mail automatiskt, men smidigast är att matcha katalogen med din e-postklients "skräpkorg". För Roundcube är det `.Junk/`.
+
+!!! note "Se nya kataloger i Roundcube!"
+    Om du skapar nya kataloger i din mailspool så måste du aktivera dem i Roundcube. Det görs genom att gå till "Settings" > "Folders" och aktiverar de katalogerna som annars är avaktiverade.
+    ![](roundcube_directories.png)
 
 ```
 # SCL, Spam Confidence Level: number between -1 and 9.  5 and  above

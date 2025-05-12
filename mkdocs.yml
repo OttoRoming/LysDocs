@@ -11,6 +11,7 @@ repo_name: lysdocs/lysdocs
 
 theme:
   name: material
+  custom_dir: overrides
   favicon: assets/lysdocs.svg
   logo: assets/lysdocs.svg
   features:
