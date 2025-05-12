@@ -64,6 +64,7 @@ plugins:
       type: timeago
   - git-authors:
       enabled: !ENV [IS_PRODUCTION, false]
+      show_email_address: false
 
 markdown_extensions:
   - footnotes
