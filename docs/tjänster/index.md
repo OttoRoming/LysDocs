@@ -1,3 +1,7 @@
+---
+weight: 20
+---
+
 # Tjänster
 
 Här är en hyfsat uppdaterad lista över de tjänster som Lysator driftar och som användare av Lysators system har tillgång till.

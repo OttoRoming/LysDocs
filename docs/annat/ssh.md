@@ -1,4 +1,8 @@
-# SSH
+---
+weight: 0
+---
+
+# Logga in på Lysator
 SSH står för Secure SHell och är ett smidigt sätt att utföra ditt terminalarbete
 på distans. Det är, till skillnad från telnet, lite svårare att avlyssna. Den
 vanligaste implementationen av både server och klient är OpenSSH. Windows har en
