@@ -23,6 +23,7 @@ theme:
     - navigation.indexes
     - content.action.edit
     - navigation.sections
+    - content.code.copy
   language: sv
   palette:
     # Palette toggle for light mode
