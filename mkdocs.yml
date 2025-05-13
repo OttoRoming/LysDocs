@@ -6,6 +6,7 @@ site_dir: "public"
 
 site_url: https://lysator.liu.se/lysdocs
 site_description: LysDocs är en samling guider och dokumentation för datorföreningen Lysators olika system.
+site_url: https://docs.lysator.liu.se/
 
 repo_url: https://git.lysator.liu.se/lysdocs/lysdocs
 repo_name: lysdocs/lysdocs
