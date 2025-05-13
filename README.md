@@ -26,10 +26,10 @@ Mer information går att hitta på <https://squidfunk.github.io/mkdocs-material/
     uv pip install -r requirements.txt
     ```
 
-3.
-    - Alt 1: kör `uv run mkdocs serve` för att serva sidan lokalt.
-    - Alt 2: aktivera venv:et, precis som i [manuellt](#manuellt)
-
+3. För att börja servera sidan
+    ```sh
+    uv run mkdocs serve
+    ```
 
 ### Med `mise`
 
@@ -42,12 +42,3 @@ Mer information går att hitta på <https://squidfunk.github.io/mkdocs-material/
 Nu har du allt du behöver! Det finns färdiga "tasks" som nästan bara är aliaser.
 
 Exempelvis kör `mise serve` bara `mkdocs serve` (i korrekt katalog, oavsett var du är).
-
-## TODO:
-
-- [x] Aktivera darkmode
-- [x] Byt färgtema till lysators "officiella" färger.
-- [x] Lägg till länk till detta Git-repo.
-- [x] Lägg till "Contribution guidelines" så att folk vet hur de ska göra.
-- [x] Skapa CI/CD flöde, gärna så att det pushas till web-server.
-- [x] Komma överens om vilka top-ämnen som ska finnas och vad de ska innehålla. (Guider, fakta/info, datorer, övrigt etc.)
