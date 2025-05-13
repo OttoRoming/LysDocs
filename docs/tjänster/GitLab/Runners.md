@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 <style>
 li::marker{
     font-weight: bold;
@@ -16,7 +20,7 @@ Lysator erbjuder inte (_ännu?_) användare att fritt spinna upp containrar. Alt
 Denna guide visar dig hur du sätter upp "Project/Group runners", och du ska bara bjuda in folk till projektet/gruppen som du litar på. Du ska **absolut** inte försöka sätta upp "Instance runners" på detta sätt- **isåfall ger du tillgång till alla medlemmar att exekvera godtyckliga skalkommandon i ditt namn.**
 
 ## Installation
-- Vi kommer köra [`gitlab-runner`](https://docs.gitlab.com/runner/install/linux-manually.html#using-binary-file) som en [användartjänst](../Användartjänster/tjänster-för-icke-root.md) på `totoro`.
+- Vi kommer köra [`gitlab-runner`](https://docs.gitlab.com/runner/install/linux-manually.html#using-binary-file) som en [användartjänst](../CPU-servrar/systemd för användare.md) på `totoro`.
 
 - För varje nytt projekt som vi vill ha CI/CD på måste en ny runner registreras genom `gitlab-runner register ...`
 
@@ -61,7 +65,7 @@ gitlab-runner register --non-interactive --url https://git.lysator.liu.se --exec
 
 ### 3. Installera användartjänsten
 
-Läs min andra guide på hur man [skapar en användartjänst](../Användartjänster/tjänster-för-icke-root.md). 
+Läs min andra guide på hur man [skapar en användartjänst](../CPU-servrar/systemd för användare.md). 
 
 Vi behöver en tjänst som kör `gitlab-runner run` med arbetskatalog någonstans i `/tmp`, eftersom det är onödigt att belasta hemdisk med kortlevade filer.
 
