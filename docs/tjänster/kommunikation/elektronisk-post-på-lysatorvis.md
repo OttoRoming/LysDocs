@@ -1,4 +1,3 @@
-# Elektronisk post på Lysatorvis
 Detta är en hyfsat detaljerad guide över olika sätt att använda Lysators e-post server.
 
 ## E-post konto
