@@ -45,6 +45,8 @@ theme:
   icon:
     edit: material/pencil
     view: material/eye
+  font:
+    text: Hanken Grotesk
 
 extra_css:
   - extra.css

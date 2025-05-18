@@ -1,4 +1,3 @@
-
 /* crazy hack to get the cool 'open-in-new-tab' icon on external links */
 .md-content a[target="_blank"]::after {
     content: "";
@@ -11,4 +10,16 @@
     display: inline-block;
     vertical-align: text-top;
     filter: invert(50%); /* make gray */
+}
+
+@font-face {
+	font-family: "MonaspiceKr NF";
+	src: url("/assets/MonaspiceKrNerdFont-Regular.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+    --md-code-font: "MonaspiceKr NF";
 }
