@@ -1,57 +1,4 @@
-Detta är en hyfsat detaljerad guide över olika sätt att använda Lysators e-post server.
-
-## E-post konto
-För att komma åt mail via [webmail](https://webmail.lysator.liu.se) eller extern e-post klient måste du sätta ett e-post lösenord på [admin/mail](https://admin.lysator.liu.se/mail). 
-
-## Läsa e-post
-Alla de olika sätt som du kan komma åt din e-post på!
-
-### Webmail
-[webmail.lysator.liu.se](https://webmail.lysator.liu.se) låter dig läsa skriva och organisera din e-post i webbläsaren. Vi kör för tillfället [roundcube](https://roundcube.net/) som webmail-klient.
-
-För att logga in använder du det lösenord du satt i [admin](https://admin.lysator.liu.se/mail). 
-
-### IMAP, POP och SMTP
-Med dessa kan du ansluta exempelvis [thunderbird](https://www.thunderbird.net) eller andra mailklienter. Det rekommenderas att använda TLS kryptering om du ska ansluta till dessa. Om du väljer en "okrypterad" anslutningstyp måste du använda STARTTLS för att kunna logga in.
-
-Som användarnamn används ditt vanliga användarnamn.
-Som lösenord ska du använda det lösenord du satt för mail i [admin](https://admin.lysator.liu.se/mail).
-
-Portar för att ansluta klienten:
-
-*Inkommande server:*
-```
-	MAP 	    imap.lysator.liu.se 	port 143
-	IMAP/TLS 	imap.lysator.liu.se 	port 993
-   	POP3 	    pop.lysator.liu.se 	    port 110
-	POP3/TLS 	pop.lysator.liu.se 	    port 995
-```
-
-*Utgående server:*
-```
-    SMTP        mail.lysator.liu.se     port 26
-```
-
-### Läsa mail lokalt
-
-#### Mutt
-
-## Mail-mappen
-
-Alla lysators system monterar användarens mail-mapp på `/var/mail/<användarnamn>`. Det finns många gömda filer (dot-files) som kan vara viktiga. Kör `ls -a`.
-
-Följande avsnitt beskriver vad de flesta av dessa filer är och hur de används.
-
-### Vidarebefordring
-Om du vill att din e-post ska vidarebefordras till någon annan brevlåda (exempelvis din studentmail eller annat) så måste du redigera din `.forward` i din mail-mapp.
-
-För att vidarebefordra mail skriver du enkelt in adressen till den brevlåda du vill ha e-posten levererad till och sparar filen. **E-post kommer inte att sparas på lysators mailserver om detta görs! E-posten blir endast vidarebefordrad.**
-
-`.forward` kan även skicka vidare e-post till andra ställen också, exempelvis mailsorteringsprogrammet procmail som bland annat kan användas för att filtrera bort spam-mail. Exempel på hur du använder procmail finner du i nästa avsnitt.
-
-### Spamhantering och andra automatiska regler
-
-> Denna guide är tolkad från <https://datorhandbok.lysator.liu.se/index.php/Procmail>
+> Tolkad från <https://datorhandbok.lysator.liu.se/index.php/Procmail>
 
 Är detta din inkorg?
 
@@ -169,19 +116,3 @@ Man kan sätta upp regel för att automatiskt skapa kataloger beroende på vilke
     .INBOX."$MATCH"/
 }
 ```
-
-
-## Extra adresser
-
-Skulle du behöva extra adresser eller adresser som du kan använda en gång och sen glömma bort för all framtid? Då finns det två smidiga sätt att utöka din ordinarie mailadress. Dessa kan även vara hjälpsamma vid filtrering!
-
-Vilken du väljer att använda beror mest på tycke och smak. I bägge fallen så kommer e-post att levereras till din ordinarie Lysator brevlåda varefter de regler som du satt upp för mailhantering styr vad som händer med e-posten.
-
-### Plus syntax
-`användarnamn+prylemoj@lysator.liu.se`
-(prylemoj är endast ett exempel, det kan stå vad du vill)
-
-### User-domän
-`prylemoj@<användarnamn>.user.lysator.liu.se`
-(prylemoj är endast ett exempel, det kan stå vad du vill)
-
