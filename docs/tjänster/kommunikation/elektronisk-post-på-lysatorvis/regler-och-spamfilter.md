@@ -69,7 +69,7 @@ Nu är vi nästan redo att testa vår filter! Det som saknas är att faktiskt sl
     Om du redan använder din `.forward` för att vidarebefodra post och vill fortsätta med detta ser du till att din forward-instruktion ligger på en egen rad i filen. 
 
 #### En första test av procmail
-Nu kan du äntligen testa filtret! Skicka därför ett brev till dig själv där subject-raden innehåller ordet "test". Om procmail fungerar ska detta brev hamna i mailkatalogen `INBOX` > `test`, alltså en katalog under inkorgen. Detta borde även reflekteras i [webmail](#webmail).
+Nu kan du äntligen testa filtret! Skicka därför ett brev till dig själv där subject-raden innehåller ordet "test". Om procmail fungerar ska detta brev hamna i mailkatalogen `INBOX` > `test`, alltså en katalog under inkorgen. Detta borde även reflekteras i [webmail](./index.md#webmail).
 
 När du med ovanstående test klargjort att procmail fungerar kan du kommentera bort den rad i din '.procmailrc' som inkluderar test-filtret. Kommentering sker genom att placera tecknet "#" i början av raden. 
 
@@ -103,7 +103,7 @@ Lysators e-post ligger bakom LiU, som tillhandahåller ett spamfilter. När mail
 Exakt vad dessa värden betyder går att läsa [här](https://learn.microsoft.com/en-us/defender-office-365/message-headers-eop-mdo), men troligtvis är det "SFV:SPM" du vill använda.
 
 #### Filter för engångsaddresser
-Man kan sätta upp regel för att automatiskt skapa kataloger beroende på vilken [user-domän](#user-doman) mailet skickades till. Så här kan det se ut:
+Man kan sätta upp regel för att automatiskt skapa kataloger beroende på vilken [user-domän](./extra-adresser.md) mailet skickades till. Så här kan det se ut:
 
 ```
 # User-domän

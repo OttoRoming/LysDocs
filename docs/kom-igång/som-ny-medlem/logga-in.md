@@ -4,7 +4,7 @@ weight: -90
 
 # Logga in på Lysator
 
-Lysator tillhandahåller ett antal [CPU-Servrar](/tjänster/CPU-servrar/) som är tänkta som kan användas av föreningens medlemmar, förutom arbetsstationerna i föreningens lokaler är dessa den främsta accesspunkten till lysators system. 
+Lysator tillhandahåller ett antal [CPU-Servrar](../../tjänster/cpu-servrar/index.md) som är tänkta som kan användas av föreningens medlemmar, förutom arbetsstationerna i föreningens lokaler är dessa den främsta accesspunkten till lysators system. 
 
 ## SSH
 
@@ -28,4 +28,4 @@ När du blir bedd om att ange lösenord anger du ditt Lysatorlösenord.
 
 ## I terminalen
 
-Om uppkopplingen gått väl kommer du nu ha ett textgränssnitt för att interagera med CPU:n. Du är nu redå att börja [utforska din hemkatalog](/kom igång/Som ny medlem/Utforska din hemkatalog/).
+Om uppkopplingen gått väl kommer du nu ha ett textgränssnitt för att interagera med CPU:n. Du är nu redå att börja [utforska din hemkatalog](./utforska-din-hemkatalog.md).

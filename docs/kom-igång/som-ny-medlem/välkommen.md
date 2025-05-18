@@ -8,23 +8,23 @@ tjänster. I denna artikelserie kommer du att få information om hur du kan
 komma igång med lite grunder i Lysators system så att du kan få nytta av det
 föreningen tillhandahåller.
 
-* "[Kom igång med epost](../Kom igång med epost)" lär dig om
+* "[Kom igång med epost](./kom-igång-med-epost.md)" lär dig om
   hur lysator tillhandahåller dig ett epostkonto på
 `[användarnamn]@lysator.liu.se`.
 
-* "[Logga in på Lysator](../Logga in)" förklarar vi hur du kan
+* "[Logga in på Lysator](./logga-in.md)" förklarar vi hur du kan
   nå lysators fjärrtjänster över SSH.
 
-* "[Utforska din hemkatalog](../Utforska din hemkatalog)"
+* "[Utforska din hemkatalog](./utforska-din-hemkatalog.md)"
   beskriver några av de funktioner som är unika till lysators system.
 
-* "[Chatta med oss](../Chatta med oss)" talar om hur du
+* "[Chatta med oss](./chatta-med-oss.md)" talar om hur du
   kommunicerar i föreningen på bästa vis och vilka forum
 föreningen tillhandahåller.
 
-* "[Hitta hit](../Hitta hit)" tillhandahåller en lista över
+* "[Hitta hit](./hitta-hit.md)" tillhandahåller en lista över
   var vi finns, vilka lokaler som föreningen har och vilka syften de fyller.
 
-* "[Engagera dig!](../Engagera dig!)" berättar om vad som sker
+* "[Engagera dig!](./engagera-dig!.md)" berättar om vad som sker
   i föreningen och hur du på bästa sätt kan bli del av de
 projekt vi driver på fritiden.

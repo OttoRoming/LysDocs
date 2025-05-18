@@ -6,8 +6,7 @@ weight: -85
 
 ## Första steg
 
-Om allt gått väl i "[Logga in på Lysator](/kom igång/Som ny medlem/Logga
-in.md)" befinner du dig nu i Milous terminalgränsnitt (Skal). Ett vanligt
+Om allt gått väl i "[Logga in på Lysator](./logga-in.md)" befinner du dig nu i Milous terminalgränsnitt (Skal). Ett vanligt
 första steg är nu att lista ut allt innehåll i katalogen med 
 ```
 ls -la

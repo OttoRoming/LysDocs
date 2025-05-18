@@ -20,7 +20,7 @@ föreningskritisk korrespondens och det annonseras evenemang genom
 epostlistorna `lystring@lists.lysator.liu.se` och
 `lysmembers@lists.lysator.liu.se`. "lystring" är ett valfritt nyhetsbrev
 och det går lätt att avanmäla sig från det själv genom att besöka
-[medreg.lysator.liu.se](medreg.lysator.liu.se), "lysmembers" är man dock
+[medreg.lysator.liu.se](https://medreg.lysator.liu.se), "lysmembers" är man dock
 prenumererad på så länge man är medlem och därför skickas här endast sådant
 som är av allra högsta vikt för föreningen.
 
