@@ -26,25 +26,18 @@ theme:
     - content.code.copy
   language: sv
   palette:
-    # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: yellow
-      accent: yellow
       toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    # Palette toggle for dark mode
+        icon: octicons/sun-16
+        name: Byt till mörkt tema
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: yellow
-      accent: yellow
       toggle:
-        icon: material/brightness-4
-        name: Switch to system preference
-  icon:
-    edit: material/pencil
-    view: material/eye
+        icon: octicons/moon-16
+        name: Byt till ljust tema
   font:
     text: Hanken Grotesk
 
