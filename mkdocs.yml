@@ -55,7 +55,6 @@ extra:
       link: https://lysator.liu.se
     - icon: fontawesome/brands/facebook
       link: https://www.facebook.com/Lysator.liu.se/
-  generator: false
 
 plugins:
   - search
