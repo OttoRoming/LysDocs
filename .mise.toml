@@ -1,12 +1,9 @@
-[env]
-_.python.venv = { path = ".venv" }
-
 [tasks.build]
 env = { IS_PRODUCTION = "true" }
-run = "mkdocs build"
+run = "uv run mkdocs build"
 
 [tasks.serve]
-run = "mkdocs serve --open"
+run = "uv run mkdocs serve --open"
 
 [tasks.deploy]
 depends = ['build']
