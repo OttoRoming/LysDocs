@@ -1,4 +1,9 @@
 ---
 weight: 40
-empty: true
 ---
+
+# Rootmanualen
+
+Hur hänger Lysators infrastruktur ihop?
+
+![milliways](./milliways.dg.png)

@@ -69,3 +69,6 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - sane_lists
+
+exclude_docs: |
+  *.dg.py

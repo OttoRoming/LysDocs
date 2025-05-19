@@ -4,6 +4,11 @@ Skapa gärna merge-request om du vill bidra!
 
 Mer information går att hitta på <https://squidfunk.github.io/mkdocs-material/>
 
+## Paket
+
+- Python
+- [GraphViz](https://repology.org/project/graphviz/versions)
+
 ## Sätta upp utvecklingsmiljö
 
 ### Manuellt
@@ -13,7 +18,6 @@ Mer information går att hitta på <https://squidfunk.github.io/mkdocs-material/
 3. Kör `source venv/bin/activate` för att aktivera python miljön.
 4. Kör `pip install -r requirements.txt` för att installera alla beroenden.
 5. Kör kommandot `mkdocs serve` för att serva sidan lokalt.
-
 
 ### Med `uv`
 

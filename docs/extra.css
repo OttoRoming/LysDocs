@@ -23,3 +23,7 @@
 :root {
     --md-code-font: "MonaspiceKr NF";
 }
+
+body[data-md-color-scheme="slate"] main img[src$=".dg.png"] {
+	filter: invert(1);
+}
