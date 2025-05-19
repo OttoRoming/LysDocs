@@ -1,7 +1,6 @@
-# Skrivare och Scanner
+# skrivare och scanner
 
-
-## Skriva Ut
+## Skriva ut
 I Lysators lokaler finns skrivare och scanner som kan användas av medlemmar utan extra kostnad.
 
 Skrivaren är nätansluten och går att komma åt via någon av arbetsstationerna. För att använda skrivaren välj "urd" som enhet och välj därefter de inställningar som behövs för din utskrift.
@@ -12,6 +11,7 @@ Ibland kommer utskrifen inte igång av sig själv då skrivaren är satt i strö
 Skrivaren kommer automatiskt att synas i listan över tillgängliga skrivare i din skrivbordsmiljö. I exempelvis Gnome, KDE och Cinnamon är detta testat och fungerar (i skrivande stund). De flesta program som exempelvis firefox, eller någon av alla installerade PDF-läsare borde också kunna hitta anslutna skrivare.
 
 ### Utskrift via kommandoraden
+
 För utskrift via kommandoraden används lämpligen kommandot `lp` med familj..
 
 Snabbhjälp för kommandot hittar du via: `lp --help`
@@ -19,6 +19,16 @@ Snabbhjälp för kommandot hittar du via: `lp --help`
 För att lista tillgängliga skrivare kan du använda: `lpstat -v` <br> (I 9/10 fall kommer du nog att använda "urd")
 
 För att skriva ut en PDF med standardinställnignar: `lp -d urd <namn på dokument>.pdf`
+
+### Ful nätverksutskrift
+
+För att snabbt och smidigt skriva ut en lokal fil, pipe:a innehållet av filen till `ssh borsalino -- lp -`.
+```
+cat file.pdf | ssh borsalino -- lp -
+```
+
+Utanför lysators nät måste du tillägga `.lysator.liu.se` efter `borsalino`.
+
 
 ## Scanna In
 
