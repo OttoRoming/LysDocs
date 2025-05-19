@@ -23,6 +23,7 @@ Mer information går att hitta på <https://squidfunk.github.io/mkdocs-material/
 
 2. Inuti detta repo, kör
     ```sh
+    uv venv
     uv pip install -r requirements.txt
     ```
 
