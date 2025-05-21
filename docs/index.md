@@ -8,7 +8,7 @@ hide:
 
 <div style="font-size: 150%; display: flex; gap: 1ch; justify-content: center; align-items: center; margin: 3em;" >
   <img src="/assets/lysdocs.svg" height="70" width="70">
-  <h1 style="margin: 0;">LysDocs</h1>
+  <h1 style="margin: 0; font-weight: bold;">LysDocs</h1>
 </div>
 
 Välkommen till Lysators dokumentation! Här kan du läsa om allt från vår infrastruktur, tjänster du får tillgång till som medlem samt anteckningar och tips för rootarbete.
@@ -18,11 +18,8 @@ Dokumentationen genereras från markdown-filer i ett [git-repo](https://git.lysa
 ## Innehåll
 
 - [Kom igång](./kom-igång/index.md) innehåller matnyttig information för dig som är ny medlem.
-
 - [Tjänster](./tjänster/index.md) beskriver bland annat hur du använder din E-post och personliga hemsida.
-
 - [Annat](./annat/index.md) innehåller mer blandat innehåll som inte passar in i de andra kategorierna.
-
 - [Rootmanualen](./rootmanualen/index.md) innehåller tips och guider som endast är intressanta för rötter.
 
 ## Tangentbordsgenvägar
