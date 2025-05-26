@@ -1,14 +1,21 @@
-PY_FILES := $(shell find . -name "*.dg.py")
-PNG_FILES := $(PY_FILES:.dg.py=.dg.png)
+TEMPLATES := $(wildcard templates/*.typ)
+TEMPLATE_STAMP := templates/.stamp
 
-all: $(PNG_FILES)
+TYP_FILES := $(shell find docs/ -name "*.typ")
+SVG_FILES := $(TYP_FILES:.typ=.generated.svg)
 
-%.dg.png: %.dg.py
+all: $(SVG_FILES)
+
+$(TEMPLATE_STAMP): $(TEMPLATES)
+	@echo "Templates changed."
+	@touch $@
+
+%.generated.svg: %.typ $(TEMPLATE_STAMP)
 	@echo "Generating $@"
-	@cd $(dir $<) && python $(notdir $<)
+	@typst compile $< --root . $@
 
 clean:
 	@echo "Cleaning up generated diagrams..."
-	@rm -f $(PNG_FILES)
+	rm -f $(SVG_FILES) $(TEMPLATE_STAMP)
 
 .PHONY: all clean

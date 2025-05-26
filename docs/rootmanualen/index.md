@@ -6,4 +6,4 @@ weight: 40
 
 Hur hänger Lysators infrastruktur ihop?
 
-![milliways](./milliways.dg.png)
+![nätverk](./nätverk.generated.svg)
