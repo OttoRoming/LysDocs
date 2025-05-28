@@ -26,6 +26,8 @@ det. För att koppla upp dig till `milou` skriver du in
 `[användarnamn]@milou.lysator.liu.se` i `Host Name` och klickar på `Open`.
 När du blir bedd om att ange lösenord anger du ditt Lysatorlösenord.
 
+![](../images/putty.png)
+
 ## I terminalen
 
 Om uppkopplingen gått väl kommer du nu ha ett textgränssnitt för att interagera med CPU:n. Du är nu redå att börja [utforska din hemkatalog](./utforska-din-hemkatalog.md).

@@ -20,7 +20,7 @@ Där kommer du att bemötas av ett inmatningsfält betecknat "New password".
 Skriv in ditt önskade lösenord, som bör vara annorlunda än ditt ordinarie
 Lysatorlösenord och tryck "Set password".
 
-![](./admin_mail_passwd.png)
+![](../images/admin_mail_passwd.png)
 
 ## Webbmail
 
