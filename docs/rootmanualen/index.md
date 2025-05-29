@@ -4,6 +4,4 @@ weight: 40
 
 # Rootmanualen
 
-Hur hänger Lysators infrastruktur ihop?
-
-![milliways](./milliways.dg.png)
+Rootmanualen innehåller tips och guider som endast är intressanta för rötter.
