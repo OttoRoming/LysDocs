@@ -11,4 +11,4 @@ tecken utan något igenkännbart mönster.
 Alla dessa saker kan snabbt göra det svårt att hålla koll på vilket
 lösenord som hör till vad, samt vad exakt som ett givet lösenord
 innehåller, för att åtgärda detta används ofta en
-[lösenordshanterare](/annat/lösenordshanterare).
+[lösenordshanterare](./lösenordshanterare.md).

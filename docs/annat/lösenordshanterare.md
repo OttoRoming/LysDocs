@@ -17,13 +17,13 @@ mästarlösenordet läcker.
 
 `pass` är en lösenordshanterare som använts flitigt inom Lysator. Programmet bor
 helt och hållet i terminalen och krypterar din lösenordsdatabas med pgp (du kommer
-alltså behöva en [gpg-nyckel](../gpg)). För att initialisera ett pass-repo
+alltså behöva en [gpg-nyckel](./gpg.md). För att initialisera ett pass-repo
 (lösenordsdatabas) så skriver du
 ```sh
 pass init [gpg-fingeravtryck]
 ```
 Detta skapar ett pass-repo under `~/.password-store`. Vill du att fler än en
-[gpg-nyckel](../gpg) ska kunna avkryptera repot så är det bara att lägga till fler
+[gpg-nyckel](./gpg.md) ska kunna avkryptera repot så är det bara att lägga till fler
 gpg-fingeravtryck efter det första, separerade med mellanslag. Vill du att repot
 ska ligga någon annanstans så kan du lägga till `-p sökväg/till/katalog` efter
 `init`. 
@@ -38,7 +38,7 @@ För att sedan få ut lösenordet skriver du
 pass [namn]
 ```
 `pass` kommer sedan att be dig avkryptera lösenordet i `[namn]` med din
-[gpg-nyckel](../gpg). `pass` skriver sedan ut lösenordet du angett till `stdout`.
+[gpg-nyckel](./gpg.md). `pass` skriver sedan ut lösenordet du angett till `stdout`.
 Om du vill undvika detta (t.ex. om någon sitter och axelsurfar) så kan du även skriva
 direkt till din `x-clipboard` med `pass -c [namn]`.
 
