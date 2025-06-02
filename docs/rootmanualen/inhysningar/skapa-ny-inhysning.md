@@ -66,7 +66,9 @@ VM 187 (template-inhysning) är en s.k. template VM. Den är baserad på Debian 
 
 10. Starta VM:en.
 
-11. Du borde kunna `ssh`:a direkt, med `lysroot@<given ip>` och det lösenord som sattes under "Cloud-Init".
+11. `ssh`:a in direkt, med `lysroot@<given ip>` och det lösenord som sattes under "Cloud-Init".
+
+... TO BE CONTINUED.. (resize:a partition så att man faktiskt använder hela disken, inte bara 3 GiB, skapa userkonto för inhysningen, annat??)
 
 
 ### Manuellt
