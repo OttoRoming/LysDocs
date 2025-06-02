@@ -1,5 +1,3 @@
-> Baserad på <https://datorhandbok.lysator.liu.se/index.php/Rootmanual:Skapa_Inhysning>
-
 ## Skapa resurspool
 
 Om samma inhysning ska ha flera VM:ar OCH vill ha möjlighet att använda Proxmoxgränssnittet är det bra ha alla VM:ar inom samma [_resurspool_](https://pve.proxmox.com/wiki/User_Management#pveum_resource_pools). Det gör det smidigare att definiera rättigheter på ett och samma ställe.
@@ -17,9 +15,66 @@ För att skapa en ny resurspool:
 
 ## Skapa virtuell maskin
 
+### Genom template
+
+![](template-inhysning.png)
+
+VM 187 (template-inhysning) är en s.k. template VM. Den är baserad på Debian 12, och är förkonfigurerad enligt följande:
+
+- den har "Cloud-Init" så att man direkt i Proxmox, under den klonade VMen:s "Cloud-Init"-flik kan:
+    - ställa in `lysroot`:s lösenord
+    - sätta ipv4 och ipv4 och dess gateway
+- den har `qemu-guest-agent` förinstallerad, så att man exempelvis kan styra VM:en med graceful shutdown genom Proxmox VE
+- openssh-server är installerad och aktiverad med `PasswordAuthentication yes`.
+- den får sin `hostname` från sitt VM-namn i klustret
+- dess apt sources använder `ftp.lysator.liu.se`
+
+**Hur gör man?**
+
+1. Högerklicka på "187 (template-inhysning)" och välj "Clone".
+
+2. Ändra _Mode_ till "Full clone". 
+
+    !!! danger "Full clone"
+
+        Du **måste** byta _Mode_ till "Full clone"! 
+
+        Annars kommer denna nya VM dela resurser med templaten och det blir kaos!
+
+        ![](full-clone.png)
+
+3. Välj namnet på inhysningen. Detta kommer VM:en också få som `hostname`.
+
+4. Välj vilken nod inhysningen ska ligga på.
+
+5. Tryck "Clone".
+
+6. Vänta på kloningen av disken. Det är 3 GiB, så bör bara ta någon minut.
+
+7. Tryck på den nya VM:en.
+
+8. Inne på fliken "Cloud-Init":
+    1. Byt "Password" till det nya lösenordet som genererats med `pass generate -n`.
+    2. Sätt den IP Config som önskas.
+    3. Tryck "Regenerate Image" (osäker om det behövs...).
+
+9. Hårddisken är som sagt 3 GiB, vi måste expandera den. Gör så här:
+    1. Gå in under "Hardware".
+    2. Tryck på "Hard Disk (virtio0)".
+    3. Tryck på "Disk Action" > "Resize".
+    4. Utöka hårddisken enligt önskemål. Väljer du 100 GiB, blir slutliga storleken 103 GiB.
+
+10. Starta VM:en.
+
+11. Du borde kunna `ssh`:a direkt, med `lysroot@<given ip>` och det lösenord som sattes under "Cloud-Init".
+
+
+### Manuellt
+> Baserad på <https://datorhandbok.lysator.liu.se/index.php/Rootmanual:Skapa_Inhysning>
+
 1. Välj ut lämplig nod att lägga VM:en på, exempelvis den som verkar minst belastad.
 Man kan gå in på varje nods "Summary"-flik och kolla på trender för dag-vecka-månad, bör kunna ge ett hum.
 
 2. Tryck på "Create VM" uppe till höger.
 
-TO BE CONTINUED!!
+...TO BE CONTINUED!!
