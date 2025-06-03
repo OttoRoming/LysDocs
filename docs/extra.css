@@ -1,15 +1,15 @@
 /* crazy hack to get the cool 'open-in-new-tab' icon on external links */
 .md-content a[target="_blank"]::after {
-    content: "";
-    width: 1em;
-    height: 1em;
-    margin: 0 0.05em 0 0.1em;
-    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2Ij48cGF0aCBkPSJNOSAyTDkgMyAxMi4zIDMgNiA5LjMgNi43IDEwIDEzIDMuNyAxMyA3IDE0IDcgMTQgMlpNNCA0QzIuOSA0IDIgNC45IDIgNkwyIDEyQzIgMTMuMSAyLjkgMTQgNCAxNEwxMCAxNEMxMS4xIDE0IDEyIDEzLjEgMTIgMTJMMTIgNyAxMSA4IDExIDEyQzExIDEyLjYgMTAuNiAxMyAxMCAxM0w0IDEzQzMuNCAxMyAzIDEyLjYgMyAxMkwzIDZDMyA1LjQgMy40IDUgNCA1TDggNSA5IDRaIi8+PC9zdmc+)
-        no-repeat;
-    background-size: contain;
-    display: inline-block;
-    vertical-align: text-top;
-    filter: invert(50%); /* make gray */
+	content: "";
+	width: 1em;
+	height: 1em;
+	margin: 0 0.05em 0 0.1em;
+	background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2Ij48cGF0aCBkPSJNOSAyTDkgMyAxMi4zIDMgNiA5LjMgNi43IDEwIDEzIDMuNyAxMyA3IDE0IDcgMTQgMlpNNCA0QzIuOSA0IDIgNC45IDIgNkwyIDEyQzIgMTMuMSAyLjkgMTQgNCAxNEwxMCAxNEMxMS4xIDE0IDEyIDEzLjEgMTIgMTJMMTIgNyAxMSA4IDExIDEyQzExIDEyLjYgMTAuNiAxMyAxMCAxM0w0IDEzQzMuNCAxMyAzIDEyLjYgMyAxMkwzIDZDMyA1LjQgMy40IDUgNCA1TDggNSA5IDRaIi8+PC9zdmc+)
+		no-repeat;
+	background-size: contain;
+	display: inline-block;
+	vertical-align: text-top;
+	filter: invert(50%); /* make gray */
 }
 
 @font-face {
@@ -21,9 +21,18 @@
 }
 
 :root {
-    --md-code-font: "MonaspiceKr NF";
+	--md-code-font: "MonaspiceKr NF";
 }
 
 body[data-md-color-scheme="slate"] main img[src$=".dg.png"] {
 	filter: invert(1);
+}
+
+article {
+	li {
+		list-style-type: decimal;
+		&::marker {
+			font-weight: bold;
+		}
+	}
 }
