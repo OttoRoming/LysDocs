@@ -71,6 +71,3 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - sane_lists
-
-exclude_docs: |
-  *.dg.py
