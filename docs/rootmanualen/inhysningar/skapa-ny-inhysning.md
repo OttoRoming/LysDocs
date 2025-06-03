@@ -54,21 +54,21 @@ VM 187 (template-inhysning) är en s.k. template VM. Den är baserad på Debian 
 7. Tryck på den nya VM:en.
 
 8. Inne på fliken "Cloud-Init":
-    1. Byt "Password" till det nya lösenordet som genererats med `pass generate -n`.
+    1. Sätt "Password" till det nya lösenordet som genererats med `pass generate -n`.
     2. Sätt den IP Config som önskas.
-    3. Tryck "Regenerate Image" (osäker om det behövs...).
+    3. (Tryck "Regenerate Image".)
+    > Osäker om det behövs... enligt [denna tråd](https://forum.proxmox.com/threads/what-is-the-regenerate-image-in-cloud-init-section.115531/) behövs används det för att göra ändringar på en levande VM! Alltså behövs inte om man startar VM:en stoppat tillstånd..
 
-9. Hårddisken är som sagt 3 GiB, vi måste expandera den. Gör så här:
+9. Disken är som sagt 3 GiB, vi måste expandera den. Gör så här:
     1. Gå in under "Hardware".
     2. Tryck på "Hard Disk (virtio0)".
     3. Tryck på "Disk Action" > "Resize".
-    4. Utöka hårddisken enligt önskemål. Väljer du 100 GiB, blir slutliga storleken 103 GiB.
+    4. Välj önskad utökning i GiB. Väljer du 100 GiB, blir slutliga storleken 103 GiB.
 
 10. Starta VM:en.
 
-11. `ssh`:a in direkt, med `lysroot@<given ip>` och det lösenord som sattes under "Cloud-Init".
-
-... TO BE CONTINUED.. (resize:a partition så att man faktiskt använder hela disken, inte bara 3 GiB, skapa userkonto för inhysningen, annat??)
+11. Du är färdig! Du kan `ssh`:a in direkt, med `lysroot` och det lösenord som sattes under "Cloud-Init".
+    > Alternativt kan du använda "Console" i WebUI.
 
 
 ### Manuellt
