@@ -3,6 +3,15 @@
 {% block content %}
 <h1>404 - sidan kunde inte hittas</h1>
 <p>
-		  Den sökta sidan kunde inte hittas. Vill du gå till <a href="/">start</a>?
+	Vill du gå till <a href="/">start</a>, eller testa att <a href="#" id="missing-search-a">söka efter "<span id="missing-url"></span>"</a>?
 </p>
+
+<script>
+	const path = decodeURIComponent(window.location.pathname)
+	document.getElementById('missing-url').textContent = path.replace(/^\//, '')
+	document.getElementById('missing-search-a').addEventListener('click', () => {
+		const query = path.replace(/^\//, '').replace(/[-/]/g, ' ')
+		window.location.href = `/?q=${query}`
+	});
+</script>
 {% endblock %}
