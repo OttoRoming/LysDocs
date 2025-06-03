@@ -2,55 +2,44 @@
 
 Lysator använder sig av en hidden master DNS-server, som finns på `ns.lysator.liu.se`. Denna propagerar sedan ut zoner till `ns-master.lysator.liu.se` och slavzoner. 
 
-## DNS-poster
-
 För att lägga till eller ändra i DNS gör följande:
 
 1. Logga in på `ns.lysator.liu.se` (som din vanliga användare).
     - Inloggning kan endast ske inom Lysators nät, mellanlanda till exempel på `shipon.lysator.liu.se`.
     - Din hemkatalog monteras inte på `ns`, alltså kan du inte autentisera med ssh-nycklar utan måste ange lösenord.
 
-2. Zonfilerna ligger under `/lysator/etc/dns/db` och är versionshanterade med RCS.
-    ```
-    cd /lysator/etc/dns
-    ```
-
-3. Checka ut zonfilen.
-    ```
-    co -l db/lysator/lysator.zone
+2. Zonfilerna ligger under `/lysator/etc/dns/db/lysator` och är versionshanterade med RCS.
+    ```sh
+    cd /lysator/etc/dns/db/lysator
     ```
 
-4. Gör önskade ändringar. Kom ihåg att ange på `A` (IPv4) och `AAAA` (IPv6) poster till maskinen.
+3. Checka ut de zonfiler du vill ändra i. Du kan ha flera utcheckade samtidigt.
+    ```sh
+    # välj vilka du kommer ändra
+    co -l lysator.zone # forward
+    co -l 254.zone # reverse för 130.236.254/24
+    co -l f0a.zone # reverse för 2001:6b0:17:f0a0::/64
+    
+    # eller (om du ska ändra alla)
+    co -l lysator.zone 254.zone f0a.zone
+    ```
 
-    !!! example "Vanliga DNS-poster"
-        För exempel: så här ser en del poster kring Leslie ut:
+4. Gör önskade ändringar i samtliga filer.
+
+    !!! warning "Uppdatera `Serial`-fältet!"
+
+        Du måste uppdatera `Serial`-fältet som finns högst upp i respektive fil till dagens datum. Sista två siffrorna kan inkrementeras för att skapa unika `Serial` inom samma dag.
         ```
-        www                     A       130.236.254.27
-                                AAAA    2001:6b0:17:f0a0::1b
+        uppdatera -> 2025051301      ; Serial (yyyymmddnn)
+        ```
 
-        leslie                  A       130.236.254.27
-                                AAAA    2001:6b0:17:f0a0::1b
-
-        old                     A       130.236.254.27
-                                AAAA    2001:6b0:17:f0a0::1b
-
-        docs                    CNAME   leslie
-        ``` 
-
-5. Uppdatera `Serial`-fältet för `@` till dagens datum. Sista två siffrorna kan inkrementeras för att skapa unika `Serial` inom samma dag.
-    ```
-    @               IN      SOA     ns-master.lysator.liu.se. domainmaster.lysator.liu.se. (
-                       uppdatera -> 2025051301      ; Serial (yyyymmddnn)
-                                    10800           ; Refresh 3 hours
-                                    3600            ; Retry   1 hour
-                                    3600000         ; Expire  1000 hours
-                                    600 )           ; Minimum 10 min (neg cache)
+6. Checka in de ändrade filerna.
+    ```sh
+    ci -u lysator.zone 254.zone f0a.zone # de du ändrat
     ```
 
-6. Checka in den ändrade filen. Du kommer bli ombedd att skriva ett meddelande som beskriver ändringarna.
-    ```
-    ci -u db/lysator/lysator.zone
-    ```
+7. Skriv ett beskrivande meddelande för ändringarna.  
+Avsluta meddelandet genom <kbd>ENTER</kbd>+<kbd>.</kbd>+<kbd>ENTER</kbd>.
 
 7. Bli root och kör `make` i `/lysator/etc/dns` för att applicera konfigurationen.
     ```
