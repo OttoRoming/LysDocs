@@ -71,3 +71,11 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - sane_lists
+
+exclude_docs: | 
+  /rootmanualen/*
+  !/rootmanualen/index.md
+  !/rootmanualen/dns
+  !/rootmanualen/epost
+  !/rootmanualen/inhysningar
+  !/rootmanualen/www
