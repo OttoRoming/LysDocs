@@ -7,3 +7,5 @@ ssh lysator.liu.se
 ```
 
 Fingeravtrycket är `SHA256:HyM+9OnlE8twF0dt62TAbfq/qDuUEegNZGhtaz/nLBQ`
+
+Källkod finns under https://git.lysator.liu.se/sermuns/lysssh.
