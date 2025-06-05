@@ -73,9 +73,18 @@ markdown_extensions:
   - sane_lists
 
 exclude_docs: | 
-  /rootmanualen/*
-  !/rootmanualen/index.md
-  !/rootmanualen/dns
-  !/rootmanualen/epost
-  !/rootmanualen/inhysningar
-  !/rootmanualen/www
+  /rootmanualen/användarhantering
+  /rootmanualen/backup
+  /rootmanualen/bar
+  # /rootmanualen/conina
+  /rootmanualen/datorhandboken-&-dokumentation
+  # /rootmanualen/dns
+  # /rootmanualen/epost
+  /rootmanualen/git
+  # /rootmanualen/index.md
+  # /rootmanualen/inhysningar
+  /rootmanualen/linux
+  /rootmanualen/övrigt
+  # /rootmanualen/proxmox
+  /rootmanualen/puppet
+  # /rootmanualen/www
