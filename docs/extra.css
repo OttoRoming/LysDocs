@@ -29,10 +29,10 @@ body[data-md-color-scheme="slate"] main img[src$=".dg.png"] {
 }
 
 article {
-	li {
+	ol > li {
 		list-style-type: decimal;
-		&::marker {
-			font-weight: bold;
-		}
+	}
+	li::marker {
+		font-weight: bold;
 	}
 }
