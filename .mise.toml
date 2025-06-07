@@ -4,7 +4,3 @@ run = "uv run mkdocs build"
 
 [tasks.serve]
 run = "uv run mkdocs serve --open"
-
-[tasks.deploy]
-depends = ['build']
-run = 'rsync -r --delete public/ leslie.lysator.liu.se:/var/www/html/lysdocs'
