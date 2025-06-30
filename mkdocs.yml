@@ -73,7 +73,7 @@ markdown_extensions:
   - sane_lists
 
 exclude_docs: | 
-  /rootmanualen/användarhantering
+  # /rootmanualen/användarhantering
   /rootmanualen/backup
   /rootmanualen/bar
   # /rootmanualen/conina
