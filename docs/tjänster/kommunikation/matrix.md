@@ -1,42 +1,30 @@
 # Matrix
 
-Matrix är en specifikation som definierar en uppsättning API:er ämnade för
-säker decentraliserad kommunikation på ett federerat nät av servrar. 
-Matrix kan användas till att skicka direktmeddelanden, videokonferensera och
-brygga existerande kommunikationsmjukvara som till exempel Discord och IRC.
+Matrix är ett decentraliserat chattprotokoll. Det har ett flertal olika klienter och servrar du kan använda dig av.
 
-## Klienter
+Lysator har ett "space" på hemservern `matrix.org` man kan gå med i via denna länk: [https://matrix.to/#/#lysator:matrix.org](https://matrix.to/#/#lysator:matrix.org). Detta space innehåller ett flertal kanaler av vilka de allra flesta är bryggade till Discord och IRC.
 
-Det finns en enorm lista med Matrixklienter som går att hitta
-[här](https://matrix.org/ecosystem/clients/), en användarvänlig klient heter
-Element, men det går även att köra matrix genom Weechat om man vill ha en
-lösning genom terminalen.
+(Vill du att Lysator kör en egen matrix server? Hjälp oss att sätta upp och driva en!)
 
-## Konto
+## Börja använda Matrix
 
-Matrix kräver att du skapar ett konto med användarnamn och lösenord. Vissa
-servrar som exempelvis matrix.org kräver även att du registrerar dig med en
-epostaddress. Om du verkligen inte vill registrera med epostaddress går det att
-hitta servrar som inte kräver det. Eftersom att Matrix-nätet är federerat så kan
-du koppla upp dig till en chattkanal oavsett var ditt konto är registrerat.
+Om du aldrig har använt matrix förut så rekommenderar vi att använda [element](https://app.element.io/) som är den mest välanvända och kanske mest lättanvända klienten. Om du vill prova någon annan klient kan du kika på [listan över klienter på matrix.org](https://matrix.org/ecosystem/clients/).
 
-## Lysators Matrix
+Skapa därefter ett konto på valfri hemserver. Standardvalet brukar vara hemservern `matrix.org` men du kan nå Lysators matrix-chatter från de flesta hemservrar.
 
-Lysator har idag en kanal under `#lysator-b:matrix.org`. Eventuellt kommer det att
-dyka upp en dedikerad matrix server, håll utkik eller ta tag i det själv, maila
-`root` eller `WWW` för att få hjälp om du gör det.
+När du har skapat ett konto kan du gå med i matrix-chatterna genom att klicka på länken ovan till Lysators Matrix space.
 
-## Hur gör man
+## Lysators Matrix kanaler
 
-* Ladda ner valfri klient (rekommenderad: element).
-* Skapa ett konto.
-* Sök efter  `#lysator-b:matrix.org`
-* Gå med.
-* Skriv om allt du någonsin önskat.
+## #lysator-b:matrix.org
+
+Denna kanal är den generella kanalen som är bryggad mellan Matrix, Discord och IRC. Den används för att diskutera alla de saker Lysator håller på med. För diskussioner om ett specifikt projekt är det bättre att skriva i någon av de projektspecifika kanalerna.
+
+### Projektkanaler
+
+Övriga kanaler i Lysators Matrix space används för att diskutera ett visst projekt. Vanligtvis är dessa också bryggade till andra plattformar som exempelvis Discord eller IRC, men det beror på det enskilda projektets önskan.
 
 ## Vidare läsning
-
-* Matrix dokumentation: https://matrix.org/docs
-* Matrix Specifikation: https://spec.matrix.org
-
-
+- **[Chat Basics](https://matrix.org/docs/chat_basics/public-rooms/)**: Grundläggande om vad Matrix är och hur man använder det för att chatta
+- **[Elements of Matrix](https://matrix.org/docs/matrix-concepts/elements-of-matrix/)**: Övergripande koncept och struktur kring Matrix uppbyggnad och funktion
+- **[Spec](https://spec.matrix.org/latest/)**: Specifikationen för Matrix protokollet
