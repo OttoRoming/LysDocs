@@ -58,3 +58,18 @@ Skriptet `/root/conina/turn_on.sh` på Orwell kan användas för att starta hela
 
 ### Grafana
 Övervakning av bl.a. temperatur finns på [https://graf.lysator.liu.se/d/celhn15dqhtz4c/conina?orgId=1](https://graf.lysator.liu.se/d/celhn15dqhtz4c/conina?orgId=1)
+
+### Specialnoder/systemservrar
+conina1, conina23 och conina32 är specialnoder på så sätt att de har routningsbara ip:n.
+
+conina1
+conina.lysator.liu.se has address 130.236.254.43
+conina.lysator.liu.se has IPv6 address 2001:6b0:17:f0a0::2b
+
+conina23
+karaboudjan.lysator.liu.se has address 130.236.254.50
+karaboudjan.lysator.liu.se has IPv6 address 2001:6b0:17:f0a0::32
+
+conina32
+speedol.lysator.liu.se has address 130.236.254.51
+speedol.lysator.liu.se has IPv6 address 2001:6b0:17:f0a0::33
