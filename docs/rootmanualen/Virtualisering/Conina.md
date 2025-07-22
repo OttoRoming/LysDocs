@@ -63,13 +63,13 @@ Skriptet `/root/conina/turn_on.sh` på Orwell kan användas för att starta hela
 conina1, conina23 och conina32 är specialnoder på så sätt att de har routningsbara ip:n.
 
 conina1
-conina.lysator.liu.se has address 130.236.254.43
-conina.lysator.liu.se has IPv6 address 2001:6b0:17:f0a0::2b
+conina.lysator.liu.se har adress 130.236.254.43
+conina.lysator.liu.se har IPv6 adress 2001:6b0:17:f0a0::2b
 
 conina23
-karaboudjan.lysator.liu.se has address 130.236.254.50
-karaboudjan.lysator.liu.se has IPv6 address 2001:6b0:17:f0a0::32
+karaboudjan.lysator.liu.se har adress 130.236.254.50
+karaboudjan.lysator.liu.se har IPv6 adress 2001:6b0:17:f0a0::32
 
 conina32
-speedol.lysator.liu.se has address 130.236.254.51
-speedol.lysator.liu.se has IPv6 address 2001:6b0:17:f0a0::33
+speedol.lysator.liu.se har adress 130.236.254.51
+speedol.lysator.liu.se har IPv6 adress 2001:6b0:17:f0a0::33
