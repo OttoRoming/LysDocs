@@ -13,7 +13,7 @@ För att koppla loss, tryck <kbd>Ctrl</kbd>+<kbd>O</kbd>.
 !!! tip "Tips: "jump-host at home""
 
     ```sh
-    ssh -t milliways-N -- qm terminal <VMID>
+    ssh -t conina-N -- qm terminal <VMID>
     ```
 
     gör att du "jump-hostar" genom noden och direkt får skal i VM:en.

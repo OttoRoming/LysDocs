@@ -57,7 +57,7 @@ Du behöver ha gjort följande:
         </pre>
         |-
         ! Placering
-        | Milliways 
+        | Conina 
         |-
         ! Ansvarig root
         | [DU]

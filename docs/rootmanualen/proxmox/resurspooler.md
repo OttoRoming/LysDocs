@@ -2,7 +2,7 @@ Om samma inhysning ska ha flera VM:ar OCH vill ha möjlighet att använda Proxmo
 
 ## Skapa ny resurspool:
 
-1. Tryck på "Datacenter (milliways)" högst upp i vänstra trädvyn.
+1. Tryck på "Datacenter (conina)" högst upp i vänstra trädvyn.
 
 2. Tryck på "Permissions" > "Pools".
 
