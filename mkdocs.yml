@@ -4,7 +4,8 @@ site_name: LysDocs
 
 site_dir: "public"
 
-site_url: https://lysator.liu.se/lysdocs
+site_url: https://docs.lysator.liu.se/
+site_description: LysDocs är en samling guider och dokumentation för datorföreningen Lysators olika system.
 
 repo_url: https://git.lysator.liu.se/lysdocs/lysdocs
 repo_name: lysdocs/lysdocs
@@ -22,27 +23,23 @@ theme:
     - navigation.indexes
     - content.action.edit
     - navigation.sections
+    - content.code.copy
   language: sv
   palette:
-    # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: yellow
-      accent: yellow
       toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    # Palette toggle for dark mode
+        icon: octicons/sun-16
+        name: Byt till mörkt tema
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: yellow
-      accent: yellow
       toggle:
-        icon: material/brightness-4
-        name: Switch to system preference
-  icon:
-    edit: material/pencil
-    view: material/eye
+        icon: octicons/moon-16
+        name: Byt till ljust tema
+  font:
+    text: Hanken Grotesk
 
 extra_css:
   - extra.css
@@ -53,7 +50,6 @@ extra:
       link: https://lysator.liu.se
     - icon: fontawesome/brands/facebook
       link: https://www.facebook.com/Lysator.liu.se/
-  generator: false
 
 plugins:
   - search
@@ -64,10 +60,31 @@ plugins:
       type: timeago
   - git-authors:
       enabled: !ENV [IS_PRODUCTION, false]
+      show_email_address: false
+  - mkdocs-nav-weight
 
 markdown_extensions:
   - footnotes
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - sane_lists
+
+exclude_docs: | 
+  # /rootmanualen/användarhantering
+  /rootmanualen/backup
+  /rootmanualen/bar
+  # /rootmanualen/conina
+  /rootmanualen/datorhandboken-&-dokumentation
+  # /rootmanualen/dns
+  # /rootmanualen/epost
+  /rootmanualen/git
+  # /rootmanualen/index.md
+  # /rootmanualen/inhysningar
+  /rootmanualen/linux
+  /rootmanualen/övrigt
+  # /rootmanualen/proxmox
+  /rootmanualen/puppet
+  # /rootmanualen/www

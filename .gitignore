@@ -7,3 +7,5 @@ src/.cache/
 src/public/
 
 **~
+
+*.dg.png

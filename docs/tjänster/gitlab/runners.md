@@ -1,0 +1,131 @@
+---
+draft: true
+---
+
+<style>
+li::marker{
+    font-weight: bold;
+}
+</style>
+
+!!! warning "Här finns drakar..."
+    Detta är något som jag (`sermuns`) har experimenterat mig fram till. Det finns risk att det finns något katastrofalt dåligt någonstans i instruktionerna. Du är varnad!
+
+## Bakgrund
+
+Ganska typiskt körs CI/CD pipelines inuti containrar, isolerade från användarkonto- och miljö.
+
+Lysator erbjuder inte (_ännu?_) användare att fritt spinna upp containrar. Alternativet är att köra runners som vanliga användartjänster, under ditt egna användarkonto.
+
+Denna guide visar dig hur du sätter upp "Project/Group runners", och du ska bara bjuda in folk till projektet/gruppen som du litar på. Du ska **absolut** inte försöka sätta upp "Instance runners" på detta sätt- **isåfall ger du tillgång till alla medlemmar att exekvera godtyckliga skalkommandon i ditt namn.**
+
+## Installation
+- Vi kommer köra [`gitlab-runner`](https://docs.gitlab.com/runner/install/linux-manually.html#using-binary-file) som en [användartjänst](../cpu-servrar/systemd-för-användare.md) på `totoro`.
+
+- För varje nytt projekt som vi vill ha CI/CD på måste en ny runner registreras genom `gitlab-runner register ...`
+
+### 0. `ssh`:a in till `totoro`
+Denna guide förutsätter att du installerar på någon av våra CPU-servrar. Jag föreslår `totoro`, eftersom den kör Linux.
+
+### 1. Ladda ned `gitlab-runner`
+Ladda ned binären enligt [gitlab:s instruktioner](https://docs.gitlab.com/runner/install/linux-manually.html#using-binary-file), men lägg den i någon katalog som finns med i din `PATH`, förslagsvis `~/.local/bin`
+
+Detta kommando funkade för mig, men länken till binären kan ha ändrats:
+```shell
+curl -L --output ~/.local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64"
+```
+
+Ge den också exekveringsrättigheter:
+```shell
+chmod +x ~/.local/bin/gitlab-runner
+```
+
+### 2. Registrera ny runner
+
+Detta steg behöver du göra för varje nytt repo du vill ha runner på. Ett sätt att komma undan detta är att istället skapa en GitLab-grupp och skapa projekt(repon) som alla delar på 'Group runners'
+
+1. Gå till GitLab-projektets **CI/CD settings > Runners > New project runner**. På motsvarande vis kan 'Group runners' skapas.
+
+2. Du kan specifiera vilka taggar som runnern ska köra, men om du inte bryr dig, kryssa i 'Run untagged jobs'.
+
+3. **VIKTIGT:** Kryssa i **'Lock to current projects'**.
+
+!!! danger "Säkerhetshål!"
+    Om inte **'Lock to current projects'** kryssas i, får alla projekt på vår GitLab-instans tillgång till att använda din runner. Det betyder i praktiken att vem som helst kan köra valfria skalkommandon på ditt användarkonto!
+
+4. Tryck 'Create runner'
+
+5. På nästa sida får du en **runner authentication token**, något i stil med `glrt-xxxxxxxxxxxxxxxxxxxxxxx`, använd denna i ett kommando för att registrera en ny runner med din token.
+```shell
+gitlab-runner register --non-interactive --url https://git.lysator.liu.se --executor shell --token glrt-xxxxxxxxxxxxxxxxxxxxxxx
+```
+
+6. Om du har lyckats, ska du se detta längst ned på sidan:
+![runner success](runner_success.png)
+
+### 3. Installera användartjänsten
+
+Läs min andra guide på hur man [skapar en användartjänst](../cpu-servrar/systemd-för-användare.md). 
+
+Vi behöver en tjänst som kör `gitlab-runner run` med arbetskatalog någonstans i `/tmp`, eftersom det är onödigt att belasta hemdisk med kortlevade filer.
+
+Man väljer arbetskatalog med flaggan `--working-directory`.
+
+Här är min enhetsfil för referens. Du behöver egentligen bara ändra `.sermuns` till (förslagsvis) ditt användarnamn. 
+```systemd
+# ~/.local/config/systemd/user/gitlab-runner.service
+
+[Unit]
+Description=GitLab Runner
+After=network.target
+ConditionHost=totoro.lysator.liu.se
+
+[Service]
+ExecStart=%h/.local/bin/gitlab-runner run --working-directory /tmp/.sermuns/runner-work
+Restart=always
+
+[Install]
+WantedBy=default.target
+
+```
+
+### 4. Skapa ett CI/CD-flöde i din repo
+
+Det borde fungera! Det som behövs nu är en `.gitlab-ci.yml`-fil i roten på din repo som beskriver vilka kommandon som ska köras och för vilka commit:s. Själva LysDocs deploy:as exempelvis genom denna pipeline:
+
+```yaml
+# .gitlab-ci.yml
+
+variables:
+  GIT_DEPTH: 1
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+job:
+  stage: build
+  rules:
+    - changes:
+      - "src/**/*"
+      - .gitlab-ci.yml
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+    - if: $CI_COMMIT_TAG
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  cache:
+  - paths:
+      - .cache/pip # general cache
+  - key:
+      files:
+        - requirements.txt
+    paths:
+    - venv/ # only cache venv if no requirements changed
+
+  before_script:
+    - test -f venv/bin/python || python3 -m venv venv # Either venv is restored from cache, or needs to be create
+    - source venv/bin/activate
+    - pip install -r requirements.txt
+  script:
+    - cd src
+    - mkdocs build --site-dir public
+    - rsync -a --delete public/ littlefox@totoro.lysator.liu.se:/lysator/www/roxen/lysdocs/
+```
+
+Lycka till!

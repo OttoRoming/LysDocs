@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://docs.lysator.lius.se/sitemap.xml

@@ -1,0 +1,8 @@
+!!! warning "Inget sparas vid vidarebefordring"
+      E-post kommer inte längre sparas på lysators mailserver om vidarebefordring sätts upp.
+
+Om du vill att din e-post ska vidarebefordras till någon annan brevlåda (exempelvis din studentmail eller annat) så måste du redigera din `.forward` i din mail-mapp.
+
+För att vidarebefordra mail skriver du enkelt in adressen till den brevlåda du vill ha e-posten levererad till och sparar filen.
+
+`.forward` kan även skicka vidare e-post till andra ställen också, exempelvis mailsorteringsprogrammet procmail som bland annat kan användas för att filtrera bort spam-mail. Exempel på hur du använder procmail finner du i nästa avsnitt.

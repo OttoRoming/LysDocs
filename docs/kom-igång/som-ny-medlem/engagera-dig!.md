@@ -1,0 +1,26 @@
+---
+weight: -70
+---
+
+#Engagera dig!
+
+Lysator har massvis av projekt för nästan alla datorintressen, och om
+föreningen inte har det är det jättelätt att skapa ett nytt projekt genom
+att annonsera att man påbörjar ett projekt på ett föreningsmöte.
+
+Föreningen finns till för att främja datorintresserade personers möjlighet
+att laborera med sådant de inte kan göra hemma utan omfattande
+investeringar och föreningen är helt och hållet voluntärsdriven. Om du
+finner att föreningen skapar värde för dig, eller om du försöker hitta
+andra likasinnade människor, ta kontakt med de olika projektansvariga 
+personerna och fråga dem när de har nästa möte. 
+
+Aktivt förvaltad lista över pågående projekt finns på [lysator.liu.se/projekt](https://lysator.liu.se/projekt)
+
+!!! Danger "OBS: Den som gör bestämmer"
+    Om du beslutar att göra något på Lysators system, kör hårt!
+    Så länge du inte avsiktligt förstör för andra så är vi jätteglada
+    att systemen används och gärna flitigt. Om något går riktigt fel 
+    kommer rootgruppen att informera dig om problemet och be dig att 
+    inte göra om det, men dessa ytor är till för att experimentera med
+    och leka på, gör gärna det! 
