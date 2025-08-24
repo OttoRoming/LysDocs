@@ -47,6 +47,10 @@ Avsluta meddelandet genom <kbd>ENTER</kbd>+<kbd>.</kbd>+<kbd>ENTER</kbd>.
     cd /lysator/etc/dns
     make
     ```
+    eller kort:
+    ```
+    su - root -c "make -C /lysator/etc/dns"
+    ```
 
 8. Om du hade skrivit fel syntax i zonfilerna kommer det synas här. Lämna isåfall root och gör de nödvändiga ändringarna.
 
