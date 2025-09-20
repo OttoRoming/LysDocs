@@ -9,3 +9,5 @@ src/public/
 **~
 
 *.dg.png
+
+.direnv
