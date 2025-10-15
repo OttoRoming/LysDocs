@@ -9,6 +9,7 @@
 4. Skapa rootlösenord och användaren `lysroot` (sudoer), och pusha lösneordet till passrepo
 
 5. Välj `linux-lts` kernel, installera!
+> sätt kernelparamter `consoleblank=300` för att skärmen ska slockna efter 5 minuter i tty:n. Viktigt om ly används som display manager.
 
 6. Starta om
 
