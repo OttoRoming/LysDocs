@@ -27,7 +27,6 @@ till Jukebox, och tryck på 2 för att utforska filstrukturen.
 ## Vid problem
 * Om mpd inte kan spela efter omstart av peking, vänta några sekunder
   och försök igen.
-* Kontakta Jukebox-ansvarig.
-    * ivma via lysator mail (eller irc).
+* Kontakta [Jukebox-ansvarig](https://www.lysator.liu.se/projekt/#jukebox).
 
 
