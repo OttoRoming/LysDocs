@@ -47,3 +47,16 @@ För inscanning via kommandoraden finns verktyget `scanimage`. Det är ett kraft
 `scanimage -L` listar upptäckta scanners.
 
 Exempel på ett kommando för att scanna in en sida med scanimage är <br> `scanimage --batch --batch-prompt --mode Color --format pdf -d '<namn_på_scanner>' --resolution 300`
+
+```
+scanimage --resolution 300 --format=jpeg --source="ADF Front" > x.jpeg
+```
+
+```
+ scanimage \
+  --resolution 300 \
+  --format=jpeg \
+  --source="ADF Front" \
+  --batch-count=2 \
+  --batch="page%03d.jpeg"
+```
