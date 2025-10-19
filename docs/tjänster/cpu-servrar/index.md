@@ -7,10 +7,22 @@ Vilka servrar som finns tillgängliga och vad de är kapabla till varierar över
 
 ## CPU-servrar
 
+### Auri-El (auriel.lysator.liu.se)
+**OS**: Arch <br>
+**Modell**: RS720Q-E8-RS12
+**CPU**: 16-core (32 threads) <br>
+**RAM**: Ca 128GB <br>
+**Övrigt**: Har ssd och hdd scratchdisk monterad på /scratch/{ssd,hdd}, kör RDP server (se länk nedan för mer information) <br>
+[Mer detaljerad information om servern finns här](https://datorhandbok.lysator.liu.se/index.php/Milou)
+
+#### Användningsområden
+Åtkommlig via ssh eller rdp (fjärrskrivbord). Lämplig för allmän användning. Monterar hemdisk och mailkataloger samt det delade Lysator-filsystemet.
+Har nya version av paket (Archlinux).
+
 ### Milou
 **OS**: Debian 13 <br>
 **Modell**: ASUS RS300-E10-RS4
-**CPU**: 32-core <br>
+**CPU**: 16-core (32 threads) <br>
 **RAM**: Ca 300GB <br>
 **Övrigt**: Har en scratchdisk monterad på /scratchpad <br>
 [Mer detaljerad information om servern finns här](https://datorhandbok.lysator.liu.se/index.php/Milou)
@@ -38,4 +50,5 @@ Lämplig för CPU- och minnesintensiva jobb. Har god upptid och stabilitet. Kör
 
 #### Användningsområden
 Lämplig för mindre resurskrävande men långkörande processer. Monterar hemdisk och mailkataloger samt det delade Lysator-filsystemet.
+
 
