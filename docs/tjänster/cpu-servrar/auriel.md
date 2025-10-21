@@ -1,20 +1,26 @@
 ## Auri-El
-!!! warning
-
-    Auri-El är under driftsättning!
+!!! warning "Auri-El är under driftsättning!"
     Förvänta dig ingen stabilitet innan driftsättning, omstarter kan ske när som helst.  
     Plannerad driftsättning: **fredag 2025-10-24**
 
-Auri-El är en CPU-server.
+Auri-El är en Archlinux CPU-server som kan användas för både generell användning och som fjärrskrivbordsserver.
+Servern är av modellen ASUS RS720Q-E8-RS12 (en node) och är utrustad med två Intel Xeon CPU E5-2640 v3 och till det 128 GB DDR4 RAM.
+Operativsystemet kör på en SSD och det finns hårddisk (4TB) för scratchanvändning.
+
+Eftersom Auri-El är en fjärrskrivbordsserver är den konfigurerad med samma paketlistor som för arbetsstationerna.
+Om du saknar paket kontakta `root@lysator...` eller `ivma@lysator...`.
 
 ### Diskar och monteringar
 Auri-El monterar de vanliga Lysator mapparna (`/home`, `~/.public`, mail, `/lysator`).
-Scratch finns tillgänglig både som ssd (`/scratch/ssd`, max 500GB) och hårddisk (`/scratch/hdd`, 4TB).
+Scratch finns tillgänglig både som ssd (`/scratch/ssd`, 500GB) och hårddisk (`/scratch/hdd`, 4TB).
 Var snäll mot `/scratch/ssd` (undvik att skriva jättemycket i onödan) och respektera andra användare på systemet.
 
-### Anslutning till SSH
-!!! abstract Kortfattat
+!!! warning "Varning!"
+    Scratch har ingen säkerhetskopiering och kan dessutom rensas vid brist på utrymme.
+    **Du ansvarar själv för att säkerhetskopiera viktiga filer du har på scratch**
 
+### Anslutning till SSH
+!!! abstract "Kortfattat"
     `ssh <namn>@auriel.lysator.liu.se`
 
 Auri-El kör ssh på port 22 och har följande tumavtryck:
@@ -36,6 +42,16 @@ RvKrCvnF/93Epxc0TNkmJGB+QLWArgU=
 ```
 
 ### Anslut till fjärrskrivbord (RDP)
+!!! abstract "Kom igång"
+    För att komma igång med rdp ska du:
+
+    * Välja fönsterhanterare och se till att din `~/.xinitrc` är korrekt (se nedan)
+    * Konfigurera Remmina (se nedan)
+
+    Om du inte vet vilken fönsterhanterare du ska välja eller inte vet vad en fönsterhanterare
+    är för något så rekommenderas xfce4 och att läsa [Getting Started with Xfce](https://docs.xfce.org/xfce/4.10/getting-started)
+
+
 Av säkerhetsskäl exponerar inre Auri-El sin RDP-port (3389) utanför Lysators nät.
 Det är därför nödvändigt att tunnla med ssh för att nå RDP.
 Eftersom detta är en ganska vanlig konfiguration finns det inbyggt stöd 
@@ -53,11 +69,15 @@ exec $1
 
 Följande fönsterhanterare finns tillgängliga på Auri-El
 
-| Namn         | Rad i `~/.xinitrc`  |
-|--------------|-------------------  |
-| xfce4        | `exec startxfce4`   |
-| i3           | `exec i3`           |
-| herbstluftwm | `exec herbstluftwm` |
+| Namn         | Rad i `~/.xinitrc`  | Typ      |
+|--------------|---------------------|----------|
+| herbstluftwm | `exec herbstluftwm` | Tiling   |
+| i3           | `exec i3`           | Tiling   |
+| openbox      | `exec openbox`      | Stacking |
+| qtile        | `exec qtile start`  | Dynamic  |
+| xfce4        | `exec startxfce4`   | Stacking |
+
+Vid önskemål på fler fönsterhanterare kontakta `ivma@lysator...`
 
 #### Konfigurera Remmina { #remmina }
 1. Sätt tangentbordslayout
