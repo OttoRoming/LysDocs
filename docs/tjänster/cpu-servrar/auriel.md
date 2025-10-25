@@ -1,10 +1,6 @@
 ## Auri-El
-!!! warning "Auri-El är under driftsättning!"
-    Förvänta dig ingen stabilitet innan driftsättning, omstarter kan ske när som helst.  
-    Plannerad driftsättning: **fredag 2025-10-24**
-
 Auri-El är en Archlinux CPU-server som kan användas för både generell användning och som fjärrskrivbordsserver.
-Servern är av modellen ASUS RS720Q-E8-RS12 (en node) och är utrustad med två Intel Xeon CPU E5-2640 v3 och till det 128 GB DDR4 RAM.
+Servern är av modellen ASUS RS720Q-E8-RS12 (en nod) och är utrustad med två Intel Xeon CPU E5-2640 v3 och till det 128 GB DDR4 RAM.
 Operativsystemet kör på en SSD och det finns hårddisk (4TB) för scratchanvändning.
 
 Eftersom Auri-El är en fjärrskrivbordsserver är den konfigurerad med samma paketlistor som för arbetsstationerna.
@@ -52,12 +48,12 @@ RvKrCvnF/93Epxc0TNkmJGB+QLWArgU=
     är för något så rekommenderas xfce4 och att läsa [Getting Started with Xfce](https://docs.xfce.org/xfce/4.10/getting-started)
 
 
-Av säkerhetsskäl exponerar inre Auri-El sin RDP-port (3389) utanför Lysators nät.
+Av säkerhetsskäl exponerar inte Auri-El sin RDP-port (3389) utanför Lysators nät.
 Det är därför nödvändigt att tunnla med ssh för att nå RDP.
 Eftersom detta är en ganska vanlig konfiguration finns det inbyggt stöd 
 för att tunnla genom ssh i vissa RDP-klienter bland annat Remmina.
 
-#### Fönsterhanterare { #wm }
+#### 1. Fönsterhanterare { #wm }
 Fönsterhanterare väljs genom att ändra i filen `~/.xinitrc`.
 Det kan vara smakfullt att ha något i stil med nedanstående i filen för att det ska gå att välja fönsterhanterare på vissa arbetsstationer.
 ```bash
@@ -79,7 +75,7 @@ Följande fönsterhanterare finns tillgängliga på Auri-El
 
 Vid önskemål på fler fönsterhanterare kontakta `ivma@lysator...`
 
-#### Konfigurera Remmina { #remmina }
+#### 2. Konfigurera Remmina { #remmina }
 1. Sätt tangentbordslayout
     1. Gå till "Preferences" genom att trycka Ctrl-P eller genom att klicka på knappen med tre sträck i övre högra hörnet i huvudfönstret (det där anslutningar väljs).
     2. Klicka på RDP i menyn till vänster.
