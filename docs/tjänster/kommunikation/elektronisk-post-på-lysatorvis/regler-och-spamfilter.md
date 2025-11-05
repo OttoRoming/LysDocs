@@ -39,10 +39,13 @@ LOGFILE=$PMDIR/log
 !!! warning "`.procmailrc` måste ha rätt rättigheter!"
     För att procmail skall våga använda filen får den inte vara skrivbar för någon annan än dig själv, exempelvis 644.
 
+!!! warning "`$HOME/.procmail` är inte i din hemkatalog!"
+    I detta fall är `$HOME/.procmail` exempelvis `/var/mail/<ANVÄNDARNAMN>/.procmail`
+
 ## Skapa filter
 För att definera hur procmail ska hantera inkommande mail (inklusive att filtrera bort spam), behövs filter skapas.
 
-Du kan skriva filter direkt i `.procmailrc`, men lite snyggare är att skriva filter i externa filer och sen inkludera dem.
+Du kan skriva filter direkt i `/var/mail/<ANVÄNDARNAMN>/.procmailrc`, men lite snyggare är att skriva filter i externa filer och sen inkludera dem.
 
 1. Skapa katalogen `.procmail` om den inte finns.
 2. Skapa filen `rc.testing` med följande innehåll:
