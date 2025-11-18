@@ -3,7 +3,7 @@ Coninas Proxmox VE gränssnitt ligger inte publikt tillgängligt.
 För att komma åt det utifrån, enklast är genom SSH tunnling (SOCKS-proxy), exempelvis genom `milou`
 
 ```sh
-ssh -ND 9009 -J milou root@conina
+ssh -ND 9009 milou.lysator.liu.se
 ```
 
 Använd SOCKS-proxy i din webbläsare:
