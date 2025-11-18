@@ -19,7 +19,7 @@
 
 9. Installera puppet genom att ladda ned `https://apt.voxpupuli.org/pool/openvox7/o/openvox-agent/openvox-agent_7.37.2-1%2Bdebian12_arm64.deb`, packa upp det med `bsdtar`
 
-10. `sudo ln -s /opt/puppetlabs/bin...`
+10. `sudo ln -s /opt/puppetlabs/bin /usr/bin/puppet`
 
 11. (Logg a in på chapman, rensa elle rskapa cert)
 
