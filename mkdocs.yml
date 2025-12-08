@@ -86,5 +86,5 @@ exclude_docs: |
   /rootmanualen/linux
   /rootmanualen/övrigt
   # /rootmanualen/proxmox
-  /rootmanualen/puppet
+  # /rootmanualen/puppet
   # /rootmanualen/www
