@@ -41,8 +41,9 @@ restic backup [SÖKVÄG 1] [SÖKVÄG 2] [SÖKVÄG 3]
 Ge användaren som ska genomföra säkerhetskopieringen rätt att köra skriptet samt läsa `repo.sh`
 8. Testa att göra en första backup. (Tips: Kör i en screen/tmux om du har "mycket" data). Gå till mappen med scripten och kör `./backup.sh`
 
-#### Schemalägg backups med systemd
-Nedan så skapas en systemd-tjänst som kör backup
+#### Schemalägg säkerhetskopiering med systemd
+Nedan så skapas en systemd-tjänst som kör säkerhetskopieringen varje natt.
+Säkerhetskopieringen sker vid ett slumpat tillfälle mellan 00:00 och 05:00.
 
 1. Skapa filen `/etc/systemd/system/backup.service`
 ```
@@ -67,7 +68,7 @@ Description=Nightly backup
 [Timer]
 Unit=backup.service
 OnCalendar=*-*-* 00:00:00
-RandomizedDelaySec=6h
+RandomizedDelaySec=5h
 
 [Install]
 WantedBy=timers.target
