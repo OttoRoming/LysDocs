@@ -27,13 +27,13 @@ Host lysator-backup
 4. Skapa en mapp som kommer innehålla skripten för säkerhetskopieringen och i den skapa en filen `repo.sh` med följande innehåll.
 ```
 export RESTIC_PASSWORD=[LÖSENORD HÄR]
-export export RESTIC_REPOSITORY=sftp:lysator-backup:[SÖKVÄG TILL MAPP FÖR SÄKERHETSKOPIA]
+export RESTIC_REPOSITORY=sftp:lysator-backup:[SÖKVÄG TILL MAPP FÖR SÄKERHETSKOPIA]
 ```
 5. Läs in miljövariablerna genom att köra `source repo.sh`
 6. Initiera förrådet genom att köra `restic init`
 7. Skapa ett skript som gör själva säkerhetskopieringen `backup.sh` med följande innehåll:
 ```
-#!/usr/bin/bash
+#!/bin/sh
 export RESTIC_CACHE_DIR=~/.cache/restic/
 source repo.sh
 restic backup [SÖKVÄG 1] [SÖKVÄG 2] [SÖKVÄG 3]
@@ -41,4 +41,35 @@ restic backup [SÖKVÄG 1] [SÖKVÄG 2] [SÖKVÄG 3]
 Ge användaren som ska genomföra säkerhetskopieringen rätt att köra skriptet samt läsa `repo.sh`
 8. Testa att göra en första backup. (Tips: Kör i en screen/tmux om du har "mycket" data). Gå till mappen med scripten och kör `./backup.sh`
 
+#### Schemalägg backups med systemd
+Nedan så skapas en systemd-tjänst som kör backup
 
+1. Skapa filen `/etc/systemd/system/backup.service`
+```
+[Unit]
+Description=Backup
+After=network.target
+
+[Service]
+Type=exec
+ExecStart=[SÖKVÄG TILL backup.sh]
+WorkingDirectory=[SÖKVÄG TILL MAPP MED BACKUP SKRIPT]
+User=[ANVÄNDARE SOM KÖR BACKUP] # Denna rad kan tas bort om backup körs som root
+
+[Install]
+WantedBy=default.target
+```
+2. Skapa filen `/etc/systemd/system/backup.timer`
+```
+[Unit]
+Description=Nightly backup
+
+[Timer]
+Unit=backup.service
+OnCalendar=*-*-* 00:00:00
+RandomizedDelaySec=6h
+
+[Install]
+WantedBy=timers.target
+```
+3. Aktivera skriptet: `systemctl enable --now backup.timer`
