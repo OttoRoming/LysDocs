@@ -1,5 +1,3 @@
-# skrivare och scanner
-
 ## Skriva ut
 I Lysators lokaler finns skrivare och scanner som kan användas av medlemmar utan extra kostnad.
 
@@ -44,6 +42,18 @@ För Gnome, KDE och Cinnamon finns applikationen "Document Scanner". Den är hyf
 ### Inscanning via kommandoraden
 För inscanning via kommandoraden finns verktyget `scanimage`. Det är ett kraftfullt verktyg som kan användas för att bygga skrift och att komma åt alla möjliga inställningar på scannern. Det är dock inte särsklit användarvänligt.
 
-`scanimage -L` listar upptäckta scanners.
+- Upptäck scanners:
+    ```sh
+    scanimage -L
+    ```
 
-Exempel på ett kommando för att scanna in en sida med scanimage är <br> `scanimage --batch --batch-prompt --mode Color --format pdf -d '<namn_på_scanner>' --resolution 300`
+- Scanna in _alla_ dokument som ligger på skrivarens ADF (automatic document feeder, ovanpå). Kommer default skapa `out*.pnm`-filer- en per sida.
+    ```sh
+    scanimage -d 'canon_dr' --resolution 300 --batch --source 'ADF Front'
+    ```
+
+- Kombinera `out1.pnm`, `out2.pnm`, ... `out11.pnm` till en PDF
+    ```
+    magick out{1..11}.pnm combined.pdf
+    ```
+
