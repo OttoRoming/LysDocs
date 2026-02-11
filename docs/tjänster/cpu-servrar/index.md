@@ -13,7 +13,7 @@ Vilka servrar som finns tillgängliga och vad de är kapabla till varierar över
 **CPU**: 16-core (32 threads) <br>
 **RAM**: Ca 128GB <br>
 **Övrigt**: Har ssd och hdd scratchdisk monterad på /scratch/{ssd,hdd}, kör RDP server (se länk nedan för mer information) <br>
-[Mer detaljerad information om servern finns här](auriel)
+[Mer detaljerad information om servern finns här](auriel.md)
 
 #### Användningsområden
 Åtkommlig via ssh eller rdp (fjärrskrivbord). Lämplig för allmän användning. Monterar hemdisk och mailkataloger samt det delade Lysator-filsystemet.
