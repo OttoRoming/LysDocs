@@ -11,7 +11,7 @@ beskrivning och en länk till relevanta guider och resurser rörande tjänsten.
 
 ## Lokaler
 
-Lysator har tre lokaler på Campus Valla.
+Lysator har två lokaler på Campus Valla.
 
 ### ~
 ~ (Tilde) är Lysators primära föreningslokal. Den finns på nedre våningen i
@@ -22,8 +22,9 @@ på [Lysators låssystem](https://lock.lysator.liu.se).
 
 I ~ finns soffa, kaffebryggare, tekokare, TV,
 [~/lib](https://www.lysator.liu.se/foreningen/lokaler/lib/),
-[arbetsstationer](./lokal/arbetsstationer.md), [skrivare](./lokal/skrivare.md),
-[jukebox](./lokal/jukebox.md) samt en hörna där man kan leka med elektronik.
+[arbetsstationer](./tilde/arbetsstationer.md),
+[skrivare, scanner](./tilde/skrivare-och-scanner.md),
+[jukebox](./tilde/jukebox.md) samt en hörna där man kan leka med elektronik.
 
 ### BAR
 BAR är Lysators datorhall och finns under Ingång 19 i A-huset. Här kör
@@ -38,7 +39,7 @@ konto hos Lysator kan logga in och använda arbetsstationerna. De monterar alla
 hemdisk, www, och jukebox. De har även en relativt stor katalog av paket och
 program.
 
-[Mer info om Arbetsstationerna finns här!](./lokal/arbetsstationer.md)
+[Mer info om Arbetsstationerna finns här!](./tilde/arbetsstationer.md)
 
 ## CPU-servrar
 CPU-servrar finns när du behöver lite mer CPU-kraft, vill köra långa processer,

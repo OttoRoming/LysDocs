@@ -15,7 +15,7 @@ genom att navigera till `about:settings` i sökfältet, söka
 efter "proxy" och sedan slå in inställningarna enligt nedanstående
 bild.
 
-![](/annat/images/proxyconf.png)
+![](images/proxyconf.png)
 
 När detta är gjort, tryck "ok" så vidarebefodras all trafik via den
 valda proxydatorn.
