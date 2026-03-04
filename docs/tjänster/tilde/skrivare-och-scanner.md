@@ -2,6 +2,10 @@
 I Lysators lokaler finns skrivare och scanner som kan användas av medlemmar utan
 extra kostnad.
 
+!!! warning "Måttfullhet..."
+    Skrivaren är främst till för Lysatorprojekt och annat kul vi gör i föreningen.  
+    Föreningen ska ***inte*** konkurrera med **PaperCut** när det gäller utskrifter av rapporter eller andra långa skoluppgifter.
+
 Skrivaren är nätansluten och går att komma åt via någon av arbetsstationerna.
 För att använda skrivaren välj `urd` som enhet och välj därefter de
 inställningar som behövs för din utskrift.
