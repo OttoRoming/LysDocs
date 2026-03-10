@@ -1,5 +1,5 @@
 serve:
-  uv run mkdocs serve
+  uv run mkdocs serve --livereload
 
 sync:
   uv venv
