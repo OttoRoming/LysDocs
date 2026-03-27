@@ -30,13 +30,15 @@ För att lista tillgängliga skrivare kan du använda: `lpstat -v` <br> (I 9/10
 fall kommer du nog att använda "urd")
 
 För att skriva ut en PDF med standardinställnignar:
-`lp -d urd <namn på dokument>.pdf`
+`lp -o sides=two-sided-long-edge -d urd <namn på dokument>.pdf`
 
 ### Ful nätverksutskrift
 För att snabbt och smidigt skriva ut en lokal fil, pipe:a innehållet av filen
-till `ssh volton -- lp -`.
+till `ssh volton -- lp -o sides=two-sided-long-edge -`.
+Argumentet `-o sides=two-sided-long-edge` innebär att skrivaren kommer att spara på papper
+genom att skriva till båda sidorna.
 ```sh
-cat file.pdf | ssh volton -- lp -
+cat file.pdf | ssh volton -- lp -o sides=two-sided-long-edge -
 ```
 
 Utanför lysators nät måste du tillägga `.lysator.liu.se` efter `volton`.
