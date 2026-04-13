@@ -65,13 +65,14 @@ exec $1
 
 Följande fönsterhanterare finns tillgängliga på Auri-El
 
-| Namn         | Rad i `~/.xinitrc`  | Typ      |
-|--------------|---------------------|----------|
-| herbstluftwm | `exec herbstluftwm` | Tiling   |
-| i3           | `exec i3`           | Tiling   |
-| openbox      | `exec openbox`      | Stacking |
-| qtile        | `exec qtile start`  | Dynamic  |
-| xfce4        | `exec startxfce4`   | Stacking |
+| Namn         | Rad i `~/.xinitrc`                       | Typ      |
+|--------------|------------------------------------------|----------|
+| herbstluftwm | `exec herbstluftwm`                      | Tiling   |
+| i3           | `exec i3`                                | Tiling   |
+| openbox      | `exec openbox`                           | Stacking |
+| qtile        | `exec qtile start`                       | Dynamic  |
+| xfce4        | `exec startxfce4`                        | Stacking |
+| cinnamon     | `exec dbus-run-session cinnamon-session` | Stacking |
 
 Vid önskemål på fler fönsterhanterare kontakta `ivma@lysator...`
 
