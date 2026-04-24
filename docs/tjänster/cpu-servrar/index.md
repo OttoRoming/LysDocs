@@ -5,6 +5,23 @@ Få restriktioner gäller förutom [Lysators Användarvillkor](https://www.lysat
 
 Vilka servrar som finns tillgängliga och vad de är kapabla till varierar över tid. Nedan finns en lista på de nuvarande aktiva servrarna och vad de lämpar sig för.
 
+## Vett och etikett
+Lysators system är till för att alla medlemmar ska kunna använda och experimentera med.
+För att det ska fortsätta funka behöver vi hjälpas åt lite.
+Punkterna nedan är inte regler från ovan utan saker vi har lärt oss när saker har gått sönder.
+Var inte rädd att använda systemen men tänk på dina medanvändare, och hör av dig på bryggan eller
+till root-gruppen (root@lysator.liu.se) om du undrar över något.
+
+1. Lägg inte virtuella diskar (för qemu etc.) under `/home`. En aktiv VM
+   skriver hela tiden till sin disk, vilket gör att borg-backupen
+   aldrig blir klar. Använd istället den lokala disken som finns
+   på Auri-El, Milou och Shipon.
+2. Om möjligt: exkludera stora datamängder från säkerhetskopieringen
+   genom att skapa en `.nobackup` i mappen som ska exkluderas. Hemdisk
+   (`/home`) har ~479 TB lagring medan backup-servern Arisa bara har ~140 TB.
+3. Kör långa och CPU- eller I/O-tunga jobb med `nice` (och gärna också
+   `ionice`) så att andra fortfarande kan jobba på maskinen.
+
 ## CPU-servrar
 
 ### Auri-El (auriel.lysator.liu.se)
