@@ -10,10 +10,16 @@ inbyggd SSH-klient via PowerShell.
 
 ## Grunderna
 
-För att ansluta till lysatordatorn _milou_ med användarnamnet _bar_ skriver du:
+För att ansluta till Lysatordatorn `milou` med användarnamnet `bar` skriver du:
 ```sh
   ssh bar@milou.lysator.liu.se
 ```
+Om detta är den första gången du SSH:ar till en server kan du få en prompt som
+frågar om du vill tro på servern. Om du inte orkar verifiera, kan du bara svara
+prompten med `yes`.
+
+Om du är lika paranoid som resten av oss, gå ner till rubriken _Avancerat:
+Verifiera SSH-fingeravtryck_ nedan.
 
 Om du har samma användarnamn lokalt som på Lysators system
 skriver du helt enkelt i din terminal:
@@ -21,28 +27,28 @@ skriver du helt enkelt i din terminal:
   ssh milou.lysator.liu.se
 ```
 
-För att ansluta till lysatordatorn _milou_ med användarnamnet
-_bar_ på port 17 (istället för port 22 som är standard)
+För att ansluta till Lysatordatorn `milou` med användarnamnet
+`bar` på port 17 (istället för port 22 som är standard)
 skriver du:
 ```sh
   ssh -p 17 bar@milou.lysator.liu.se
 ```
 
-För att ansluta till lysatordatorn _milou_ och enbart utföra kommandet `gazonk
--gurka` och därefter koppla från skriver du:
+För att ansluta till Lysatordatorn `milou` och enbart utföra kommandet
+`gazonk -gurka` och därefter koppla från skriver du:
 ```sh
   ssh milou.lysator.liu.se 'gazonk -gurka'
 ```
 
-[man-sidan](https://www.man7.org/linux/man-pages/man1/ssh.1.html) för ssh är
+[`man`-sidan](https://www.man7.org/linux/man-pages/man1/ssh.1.html) för ssh är
 ytterst informativ och kan med fördel studeras noggrant. Den kan även nås via:
 ```sh
   man ssh
 ```
 
-## Authorized keys (eller hur du ansluter utan att behöva mata in lösenord hela tiden)
+## Auktoriserade nycklar (eller hur du ansluter utan att behöva mata in lösenord hela tiden)
 Om man har en dator man litar på kan man lägga till denna dators publika nyckel
-i `.ssh/authorized_keys` på sitt lysatorkonto. Det går då att logga in utan
+i `.ssh/authorized_keys` på sitt Lysatorkonto. Det går då att logga in utan
 att behöva skriva in lösenordet. Å andra sidan kan man, om man vill, sätta ett
 lösenord på sin nyckel.
 
@@ -54,8 +60,8 @@ Börja med att generera ett nyckelpar, ifall du inte redan har ett sådant:
 När detta är klart bör du ha en fil i katalogen `.ssh` under din hemkatalog som
 heter `id_ed25519.pub`. Denna bör innehålla en lång textsträng som du kopierar
 och lägger i filen `.ssh/authorized_keys` (skapa om den inte finns) i din
-lysatorhemkatalog. Alternativt kan du följande med ditt användarnamn och din
-utvalda server.:
+Lysatorhemkatalog. Alternativt kan du följande med ditt användarnamn och din
+utvalda server:
 ```sh
   ssh-copy-id namn@server
 ```
@@ -68,14 +74,32 @@ kan läsa dina nycklar. Det kan exempelvis göras med:
   chmod 700 $HOME
 ```
 
-**Viktigt!** Skulle denna dator bli stulen eller liknande är det ytterst viktigt att
-du raderar raden ur authorized_keys, eftersom det annars är en fribiljett in i
-lysators system...
+!!! danger "Radera förlorade nycklar!"
+    Skulle denna dator bli stulen eller liknande är det ytterst viktigt att du
+    raderar raden ur `authorized_keys`, eftersom det annars är en fribiljett in i
+    Lysators system...
 
-## Tunnla med SSH
+## Avancerat: Auktoriserade nycklar i FreeIPA
+På Lysators nätverk finns vissa servrar som inte monterar hemdisk, vilket
+innebär att ssh-servern inte kan se din `~/.ssh/authorized_keys`. Om du
+regelbundet går in på sådana servrar är det en bra idé att lägga in din nyckel
+i FreeIPA, vår användarhanteringstjänst. Anta att `bar` är ditt användarnamn.
+SSH:a in på en av våra linux-servrar (FreeBSD saknar `ipa`-kommandot) och kör
+följande:
+
+```sh
+kinit bar # Autentisera dig mot servern
+ipa user-mod bar --sshpubkey="Innehållet på din ~/.ssh/id_ed25519.pub"
+```
+
+!!! Notice "Cache uppdateras långsamt"
+    Det kan ta lite tid för datan att propagera till alla servrar, så oroa dig
+    inte ifall du inte omedelbart kan autentisera med din nyckel.
+
+## Avancerat: Tunnla med SSH
 SSH kan även användas för att tunnla exempelvis datatrafik med. Ett bra exempel
-på tillämpningsområde är för att tunnla SMTP för att skicka epost med lysators
-smtp-server eller för att läsa Usenet Newshemifrån, fast mot lysators server.
+på tillämpningsområde är för att tunnla SMTP för att skicka epost med Lysators
+smtp-server eller för att läsa Usenet Newshemifrån, fast mot Lysators server.
 
 För det tidigare bör något i stil med `ssh -NL 9999:mail.lysator.liu.se:25
 vindbrygga.lysator.liu.se` eventuellt fungera och ge dig en "smtp-server" på
@@ -84,3 +108,17 @@ localhost, port 9999.
 För det senare fungerar `ssh -NL 9999:news.lysator.liu.se:119
 vindbrygga.lysator.liu.se` (Du ansluter sedan mot localhost, port 9999 och all
 trafik dit routas till news-servern).
+
+## Avancerat: Verifiera SSH-fingeravtryck
+Gå till [datorhandboken](https://datorhandbok.lysator.liu.se/) och hitta
+maskinen du försöker logga in på. Under _SSH-fingeravtryck_ kommer det finnas
+ett [gpg](../../annat/gpg.md)-signerat meddelande med ett antal rader som ser ut
+enligt nedan.
+```
+256 SHA256:h6f1rgzUzZmrteHVETpuqdOP3tjqxSt9qs8VPtvkWV4 volton.lysator.liu.se (ED25519)
+4096 SHA256:t/YoqrdJ1IpBHYbXL4Ygxs5+Uj8iEPoBXR+J2x9RM+c volton.lysator.liu.se (RSA)
+```
+Kopiera ett av `SHA256:...`-blocken och klistra in det i prompten. Om
+du kommer in så är signaturen korrekt. Om inte, **rapportera detta till
+[rootgruppen](mailto:root@lysator.liu.se)**.
+
