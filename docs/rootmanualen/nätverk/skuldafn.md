@@ -2,15 +2,16 @@
 title: Skuldafn
 ---
 # Skuldafn
-Skuldafn är ett subnät för enheter som inte behöver en publik ip-address (t.e.x. noderna i Conina).
+Skuldafn är ett subnät för enheter som inte behöver en publik IP-address (t.e.x. noderna i Conina).
 
 ## IP-rymd
-Skuldafn använder `10.10.0.0/16` som subnät. Ip-adresserna är uppdelade så att näst sista oktetten anger ändamål för ip-adressen.
+Skuldafn använder `10.10.0.0/16` som subnät. IP-adresserna är uppdelade så att näst sista oktetten anger ändamål för IP-adressen.
 
 | Oktett | Användning                                                                           |
 |--------|--------------------------------------------------------------------------------------|
+| 100    | Interna tjänster som ej behöver publik IP                                            |
 | 237    | Conina                                                                               |
-| 254    | Maskiner som har både skuldafn och "vanlig ip" (sista oktetten är samma som vanliga) |
+| 254    | Maskiner som har både skuldafn och "vanlig IP" (sista oktetten är samma som vanliga) |
 | 255    | Mycket temporär använding                                                            | 
 
 ## Wireguard
