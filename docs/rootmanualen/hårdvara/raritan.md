@@ -1,6 +1,6 @@
 KVM-switchen i Bar.
 
-1. Ladda ned "Raritan Multi-Platform Client".
+1. Ladda ned "Raritan Multi-Platform Client" [^1].
 
 2. Använd Java 8, tillåt TLSv1 genom att redigera `java.security` [^2].
 
