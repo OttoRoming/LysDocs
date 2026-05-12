@@ -1,8 +1,8 @@
 KVM-switchen i Bar.
 
-1. Ladda ned "Raritan Multi-Platform Client" [^1].
+1. Ladda ned "Raritan Multi-Platform Client" (https://www.prioritycolo.com/tools/mpc-installer.MPC_7.0.3.5.62.jar.zip)
 
-2. Använd Java 8, tillåt TLSv1 genom att redigera `java.security` [^2].
+2. Använd Java 8, tillåt TLSv1 genom att redigera `java.security` [^1].
 
    Exempel på start-skript:
 
@@ -32,6 +32,4 @@ KVM-switchen i Bar.
 
 5. Färdig!
 
-[^1]: https://www.prioritycolo.com/tools/
-
-[^2]: https://helpdesk.prioritycolo.com/en/kb/article/resolving-raritan-kvm-over-ip-multi-platform-client-mpc-java-issues
+[^1]: Från https://helpdesk.prioritycolo.com/en/kb/article/resolving-raritan-kvm-over-ip-multi-platform-client-mpc-java-issues
