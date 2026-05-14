@@ -27,7 +27,7 @@ För utskrift via kommandoraden används lämpligen kommandot `lp` med familj.
 Snabbhjälp för kommandot hittar du via: `lp --help`
 
 För att lista tillgängliga skrivare kan du använda: `lpstat -v` <br> (I 9/10
-fall kommer du nog att använda "urd")
+fall kommer du nog att använda "Xerox_Phaser_6510")
 
 För att skriva ut en PDF med standardinställnignar:
 `lp -o sides=two-sided-long-edge -d urd <namn på dokument>.pdf`
