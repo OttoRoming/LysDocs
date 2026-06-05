@@ -12,7 +12,7 @@ Anslut till mpd **från Lysators nät**.
 Mappen som Jukebox spelar ifrån monteras på alla arbetsstationer och
 CPU-serverar under `/lysator/jukebox`. Om du lägger in ny musik, se till att
 uppdatera databasen. Annars syns musiken inte av mpd.  En uppdatering kan
-startas genom att ssh:a till `jukebox.lysator.liu.se` och köra `mpc status`. Den
+startas genom att ssh:a till `jukebox.lysator.liu.se` och köra `mpc update`. Den
 nya musiken bör visa sig efter en stund.
 
 ## Klienter
