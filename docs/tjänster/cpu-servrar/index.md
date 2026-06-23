@@ -51,7 +51,7 @@ Monterar hemdisk och mailkataloger samt det delade Lysator-filsystemet.
 ### Shipon
 **OS**: FreeBSD 14 <br>
 **Modell**: HP SL230s Gen8 <br>
-**CPU**: 32-core <br>
+**CPU**: 16-core (32 threads) <br>
 **RAM**: 64GB <br>
 [Mer detaljerad information om servern finns här](https://datorhandbok.lysator.liu.se/index.php/Shipon)
 
@@ -61,11 +61,27 @@ Lämplig för CPU- och minnesintensiva jobb. Har god upptid och stabilitet. Kör
 ### Totoro
 **OS**: Arch Linux <br>
 **Modell**: Virtualiserad <br>
-**CPU**: 4-core <br>
-**RAM**: 16GB <br>
+**CPU**: 8-core (16 threads) <br>
+**RAM**: 32GB <br>
 [Mer detaljerad information om servern finns här](https://datorhandbok.lysator.liu.se/index.php/Totoro)
 
 #### Användningsområden
 Lämplig för mindre resurskrävande men långkörande processer. Monterar hemdisk och mailkataloger samt det delade Lysator-filsystemet.
 
+### Volton
+**OS**: NixOS <br>
+**Modell**: RS720Q-E8-RS12 <br>
+**CPU**: 36-core (72 threads) <br>
+**RAM**: 128GB <br>
+[Mer detaljerad information om servern finns här](https://datorhandbok.lysator.liu.se/index.php/Volton)
 
+#### Användningsområden
+Speciellt lämplig för tunga, parallella jobb, såsom kompilering. Monterar
+hemdisk och mailkataloger samt det delade Lysator-filsystemet.
+
+[NixOS](https://nixos.org) låter användare få tillgång till valfria paket (även
+om de inte är installerade som standard) via `nix-shell -p $PAKETNAMN`. En lista
+på tillgängliga paket finns [här](https://search.nixos.org).
+
+[Apptainer](https://apptainer.org/) kan användas för att köra OCI-containers
+likt docker.
