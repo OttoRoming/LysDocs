@@ -1,5 +1,5 @@
 serve:
-  uv run mkdocs serve --livereload
+  uv run zensical serve
 
 sync:
   uv venv
