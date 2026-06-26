@@ -64,7 +64,7 @@ på ISO-image-fältet följt av "Other" innan du trycker "Next".
 
 ![](../images/virtualbox_passwdscreen.png)
 
-På dialogen i ovanstående bild väljer du ett användarnamn och [lämpligt lösenord](../../annat/lösenord.md) 
+På dialogen i ovanstående bild väljer du ett användarnamn och [lämpligt lösenord](../../2-Annat/lösenord.md) 
 för att logga in på din dator innan du trycker "Next".
 
 ![](../images/virtualbox_specscreen.png)

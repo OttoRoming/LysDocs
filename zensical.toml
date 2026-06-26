@@ -33,7 +33,33 @@ language = "sv"
 
 font.text = "Hanken Grotesk"
 
+features = [
+  "navigation.instant",
+  "navigation.instant.prefetch"
+]
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+accent = "yellow"
+toggle.icon = "lucide/sun-moon"
+toggle.name = "Byt till automatisk tema"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+accent = "yellow"
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "Byt till mörkt tema"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+accent = "yellow"
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "Byt till ljust tema"
+
 
 [[project.extra.social]]
 icon = "fontawesome/solid/globe"
 link = "https://www.lysator.liu.se"
+

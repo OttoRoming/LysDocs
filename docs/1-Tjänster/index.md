@@ -63,7 +63,7 @@ Alla användare har en webb-katalog på webbservern! Du hittar den i din hemmapp
 även stöd för rudimentära server-script (.cgi), pike-skript och Markup-språket
 RXML.
 
-[Mer info om webbsidor och webbservern finns här!](../tjänster/www/index.md)
+[Mer info om webbsidor och webbservern finns här!](../1-Tjänster/www/index.md)
 
 ## Versionshantering
 

@@ -36,4 +36,4 @@ Du har nu en minimal konfiguration för att använda lysators epost.
 Om du inte är belåten med att vara inlåst i en webbläsare för att komma åt din
 epost, vill få din epost vidarebefodrad till en annan address eller vill sätta
 upp epostmappsregler samt filtrering så kan du läsa mer om hur en Lysit
-förvaltar sin epost i artikeln [Elektronisk post på Lysatorvis](../../tjänster/kommunikation/elektronisk-post-på-lysatorvis/index.md).
+förvaltar sin epost i artikeln [Elektronisk post på Lysatorvis](../../1-Tjänster/kommunikation/elektronisk-post-på-lysatorvis/index.md).
