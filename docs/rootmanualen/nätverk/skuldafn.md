@@ -10,9 +10,17 @@ Skuldafn använder `10.10.0.0/16` som subnät. IP-adresserna är uppdelade så a
 | Oktett | Användning                                                                           |
 |--------|--------------------------------------------------------------------------------------|
 | 100    | Interna tjänster som ej behöver publik IP                                            |
+| 200    | Inhysningar                                                                          |
 | 237    | Conina                                                                               |
+| 238    | Akatosh                                                                              |
 | 254    | Maskiner som har både skuldafn och "vanlig IP" (sista oktetten är samma som vanliga) |
 | 255    | Mycket temporär använding                                                            | 
+
+### Allokerade ip-adressen - inhysningar
+
+| 10.10.200.X | Inhysning        |
+|-------------|------------------|
+| 1           | LiuFs driverless | 
 
 ## Wireguard
 För att förenkla administering finns en wireguard server tillgänglig för root-gruppen på skuldafn för att kunna nå subnätet utifrån.
