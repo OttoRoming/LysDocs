@@ -1,0 +1,13 @@
+[project]
+name = "lysdocs"
+version = "0.0.0"
+description = "LysDocs är en samling guider och dokumentation för datorföreningen Lysators olika system."
+requires-python = ">=3.10"
+dependencies = [
+    "zensical",
+]
+
+[tool.uv]
+# LysDocs is a documentation site, not an installable Python package,
+# so uv should only manage the dependencies and not try to build the project.
+package = false
