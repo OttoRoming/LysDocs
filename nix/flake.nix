@@ -2,7 +2,7 @@
   description = "Provides a development shell for nix users.";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
