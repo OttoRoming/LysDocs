@@ -23,7 +23,7 @@ För att använda management-gui på R510, använd först `ipmitool` på systeme
 att ansluta till [management-nätet](../nätverk/management-nätet.md). Sätt också
 användare och lösenord.
 
-Därefter anslut via [proxy](../../2-Annat/proxy-via-lysator.md) till orwell och gå
+Därefter anslut via [proxy](../../annat/proxy-via-lysator.md) till orwell och gå
 in med en webbläsare på enhetens management-ip. Använd användaren och lösenordet
 som sattes med `ipmitool`.
 

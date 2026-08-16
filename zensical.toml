@@ -8,6 +8,8 @@ site_description = "LysDocs är en samling guider och dokumentation för datorf�
 repo_url = "https://git.lysator.liu.se/lysdocs/lysdocs"
 repo_name = "lysdocs/lysdocs"
 
+extra_css = ["extra.css"]
+
 extra.generator = false
 copyright = """
 <div style="display: flex; gap: 0.5em">
@@ -23,6 +25,179 @@ Skapad med
 	Zensical
 </a>
 """
+
+# Navigationen definieras explicit för att styra ordningen på sektionerna och
+# deras namn. Sidor som inte listas här hamnar inte i menyn. Titeln på varje
+# sida hämtas fortfarande från sidan själv (rubrik eller `title` i front
+# matter) — bara sektionsnamnen anges nedan.
+[[project.nav]]
+"Startsida" = "index.md"
+
+[[project.nav]]
+"Kom igång" = [
+  { "Linux" = [
+    "kom-igång/linux/installera.md",
+    "kom-igång/linux/terminalen.md",
+  ] },
+  { "Som ny medlem" = [
+    "kom-igång/som-ny-medlem/index.md",
+    "kom-igång/som-ny-medlem/chatta-med-oss.md",
+    "kom-igång/som-ny-medlem/engagera-dig!.md",
+    "kom-igång/som-ny-medlem/hitta-hit.md",
+    "kom-igång/som-ny-medlem/kom-igång-med-epost.md",
+    "kom-igång/som-ny-medlem/logga-in.md",
+    "kom-igång/som-ny-medlem/utforska-din-hemkatalog.md",
+    "kom-igång/som-ny-medlem/välkommen.md",
+  ] },
+  { "Övrigt" = [
+    "kom-igång/Övrigt/index.md",
+    "kom-igång/Övrigt/git.md",
+    "kom-igång/Övrigt/rsync.md",
+    "kom-igång/Övrigt/ssh.md",
+  ] },
+]
+
+[[project.nav]]
+"Tjänster" = [
+  "tjänster/index.md",
+  { "CPU-servrar" = [
+    "tjänster/cpu-servrar/index.md",
+    "tjänster/cpu-servrar/annat.md",
+    "tjänster/cpu-servrar/auriel.md",
+    "tjänster/cpu-servrar/backup.md",
+    "tjänster/cpu-servrar/systemd-för-användare.md",
+  ] },
+  { "GitLab" = [
+    "tjänster/gitlab/index.md",
+    "tjänster/gitlab/runners.md",
+  ] },
+  { "Kommunikation" = [
+    "tjänster/kommunikation/discord.md",
+    "tjänster/kommunikation/irc.md",
+    "tjänster/kommunikation/matrix.md",
+    { "Elektronisk post på Lysatorvis" = [
+      "tjänster/kommunikation/elektronisk-post-på-lysatorvis/index.md",
+      "tjänster/kommunikation/elektronisk-post-på-lysatorvis/extra-adresser.md",
+      "tjänster/kommunikation/elektronisk-post-på-lysatorvis/global-vidarebefordring.md",
+      "tjänster/kommunikation/elektronisk-post-på-lysatorvis/regler-och-spamfilter.md",
+    ] },
+  ] },
+  { "Tilde" = [
+    "tjänster/tilde/arbetsstationer.md",
+    "tjänster/tilde/jukebox.md",
+    "tjänster/tilde/lassystem.md",
+    "tjänster/tilde/skrivare-och-scanner.md",
+  ] },
+  { "WWW" = [
+    "tjänster/www/index.md",
+    "tjänster/www/lysssh.md",
+    "tjänster/www/publisher.md",
+  ] },
+]
+
+[[project.nav]]
+"Annat" = [
+  "annat/index.md",
+  "annat/Hindra backup.md",
+  "annat/eduroam.md",
+  "annat/gpg.md",
+  "annat/liu.md",
+  "annat/lösenord.md",
+  "annat/lösenordshanterare.md",
+  "annat/openfortivpn.md",
+  "annat/proxy-via-lysator.md",
+]
+
+[[project.nav]]
+"Rootmanualen" = [
+  "rootmanualen/index.md",
+  "rootmanualen/användarhantering.md",
+  "rootmanualen/kända-utdaterade-skript.md",
+  { "Virtualisering" = [
+    "rootmanualen/Virtualisering/Conina.md",
+    "rootmanualen/Virtualisering/proxmox.md",
+  ] },
+  { "Backup" = [
+    "rootmanualen/backup/borg.md",
+    "rootmanualen/backup/lysrdiff.md",
+    "rootmanualen/backup/rsync-speglar.md",
+    "rootmanualen/backup/rsync-till-sunky.ifm.md",
+    "rootmanualen/backup/Återställning.md",
+  ] },
+  { "Bar" = [
+    "rootmanualen/bar/bar.md",
+  ] },
+  { "Datorhandboken & dokumentation" = [
+    "rootmanualen/datorhandboken-&-dokumentation/datorhandboken.md",
+    "rootmanualen/datorhandboken-&-dokumentation/dokumentation.md",
+    "rootmanualen/datorhandboken-&-dokumentation/nya-artiklar.md",
+  ] },
+  { "DNS" = [
+    "rootmanualen/dns/lysators-namnserver.md",
+  ] },
+  { "E-post" = [
+    "rootmanualen/epost/konvertera-smartlist-till-mailman.md",
+    "rootmanualen/epost/uppdatera-komimportmail.md",
+    "rootmanualen/epost/vitlista-ip-adresser.md",
+    "rootmanualen/epost/ändra-epostalias.md",
+  ] },
+  { "Git" = [
+    "rootmanualen/git/gitlab.md",
+  ] },
+  { "Hårdvara" = [
+    "rootmanualen/hårdvara/dell-r510.md",
+    "rootmanualen/hårdvara/raritan.md",
+  ] },
+  { "Inhysningar" = [
+    "rootmanualen/inhysningar/inhysningpåminnelser.md",
+    "rootmanualen/inhysningar/skapa-ny-inhysning.md",
+  ] },
+  { "Linux" = [
+    "rootmanualen/linux/spegla-rootdisken-med-mdadm.md",
+    "rootmanualen/linux/vserver-vps.md",
+  ] },
+  { "Nätverk" = [
+    "rootmanualen/nätverk/ipv6.md",
+    "rootmanualen/nätverk/management-nätet.md",
+    "rootmanualen/nätverk/skuldafn.md",
+  ] },
+  { "Proxmox" = [
+    "rootmanualen/proxmox/live-migrering.md",
+    "rootmanualen/proxmox/resurspooler.md",
+    "rootmanualen/proxmox/tips-och-tricks.md",
+    "rootmanualen/proxmox/virtuella-maskiner.md",
+  ] },
+  { "Puppet" = [
+    "rootmanualen/puppet/puppet.md",
+  ] },
+  { "WWW" = [
+    "rootmanualen/www/planet-lysator.md",
+    "rootmanualen/www/webbserver.md",
+  ] },
+  { "Övrigt" = [
+    "rootmanualen/övrigt/cfengine.md",
+    "rootmanualen/övrigt/dokumentering-av-foreman-installation.md",
+    "rootmanualen/övrigt/dokumentering-av-freenas-installation.md",
+    "rootmanualen/övrigt/dokumentering-av-lysators-ldap-lösning.md",
+    "rootmanualen/övrigt/dokumentering-av-ssh-forwarding.md",
+    "rootmanualen/övrigt/enodia.md",
+    "rootmanualen/övrigt/få-ström-ur-ett-atx-kragg.md",
+    "rootmanualen/övrigt/installera-lysators-bittorrent-tracker.md",
+    "rootmanualen/övrigt/installera-nrpe.md",
+    "rootmanualen/övrigt/installera-solaris-på-en-ny-dator.md",
+    "rootmanualen/övrigt/inventering-av-ssl-och-tls-certifikat.md",
+    "rootmanualen/övrigt/lysatorfiera-en-dator.md",
+    "rootmanualen/övrigt/nagios.md",
+    "rootmanualen/övrigt/oid.md",
+    "rootmanualen/övrigt/patchning.md",
+    "rootmanualen/övrigt/rekommenderade-lyslyskom-möten-för-rötter.md",
+    "rootmanualen/övrigt/skrivare.md",
+    "rootmanualen/övrigt/standardprogram.md",
+    "rootmanualen/övrigt/ta-upp-och-ner-lyslyskom.md",
+    "rootmanualen/övrigt/webware.md",
+    "rootmanualen/övrigt/Övertyga-en-sun-att-prata-serieport,-även-om-den-har-tangentbord.md",
+  ] },
+]
 
 [project.theme]
 

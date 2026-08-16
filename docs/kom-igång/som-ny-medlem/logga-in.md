@@ -4,7 +4,7 @@ weight: -90
 
 # Logga in på Lysator
 
-Lysator tillhandahåller ett antal [CPU-Servrar](../../1-Tjänster/cpu-servrar/index.md) som är tänkta som kan användas av föreningens medlemmar, förutom arbetsstationerna i föreningens lokaler är dessa den främsta accesspunkten till lysators system.
+Lysator tillhandahåller ett antal [CPU-Servrar](../../tjänster/cpu-servrar/index.md) som är tänkta som kan användas av föreningens medlemmar, förutom arbetsstationerna i föreningens lokaler är dessa den främsta accesspunkten till lysators system.
 
 ## SSH
 

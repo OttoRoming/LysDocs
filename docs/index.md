@@ -15,10 +15,10 @@ Dokumentationen genereras från markdown-filer i ett [git-repo](https://git.lysa
 
 ## Innehåll
 
-- [Kom igång](./0-Kom-igång/som-ny-medlem/välkommen.md) innehåller matnyttig information för dig som är ny medlem.
-- [Tjänster](./1-Tjänster/index.md) beskriver bland annat hur du använder din E-post och personliga hemsida.
-- [Annat](./2-Annat/index.md) innehåller mer blandat innehåll som inte passar in i de andra kategorierna.
-- [Rootmanualen](./3-Rootmanualen/index.md) innehåller tips och guider som endast är intressanta för rötter.
+- [Kom igång](./kom-igång/som-ny-medlem/välkommen.md) innehåller matnyttig information för dig som är ny medlem.
+- [Tjänster](./tjänster/index.md) beskriver bland annat hur du använder din E-post och personliga hemsida.
+- [Annat](./annat/index.md) innehåller mer blandat innehåll som inte passar in i de andra kategorierna.
+- [Rootmanualen](./rootmanualen/index.md) innehåller tips och guider som endast är intressanta för rötter.
 
 ## Tangentbordsgenvägar
 

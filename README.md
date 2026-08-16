@@ -2,6 +2,18 @@
 
 Skapa gärna merge-request om du vill bidra!
 
+## Lägga till en sida
+
+Navigationen är definierad explicit i `zensical.toml`, så en ny sida syns inte
+i menyn förrän den lagts till där. Kör
+
+```sh
+just check
+```
+
+för att kontrollera att inga sidor eller bilder blivit bortglömda, och att
+inga poster i nav pekar på filer som inte finns.
+
 Mer information går att hitta på <https://squidfunk.github.io/mkdocs-material/>
 
 ## Sätta upp utvecklingsmiljö

@@ -112,7 +112,7 @@ trafik dit routas till news-servern).
 ## Avancerat: Verifiera SSH-fingeravtryck
 Gå till [datorhandboken](https://datorhandbok.lysator.liu.se/) och hitta
 maskinen du försöker logga in på. Under _SSH-fingeravtryck_ kommer det finnas
-ett [gpg](../../2-Annat/gpg.md)-signerat meddelande med ett antal rader som ser ut
+ett [gpg](../../annat/gpg.md)-signerat meddelande med ett antal rader som ser ut
 enligt nedan.
 ```
 256 SHA256:h6f1rgzUzZmrteHVETpuqdOP3tjqxSt9qs8VPtvkWV4 volton.lysator.liu.se (ED25519)

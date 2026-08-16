@@ -3,7 +3,7 @@
 Detta är en guide över olika sätt att använda din Lysatorspecifika e-post.
 
 !!! warning "Sätt e-postlösenord!"
-      För att överhuvudtaget kunna logga in på ditt e-postkonto måste du [sätta ett lösenord](../../../0-Kom-igång/som-ny-medlem/kom-igång-med-epost.md#satt-losenord).
+      För att överhuvudtaget kunna logga in på ditt e-postkonto måste du [sätta ett lösenord](../../../kom-igång/som-ny-medlem/kom-igång-med-epost.md#satt-losenord).
 
 ## Webmail
 
