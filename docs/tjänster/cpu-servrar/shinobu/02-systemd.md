@@ -1,6 +1,6 @@
 # Autostarta Podman Compose
 För att slippa starta tjänsten varje gång machinen startar om kan man använda
-sig av [systemds användartjänster](../systemd-för-användare.md). Läs den guiden
+sig av [systemds användartjänster](../guider/systemd-för-användare.md). Läs den guiden
 först för att få en god introduktion till hur användartjänster fungerar.
 
 Systemd använder så kallade 
@@ -50,7 +50,7 @@ loginctl enable-linger "$USER"
 ```
 
 För att sätta på automatstartning av `hello-world` poden från
-[Introduktionen till podman](./introduktion.md) måste man då köra:
+[Introduktionen till podman](./01-introduktion.md) måste man då köra:
 ```bash
 systemctl --user enable --now podman@hello-world.service
 ```

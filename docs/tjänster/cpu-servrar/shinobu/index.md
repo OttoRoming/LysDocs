@@ -1,4 +1,5 @@
 # Shinobu
+
 Shinobu skiljer sig från alla andra CPU-servrar eftersom den är dedikerad till
 att köra [Docker-containrar](https://www.docker.com/resources/what-container/)
 med [Podman](https://podman.io/). Machinen har 256 GB DDR4 RAM, 48 trådar och
@@ -22,7 +23,7 @@ att ingen uråldrig applikation med flera CVE:er mot sig körs.
     det är kul, så vänligen håll dina containers uppdaterade. Om du vill ha en
     guldsjärna, gå med i security-mejllistan för tjänsterna du driver.
 
-Följ [denna](./introduktion.md) guide för att få en introduktion till
+Följ [denna](./01-introduktion.md) guide för att få en introduktion till
 Podman. Om du har problem eller frågor vill vi gärna hjälpa dig. Rootgruppen
 är till för att hjälpa, ingen fråga är för dum. Du kan nå maskinansvarige
 rooten [här](mailto:kindergarten@lysator.liu.se) eller rootgruppen direkt
