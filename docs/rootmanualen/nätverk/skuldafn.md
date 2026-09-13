@@ -10,6 +10,7 @@ Skuldafn använder `10.10.0.0/16` som subnät. IP-adresserna är uppdelade så a
 | Oktett | Användning                                                                           |
 |--------|--------------------------------------------------------------------------------------|
 | 100    | Interna tjänster som ej behöver publik IP                                            |
+| 117    | Xenofarm                                                                             |
 | 200    | Inhysningar                                                                          |
 | 237    | Conina                                                                               |
 | 238    | Akatosh                                                                              |
@@ -30,11 +31,11 @@ För att förenkla administering finns en wireguard server tillgänglig för roo
 3. Öppna webbläsare och gå till 10.10.1.1 och logga in med användarnamn `root`samt lösenord för `skuldafn` i pass-repo
 4. Klicka dig fram: VPN -> Wireguard -> Peer Generator
 5. Fyll i fälten som följande
-        1. Endpoint: `130.236.254.49:51951`
-        2. Generera en ny preshared key
-        3. Allowed IPs: `10.10.0.0/16, 10.11.1.0/24, 10.11.2.0/24, 192.168.42.0/24, 172.24.42.0/29`
-        4. keepalive: `<leave blank>`
-        5. dns: `<leave blank>`
+  1. Endpoint: `130.236.254.49:51951`
+  2. Generera en ny preshared key
+  3. Allowed IPs: `10.10.0.0/16, 10.11.1.0/24, 10.11.2.0/24, 192.168.42.0/24, 172.24.42.0/29`
+  4. keepalive: `<leave blank>`
+  5. dns: `<leave blank>`
 6. Kopiera den resulterande wireguard konfigurationen och placera den under `/etc/wireguard` på din laptop.
 7. Klicka på "store and generate next"
 8. Kolla under fliken "peers" att din wireguardprofil är skapad.
