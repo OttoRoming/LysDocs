@@ -1,6 +1,2 @@
 serve:
-  uv run mkdocs serve --livereload
-
-sync:
-  uv venv
-  uv pip install -r requirements.txt
+  uv run --with-requirements requirements.txt mkdocs serve --livereload

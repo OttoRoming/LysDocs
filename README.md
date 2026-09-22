@@ -13,14 +13,9 @@ Mer information går att hitta på <https://squidfunk.github.io/mkdocs-material/
 1. Installera [`uv`](https://docs.astral.sh/uv/getting-started/installation/).
 
 2. Inuti detta repo, kör
-    ```sh
-    uv venv
-    uv pip install -r requirements.txt
-    ```
 
-3. För att börja servera sidan
     ```sh
-    uv run mkdocs serve --livereload
+    uv run --with-requirements requirements.txt mkdocs serve --livereload
     ```
 
 ### Med python venv
