@@ -1,27 +1,27 @@
 # Lysdocs
 
-Skapa gärna merge-request om du vill bidra!
+Skapa gärna pull-request om du vill bidra!
 
-Mer information går att hitta på <https://squidfunk.github.io/mkdocs-material/>
+Mer information går att hitta på https://starlight.astro.build/
 
-## Sätta upp utvecklingsmiljö
+## Hur man utvecklar
 
-### Med `uv`
+1. Installera beroenden
+```
+npm i
+```
 
-[`uv`](https://docs.astral.sh/uv/) är en BLAZINGLY snabb pakethanterare för Python.
+2. Starta dev server
+```
+npm run dev
+```
 
-1. Installera [`uv`](https://docs.astral.sh/uv/getting-started/installation/).
+3. Kolla efter linting fel
+```
+npm run check
+```
 
-2. Inuti detta repo, kör
-
-    ```sh
-    uv run --with-requirements requirements.txt mkdocs serve --livereload
-    ```
-
-### Med python venv
-
-1. Hämta hem detta repo till godtycklig mapp
-2. I toppkatalogen på detta repo kör `python3 -m venv venv`
-3. Kör `source venv/bin/activate` för att aktivera python miljön.
-4. Kör `pip install -r requirements.txt` för att installera alla beroenden.
-5. Kör kommandot `mkdocs serve --livereload` för att serva sidan lokalt.
+4. Försök använda autofixes
+```
+npm run fix
+```

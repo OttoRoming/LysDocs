@@ -1,13 +1,21 @@
-public/
+# build output
+dist/
+# generated types
+.astro/
 
-venv/
-.venv/
+# dependencies
+node_modules/
 
-src/.cache/
-src/public/
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-**~
 
-*.dg.png
+# environment variables
+.env
+.env.production
 
-.direnv
+# macOS-specific files
+.DS_Store

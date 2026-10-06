@@ -1,0 +1,13 @@
+---
+// Defined to prevent `starlight-sidebar-topics` from adding topics to the sidebar
+
+import Default from "@astrojs/starlight/components/Sidebar.astro";
+import TopicsSidebar from "starlight-sidebar-topics/components/Sidebar.astro";
+---
+
+<div class="md:sl-hidden">
+	<TopicsSidebar />
+</div>
+<Default>
+	<slot />
+</Default>

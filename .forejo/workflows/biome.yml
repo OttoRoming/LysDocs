@@ -1,0 +1,23 @@
+name: Biome Check
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  biome:
+    container:
+      image: forge.lysator.liu.se/kindergarten/runners/alpine-docker:latest
+
+    runs-on: docker
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Install Biome
+        run: apk add biome
+
+      - name: Run Biome
+        run: biome ci

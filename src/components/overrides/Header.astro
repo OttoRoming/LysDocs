@@ -1,0 +1,119 @@
+---
+import LanguageSelect from "@astrojs/starlight/components/LanguageSelect.astro";
+import Search from "@astrojs/starlight/components/Search.astro";
+import SiteTitle from "@astrojs/starlight/components/SiteTitle.astro";
+import SocialIcons from "@astrojs/starlight/components/SocialIcons.astro";
+import ThemeSelect from "@astrojs/starlight/components/ThemeSelect.astro";
+
+const { topics } = Astro.locals.starlightSidebarTopics;
+---
+
+<div class="header">
+    <SiteTitle />
+	<div class="desktop">
+		{topics.map((topic) => {
+			const href = topic.link;
+			const current = topic?.isCurrent;
+
+			return (
+				<a
+					href={href}
+					class:list={{ "starlight-sidebar-topics-current": current }}
+				>
+					{topic.label}
+				</a>
+			);
+		})}
+	</div>
+	<div class="sl-flex print:hidden search-container">
+		<Search />
+	</div>
+	<div class="sl-hidden md:sl-flex print:hidden right-group">
+		<div class="sl-flex social-icons">
+			<SocialIcons />
+		</div>
+		<ThemeSelect />
+		<LanguageSelect />
+	</div>
+</div>
+
+<style>
+.header {
+	display: grid;
+	gap: 1.5rem;
+	align-content: center;
+	height: 100%;
+	grid-template-columns: auto auto 1fr auto;
+}
+
+@media (width < 50rem) {
+	.header {
+		grid-template-columns: 1fr auto;
+	}
+}
+
+.search {
+	justify-content: end;
+}
+
+.search,
+.right-group,
+.social-icons {
+	gap: 1rem;
+	align-items: center;
+}
+
+a {
+	color: var(--sl-color-white);
+	text-decoration: none;
+	white-space: nowrap;
+	padding-inline: 0.4em;
+
+	:root[data-theme="dark"] & {
+    	font-weight: 600;
+	}
+}
+/*
+.search-container {
+    flex-grow: 1;
+}*/
+
+a.starlight-sidebar-topics-current {
+   	font-weight: 600;
+
+	:root[data-theme="dark"] & {
+        color: var(--sl-color-text-accent);
+    }
+
+    :root[data-theme="light"] & {
+        --box-shadow-color: var(--sl-color-gray-3);
+    }
+    :root[data-theme="dark"] & {
+        --box-shadow-color: var(--sl-color-accent);
+    }
+
+    box-shadow: -1px 0 0 0 var(--box-shadow-color), 1px 0 0 0 var(--box-shadow-color);
+}
+
+a:hover {
+	color: var(--sl-color-gray-2);
+}
+:root[data-theme="light"] {
+	.header a:hover {
+		color: var(--sl-color-gray-3);
+	}
+}
+
+.desktop {
+	display: none;
+	align-items: center;
+	gap: 1rem;
+	padding-inline-end: 1rem;
+}
+
+@media (width >= 50rem) {
+	.desktop {
+		display: flex;
+	}
+}
+</style>

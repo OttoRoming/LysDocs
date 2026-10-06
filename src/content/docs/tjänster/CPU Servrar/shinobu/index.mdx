@@ -1,0 +1,88 @@
+---
+title: Shinobu
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Shinobu skiljer sig från alla andra CPU-servrar eftersom den är dedikerad till
+att köra [Docker-containrar](https://www.docker.com/resources/what-container/)
+med [Podman](https://podman.io/). Machinen har 256 GB DDR4 RAM, 48 trådar och
+dedikerat lagring av ~3.5TB för lagring av applikationsdata, monterad under
+`/podman`.
+
+Eftersom den är tänkt som en tjänsteserver, förvänta dig inte upptiden som
+[Shipon](/tjänster/cpu-servrar/#shipon) eller [Milou](/tjänster/cpu-servrar/#milou) erbjuder. Sätt
+därför upp automatstartning för dina Podman applikationer med systemd-tjänster
+eller Quadlet.
+
+Det gäller samma vett och etikett som på andra maskiner - kör inte QBittorrent,
+gräv inte Bitcoin - kör annars hårt och fråga om du vill ha hjälp. Rootgruppen
+kan periodvis kolla på vilka images som körs på maskinen för att säkerställa
+att ingen uråldrig applikation med flera CVE:er mot sig körs.
+
+<Aside type="caution" title="Alla portar är öppnade">
+    Portar på maskinen kan nås från det publika internet. **Säkerhetshål i det
+    du kör kan komma att exploateras för att hacka din användare.** Ingen tycker
+    det är kul, så vänligen håll dina containers uppdaterade. Om du vill ha en
+    guldsjärna, gå med i security-mejllistan för tjänsterna du driver.
+</Aside>
+
+Följ [denna](/tjänster/cpu-servrar/shinobu/01-introduktion/) guide för att få en introduktion till
+Podman. Om du har problem eller frågor vill vi gärna hjälpa dig. Rootgruppen
+är till för att hjälpa, ingen fråga är för dum. Du kan nå maskinansvarige
+rooten [här](mailto:kindergarten@lysator.liu.se) eller rootgruppen direkt
+[här](mailto:root@lysator.liu.se). Vi finns givetvis också på bryggan.
+
+## Lagring på `/podman`
+
+Din hemkatalog, `/home/<nick>`, är en nätverksmontering mot machinen
+[Hermaeus](https://datorhandbok.lysator.liu.se/index.php/Hermaeus). Det gör att
+din hemkatalog är samma på alla machiner, men det introducerar också latens. Om
+man exempelvis kör en databas på Shipon kommer den knappast vara fort.
+
+För att lösa detta har Shinobu egen lagring monterad på `/podman`, som är tänkt
+att användas för just applikationsdata av Podman-applikationer. När du loggar
+in första gången på maskinen skapas mapparna `/podman/containers/<nick>` och
+`/podman/users/<nick>` åt dig.
+
+- `/podman/containers/<nick>`: Här kommer podman att spara ner images
+  som du bygger, containerdata, samt alla volymer som du skapar.
+- `/podman/users/<nick>`: Här är det tänkt för dig att lägga applikationsfiler
+  som dina applikationer behöver. Det kan vara konfigurationsfiler eller
+  där du skriver applikationsdata till.
+
+<Aside type="danger" title="Ta backups!">
+    Det tas för tillfället inga säkerhetskopior av `/podman`.
+</Aside>
+
+<Aside type="caution" title="Varning!">
+    Använd vänligen inte `/podman` som en permanent scratchdisk. Om du ska
+    säkerhetskopiera din hemdator, spara ner större filer som du hittar på
+    nätet, eller annat som inte har med Podman att göra kommer maskinen inte
+    kunna nyttas av andra användare till det den är tänkt till. Hemdisk är stor,
+    använd den för sånt.
+</Aside>
+
+## Vanliga fel
+
+<Aside type="note" title="Klaga gärna när något är fel!">
+    Nedan följer ett antal fel som är enkla att stöta på. Om du
+    fastnar i något, eller upplever otydligheter, meddela rootgruppen
+    [här](mailto:root@lysator.liu.se) eller på bryggan.
+</Aside>
+
+### Failed to bind port 1234 (Address already in use)
+
+Porten på maskinen används redan, du behöver bytta den externa porten din
+applikation vill lyssna på.
+
+### Cannot connect to the Docker daemon
+
+Om du kör `podman compose` används faktiska `docker compose` verktyget med ett
+kompabilitetslager som podman exponerar. Du behöver starta detta för att `podman
+compose` ska fungera som det ska. Kör en gång `systemctl --user enable --now
+podman.socket` för att starta kompabilitetslagret.
+
+### Vars lagras volymer?
+
+Volymer lagras under `/podman/containers/<nick>/volumes`.

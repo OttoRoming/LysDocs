@@ -1,0 +1,45 @@
+---
+title: Startsida
+template: splash
+hero:
+  title: LysDocs
+  tagline: Välkommen till Lysators dokumentation! Här kan du läsa om allt från vår infrastruktur, tjänster du får tillgång till som medlem samt anteckningar och tips för rootarbete.
+  image:
+    file: ./assets/lysdocs.svg
+    alt: LysDocs logotyp
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+Dokumentationen genereras från markdown-filer i ett [git-repo](https://forge.lysator.liu.se/lysdocs/lysdocs). Du kan skapa pull-requests med innehåll som du tycker skulle passa in!
+
+## Innehåll
+
+<CardGrid>
+    <LinkCard
+		title="Kom igång"
+		href="/kom-igång/som-ny-medlem/välkommen/"
+		description="innehåller matnyttig information för dig som är ny medlem."
+	/>
+    <LinkCard
+		title="Tjänster"
+		href="/tjänster/"
+		description="beskriver bland annat hur du använder din E-post och personliga hemsida."
+	/>
+    <LinkCard
+		title="Annat"
+		href="/annat/"
+		description="innehåller mer blandat innehåll som inte passar in i de andra kategorierna."
+	/>
+    <LinkCard
+		title="Rootmanualen"
+		href="/rootmanualen/"
+		description="innehåller tips och guider som endast är intressanta för rötter."
+	/>
+</CardGrid>
+
+{/* ## Tangentbordsgenvägar
+
+- <kbd>Ctrl + K</kbd> öppnar sökfältet.
+- <kbd>Ctrl + &larr;</kbd> går till föregående sida.
+- <kbd>Ctrl + &rarr;</kbd> går till nästa sida.*/}

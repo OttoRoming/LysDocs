@@ -1,0 +1,51 @@
+---
+title: Logga in på Lysator
+sidebar:
+  order: -90
+---
+
+Lysator tillhandahåller ett antal [CPU-Servrar](../../tjänster/cpu-servrar/index.md) som är tänkta som kan användas av föreningens medlemmar, förutom arbetsstationerna i föreningens lokaler är dessa den främsta accesspunkten till lysators system.
+
+## SSH
+
+För att nå CPU-servrarna kan man använda sig av _SSH_, ett sätt att fjärrstyra en dator.
+
+På många operativsystem är en SSH-klient redan installerat, medan en del andra kan kräva att du installerar en med pakethanteraren för ditt operativsystem (t.ex. openSSH).
+
+Kolla under ditt operativsystem för ett sätt att öppna en s.k. _terminalemulator_ för att kunna köra skalkommandon.
+
+=== "Windows"
+
+```text
+Öppna programmet `cmd` / "Kommandotolken".
+```
+
+=== "MacOS"
+
+```text
+Öppna appen "Terminal".
+```
+
+=== "Linux"
+
+```text
+Öppna din terminalemulator, t.ex. `gnome-terminal`, `konsole`, `xterm` eller liknande.
+```
+
+=== "*BSD"
+
+```text
+Om du använder BSD vet du troligtvis mycket mer än mig...
+```
+
+Du kan sedan koppla upp dig till exempelvis `milou` med
+
+```text
+ssh [användarnamn]@milou.lysator.liu.se
+```
+
+När du blir bedd om att ange lösenord anger du ditt Lysatorlösenord.
+
+## I terminalen
+
+Om uppkopplingen gått väl kommer du nu ha ett textgränssnitt för att interagera med maskinen. Du är nu redo att börja [utforska din hemkatalog](./utforska-din-hemkatalog.md).
