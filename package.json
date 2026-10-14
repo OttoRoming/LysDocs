@@ -11,7 +11,7 @@
 		"check:astro": "astro check",
 		"check:biome": "biome check",
 		"check:rumdl": "rumdl check",
-		"check": "astro check && biome check && rumdl check",
+		"check": "biome check && rumdl check && astro check",
 		"fix:biome": "biome check --write",
 		"fix:rumdl": "rumdl check --fix",
 		"fix": "biome check --write && rumdl check --fix"
