@@ -1,0 +1,23 @@
+name: Astro Check
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    container:
+      image: forge.lysator.liu.se/kindergarten/runners/alpine-docker:latest
+
+    runs-on: docker
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Astro check
+        run: npm run check:astro

@@ -1,0 +1,33 @@
+---
+title: Matrix
+---
+
+Matrix är ett decentraliserat chattprotokoll. Det har ett flertal olika klienter och servrar du kan använda dig av.
+
+Lysator har ett "space" på hemservern `matrix.org` man kan gå med i via denna länk: [https://matrix.to/#/#lysator:matrix.org](https://matrix.to/#/#lysator:matrix.org). Detta space innehåller ett flertal kanaler av vilka de allra flesta är bryggade till Discord och IRC.
+
+(Vill du att Lysator kör en egen matrix server? Hjälp oss att sätta upp och driva en!)
+
+## Börja använda Matrix
+
+Om du aldrig har använt matrix förut så rekommenderar vi att använda [element](https://app.element.io/) som är den mest välanvända och kanske mest lättanvända klienten. Om du vill prova någon annan klient kan du kika på [listan över klienter på matrix.org](https://matrix.org/ecosystem/clients/).
+
+Skapa därefter ett konto på valfri hemserver. Standardvalet brukar vara hemservern `matrix.org` men du kan nå Lysators matrix-chatter från de flesta hemservrar.
+
+När du har skapat ett konto kan du gå med i matrix-chatterna genom att klicka på länken ovan till Lysators Matrix space.
+
+## Lysators Matrix kanaler
+
+## #lysator-b:matrix.org
+
+Denna kanal är den generella kanalen som är bryggad mellan Matrix, Discord och IRC. Den används för att diskutera alla de saker Lysator håller på med. För diskussioner om ett specifikt projekt är det bättre att skriva i någon av de projektspecifika kanalerna.
+
+### Projektkanaler
+
+Övriga kanaler i Lysators Matrix space används för att diskutera ett visst projekt. Vanligtvis är dessa också bryggade till andra plattformar som exempelvis Discord eller IRC, men det beror på det enskilda projektets önskan.
+
+## Vidare läsning
+
+- **[Chat Basics](https://matrix.org/docs/chat_basics/public-rooms/)**: Grundläggande om vad Matrix är och hur man använder det för att chatta
+- **[Elements of Matrix](https://matrix.org/docs/matrix-concepts/elements-of-matrix/)**: Övergripande koncept och struktur kring Matrix uppbyggnad och funktion
+- **[Spec](https://spec.matrix.org/latest/)**: Specifikationen för Matrix protokollet

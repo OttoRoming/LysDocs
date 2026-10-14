@@ -1,0 +1,47 @@
+---
+title: Ändra epostalias
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Alias är ett sätt för att skapa enkla e-postadresser vars mail vidarebefordras mail till en eller flera andra adresser.
+
+Det är användbart för att skapa generiska adresser som styrelse(snabel-a)lysator.liu.se, där alla i styrelsen kan få mail som skickas dit.
+
+Det är också användbart för ansvariga rötter att läsa sin maskinspecifika mail. Exempelvis har jag (sermuns) alias `root+leslie: sermuns`.
+
+<Steps>
+
+    1.  Logga in på `hermod`.
+
+    2. Bli root:
+        ```bash
+        su
+        ```
+
+    3.  Gå till `/etc`:
+        ```bash
+        cd /etc
+        ```
+
+    4.  Checka ut:
+        ```bash
+        co -l aliases
+        ```
+
+    5.  Gör dina ändringar i filen `aliases`.
+
+
+    6.  Checka in. Skriv ett kortfattat meddelande som beskriver ändringen. Avsluta genom att göra nyrad och avsluta med punkt `.`.
+        ```bash
+        ci -u aliases
+        ```
+
+    7.  Aktivera dina ändringar:
+        ```bash
+        newaliases
+        ```
+
+    8. Du är färdig!
+
+</Steps>

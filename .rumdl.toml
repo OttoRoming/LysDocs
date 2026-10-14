@@ -1,0 +1,10 @@
+[global]
+disable = ["MD013"]
+
+respect-gitignore = true
+
+[MD033]
+allowed-elements = ["kbd", "br"]
+
+[per-file-ignores]
+"src/content/docs/rootmanualen/nätverk/ipv6.md" = ["MD033"]

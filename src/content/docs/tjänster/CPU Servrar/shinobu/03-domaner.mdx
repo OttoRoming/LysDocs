@@ -1,0 +1,82 @@
+---
+title: Domäner
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+## Hosta arbiträra domäner
+
+På Shinobu kan man hosta sina domäner.
+
+Det kräver att man använder sig av Docker compose och att man lägger till en
+Nginx Sidecar container som ledar vidare traffiken från Lysator till din
+applikation. Eftersom vem som helst kan lyssna på valfri port använder den
+containern en [Unix Socket](https://en.wikipedia.org/wiki/Unix_domain_socket)
+för att lyssna på traffik. Shinobu lyssnar på port 80 och 443 och skickar sedan
+vidare traffiken till den socketen.
+
+<Aside type="danger" title="Lysator är icke vinstdrivande">
+    Lysator är en icke-vinstdrivande förening, som sådan får du absolut inte
+    hostar hemsidor åt eller i koppling till företag mm.. Det du hostar ska vara
+    till personligt bruk. Rootgruppen kan även neka att en sida hostas på Lysator.
+</Aside>
+
+För att traffik ska ledas vidare till Shinobu sätt en CNAME till
+`podman.lysator.liu.se`. För att verifiera att du äger domänen skapar också en TXT
+rekord för `_dindomän.se` till `lysator=ditt-nick`.
+
+Kom igång genom att skapa en mapp varifrån socketen monteras, byt ut
+`<domainname>` mot den domänen du äger.
+
+```bash
+install -d -m 755 -o "$USER" -g "$USER" /var/lib/haproxy/domains/<domainname>
+```
+
+För att få igång reverse proxyn, behöver man lägga till `shinobu-proxy`
+containern till projektets `docker-compose.yaml`. I exemplet nedan är
+`din_container` bara en platshållare för en container som en applikation. Sätt
+`UPSTREAM_HOST` till namnet av din applikations container, `UPSTREAM_PORT` ska
+vara porten din applikation lyssnar på. Glöm inte att lägga resten av dina
+containrar i nätverket `app`, du kan bytta namnet på den. Ändrar även
+monteringen på `shinobu-proxy`.
+
+```bash
+services:
+  shinobu-proxy:
+    image: git.lysator.liu.se:5050/lysator/shinobu-proxy
+    ports:
+      # Du exponera en port när du debuga, stäng kanske av när det fungerar
+      # - "6969:80"
+    environment:
+      UPSTREAM_HOST: din_container
+      UPSTREAM_PORT: "<porten din applikation lyssnar på>"
+    volumes:
+      - "/var/lib/haproxy/domains/<din domän>:/var/proxy:rw"
+
+    depends_on:
+      - some_downstream
+    networks:
+      - app
+
+din_container:
+    image: docker.io/hashicorp/http-echo:latest
+    command:
+      - "-text=Hello from the API container!"
+      - "-listen=:8080"
+    networks:
+      - app
+
+networks:
+  app:
+```
+
+Om du nu starta din applikation igen bör se en `proxy.sock` fil under
+`/var/lib/haproxy/domains/<domainname>`. Testa att det fungerar med:
+
+```bash
+curl  --unix-socket domains/<domain>/proxy.sock <domain>
+```
+
+Om allt fungerar kontakta root och vi lägger till din domän så du kan få
+traffik. Kontakta root genom att hitta en root i Tilde eller mejla root at
+lysator.liu.se.

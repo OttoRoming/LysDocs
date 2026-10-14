@@ -1,6 +1,0 @@
-[tasks.build]
-env = { IS_PRODUCTION = "true" }
-run = "uv run mkdocs build"
-
-[tasks.serve]
-run = "uv run mkdocs serve --open"
