@@ -1,5 +1,8 @@
 # Lysdocs
 
+> [!NOTE] LysDocs har flyttat hemifrån!
+> Lysdocs utvecklas nu på https://forge.lysator.liu.se/lysdocs/lysdocs
+
 Skapa gärna pull-request om du vill bidra!
 
 Mer information går att hitta på https://starlight.astro.build/
