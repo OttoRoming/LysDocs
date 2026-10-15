@@ -4,6 +4,7 @@ import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
 import starlightLinksValidatorPlugin from "starlight-links-validator";
 import starlightSidebarTopicsPlugin from "starlight-sidebar-topics";
+import starlightLlmsTxt from "starlight-llms-txt";
 
 // https://astro.build/config
 export default defineConfig({
@@ -30,6 +31,7 @@ export default defineConfig({
 			},
 			customCss: ["./src/styles/custom.css"],
 			plugins: [
+  			starlightLlmsTxt(),
 				starlightLinksValidatorPlugin({
 					errorOnRelativeLinks: false,
 					errorOnLocalLinks: false,
