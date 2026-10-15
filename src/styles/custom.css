@@ -17,9 +17,9 @@
 
 /* Light mode colors. */
 :root[data-theme="light"] {
-    --sl-color-accent-low: #c7d6ff;
-    --sl-color-accent: #ff8f00;
-    --sl-color-accent-high: #ffa700;
+	--sl-color-accent-low: #c7d6ff;
+	--sl-color-accent: #ff8f00;
+	--sl-color-accent-high: #ffa700;
 	--sl-color-white: #17181c;
 	--sl-color-gray-1: #24272f;
 	--sl-color-gray-2: #353841;
@@ -34,10 +34,9 @@
 	--sl-color-bg-sidebar: var(--sl-color-gray-7);
 
 	& .site-title {
-        color: var(--sl-color-white);
+		color: var(--sl-color-white);
 	}
 }
-
 
 /*header {
     & :root[data-theme="light"] {

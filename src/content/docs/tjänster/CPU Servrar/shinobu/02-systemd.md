@@ -5,7 +5,7 @@ title: SystemD
 ## Autostarta Podman Compose
 
 För att slippa starta tjänsten varje gång machinen startar om kan man använda
-sig av [systemds användartjänster](../../guider/systemd-för-användare.mdx). Läs den guiden
+sig av [systemds användartjänster](../../Guider/systemd-för-användare.mdx). Läs den guiden
 först för att få en god introduktion till hur användartjänster fungerar.
 
 Systemd använder så kallade

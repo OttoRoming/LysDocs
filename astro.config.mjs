@@ -11,18 +11,18 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: "LysDocs",
-      logo: {
-        src: "./src/assets/lysdocs.svg",
-      },
+			logo: {
+				src: "./src/assets/lysdocs.svg",
+			},
 			social: [
 				{
 					icon: "forgejo",
 					label: "Forge",
 					href: "https://forge.lysator.liu.se/lysdocs/lysdocs",
 				},
-      ],
-      editLink: {
-        baseUrl: "https://forge.lysator.liu.se/lysdocs/lysdocs/_edit/main/"
+			],
+			editLink: {
+				baseUrl: "https://forge.lysator.liu.se/lysdocs/lysdocs/_edit/main/",
 			},
 			components: {
 				Header: "./src/components/overrides/Header.astro",

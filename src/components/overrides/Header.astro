@@ -9,7 +9,7 @@ const { topics } = Astro.locals.starlightSidebarTopics;
 ---
 
 <div class="header">
-    <SiteTitle />
+	<SiteTitle />
 	<div class="desktop">
 		{topics.map((topic) => {
 			const href = topic.link;
@@ -70,7 +70,7 @@ a {
 	padding-inline: 0.4em;
 
 	:root[data-theme="dark"] & {
-    	font-weight: 600;
+		font-weight: 600;
 	}
 }
 /*
@@ -79,20 +79,22 @@ a {
 }*/
 
 a.starlight-sidebar-topics-current {
-   	font-weight: 600;
+	font-weight: 600;
 
 	:root[data-theme="dark"] & {
-        color: var(--sl-color-text-accent);
-    }
+		color: var(--sl-color-text-accent);
+	}
 
-    :root[data-theme="light"] & {
-        --box-shadow-color: var(--sl-color-gray-3);
-    }
-    :root[data-theme="dark"] & {
-        --box-shadow-color: var(--sl-color-accent);
-    }
+	:root[data-theme="light"] & {
+		--box-shadow-color: var(--sl-color-gray-3);
+	}
+	:root[data-theme="dark"] & {
+		--box-shadow-color: var(--sl-color-accent);
+	}
 
-    box-shadow: -1px 0 0 0 var(--box-shadow-color), 1px 0 0 0 var(--box-shadow-color);
+	box-shadow:
+		-1px 0 0 0 var(--box-shadow-color),
+		1px 0 0 0 var(--box-shadow-color);
 }
 
 a:hover {
