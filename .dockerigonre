@@ -1,0 +1,14 @@
+.forgejo
+.rumdl_cache
+.vscode
+.gitignore
+.rumdl.toml
+
+node_modules
+public
+biome.json
+README.md
+tsconfig.json
+
+docker-compose.yml
+Dockerfile
