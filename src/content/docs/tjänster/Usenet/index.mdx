@@ -1,0 +1,61 @@
+---
+title: Usenet
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Det är möjligt att läsa och skriva NNTP-nyheter på Lysator igen.
+Detta görs på servern nyheter.lysator.liu.se port 563 med TLS,
+där inloggningen är din vanliga Lysatorinloggning.
+Det kan vara möjligt att logga in okrypterat via port 119,
+men det är inte rekommenderat [då ditt lösenord med mer kan komma på vift](https://en.wikipedia.org/wiki/Snowden_disclosures).
+I synnerhet om du ansluter via en dator som befinner sig någon annanstans än ~.
+
+<Aside type="danger" >
+    Utanför Lysators nät går det endast att logga in mot port 563 med TLS.
+</Aside>
+
+## SLRN
+
+Du kan t.ex. använda programmet slrn för att läsa och skriva texter.
+
+Börja med att skapa `~/.slrnrc` och sätt följande variabler:
+
+```slrnrc
+set username "john"
+set hostname "lysator.liu.se"
+set realname "John Doe"
+charset display "utf-8"
+charset outgoing "utf-8"
+```
+
+Första gången du kör programmet måste du skapa `~/.jnewsrc` på följande sätt:
+
+```bash
+slrn -h snews://nyheter.lysator.liu.se -f ~/.jnewsrc --create
+```
+
+Hädanefter kan du starta slrn såhär:
+
+```bash
+slrn -h snews://nyheter.lysator.liu.se
+```
+
+### För vidare läsning
+
+- [https://wiki.archlinux.org/index.php/Slrn](https://wiki.archlinux.org/index.php/Slrn)
+- [https://slrn.info/documentation.html](https://slrn.info/documentation.html)
+- [https://help.ubuntu.com/community/slrn](https://help.ubuntu.com/community/slrn)
+
+## Emacs
+
+Emacs inbyggda e-postklient gnus kan också användas som nyhetsläsare. Lägg till detta i din `~/.emacs.el` fil:
+
+```elisp
+(setq gnus-select-method '(nntp "nyheter.lysator.liu.se"
+                                (nntp-open-connection-function nntp-open-tls-stream)
+                                (nntp-port-number 563)
+                                (nntp-address "nyheter.lysator.liu.se")))
+```
+
+Sedan kan du ansluta med kommandot `M-x gnus` och för att få en översikt över alla nyheter använd `M-d`.
