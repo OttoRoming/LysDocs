@@ -21,4 +21,4 @@ jobs:
         run: npm ci
 
       - name: Run ryl
-        run: npm run ryl:check
+        run: npm run check:ryl
