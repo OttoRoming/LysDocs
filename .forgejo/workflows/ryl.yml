@@ -7,7 +7,7 @@ name: ryl check
   workflow_dispatch:
 
 jobs:
-  biome:
+  ryl:
     container:
       image: forge.lysator.liu.se/kindergarten/runners/alpine-docker:latest
 
