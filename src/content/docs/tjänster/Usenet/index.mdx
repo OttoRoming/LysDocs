@@ -2,7 +2,7 @@
 title: Usenet
 ---
 
-import { Aside } from '@astrojs/starlight/components';
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
 
 Det är möjligt att läsa och skriva NNTP-nyheter på Lysator igen.
 Detta görs på servern nyheter.lysator.liu.se port 563 med TLS,
@@ -17,6 +17,25 @@ I synnerhet om du ansluter via en dator som befinner sig någon annanstans än ~
 
 ## SLRN
 
+### Installation
+
+<Tabs>
+  <TabItem label="Arch Linux">
+      Installera `slrn-snapshot` från AUR
+  </TabItem>
+  <TabItem label="Alpine Linux">
+      ```bash
+      # apk add slrn
+      ```
+  </TabItem>
+  <TabItem label="FreeBSD">
+      ```bash
+      # pkg install slrn
+      ```
+  </TabItem>
+</Tabs>
+
+### Konfiguration
 Du kan t.ex. använda programmet slrn för att läsa och skriva texter.
 
 Börja med att skapa `~/.slrnrc` och sätt följande variabler:
@@ -43,7 +62,7 @@ slrn -h snews://nyheter.lysator.liu.se
 
 ### För vidare läsning
 
-- [https://wiki.archlinux.org/index.php/Slrn](https://wiki.archlinux.org/index.php/Slrn)
+- https://wiki.archlinux.org/title/Slrn
 - [https://slrn.info/documentation.html](https://slrn.info/documentation.html)
 - [https://help.ubuntu.com/community/slrn](https://help.ubuntu.com/community/slrn)
 
