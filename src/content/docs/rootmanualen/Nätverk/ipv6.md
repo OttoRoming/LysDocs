@@ -16,7 +16,7 @@ Exempelvis blir `130.236.254.27` alltså `2001:6b0:17:f0a0::1b`.
 
 Varje adress ska även ha en motsvarande reverse-post (`PTR`) i zonfilen `f0a.zone`,
 som är reverse-zon för `2001:6b0:17:f0a0::/64`
-(se [Lysators namnserver](../DNS/lysators-namnserver.mdx)).
+(se [Lysators namnserver](/rootmanualen/dns/lysators-namnserver/)).
 Postens namn är den sista oktettens två hexadecimala siffror i omvänd ordning.
 För `ftp.lysator.liu.se` (`130.236.254.253`, det vill säga `2001:6b0:17:f0a0::fd`)
 ser posten ut så här:

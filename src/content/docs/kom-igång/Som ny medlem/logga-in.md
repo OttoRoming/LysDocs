@@ -4,7 +4,7 @@ sidebar:
   order: -90
 ---
 
-Lysator tillhandahåller ett antal [CPU-Servrar](../../tjänster/CPU Servrar/index.md) som är tänkta som kan användas av föreningens medlemmar, förutom arbetsstationerna i föreningens lokaler är dessa den främsta accesspunkten till lysators system.
+Lysator tillhandahåller ett antal [CPU-Servrar](/tjänster/cpu-servrar/) som är tänkta som kan användas av föreningens medlemmar, förutom arbetsstationerna i föreningens lokaler är dessa den främsta accesspunkten till lysators system.
 
 ## SSH
 
@@ -48,4 +48,4 @@ När du blir bedd om att ange lösenord anger du ditt Lysatorlösenord.
 
 ## I terminalen
 
-Om uppkopplingen gått väl kommer du nu ha ett textgränssnitt för att interagera med maskinen. Du är nu redo att börja [utforska din hemkatalog](./utforska-din-hemkatalog.md).
+Om uppkopplingen gått väl kommer du nu ha ett textgränssnitt för att interagera med maskinen. Du är nu redo att börja [utforska din hemkatalog](/kom-igång/som-ny-medlem/utforska-din-hemkatalog/).
