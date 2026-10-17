@@ -1,7 +1,8 @@
+---
 name: Build Docker images for LysDocs
 
-# Images are rebuild nightly and on changes to the master branch.
-on:
+# Images are rebuilt nightly and on changes to the master branch.
+"on":
   push:
     branches:
       - main
@@ -35,4 +36,3 @@ jobs:
           tags: |
             forge.lysator.liu.se/lysdocs/lysdocs/lysdocs:latest
             forge.lysator.liu.se/lysdocs/lysdocs/lysdocs:${{ forgejo.sha }}
-

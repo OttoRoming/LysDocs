@@ -11,10 +11,12 @@
 		"check:astro": "astro check",
 		"check:biome": "biome check",
 		"check:rumdl": "rumdl check",
-		"check": "biome check && rumdl check && astro check",
+		"check:ryl": "ryl check .",
+		"check": "biome check && rumdl check && ryl check . && astro check",
 		"fix:biome": "biome check --write",
 		"fix:rumdl": "rumdl check --fix",
-		"fix": "biome check --write && rumdl check --fix"
+		"fix:ryl": "ryl check --fix .",
+		"fix": "biome check --write && rumdl check --fix && ryl check --fix ."
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.10",
@@ -31,6 +33,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.15",
+		"@owenlamont/ryl": "^0.25.1",
 		"rumdl": "^0.2.79"
 	}
 }
