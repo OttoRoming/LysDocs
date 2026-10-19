@@ -15,7 +15,7 @@ Det är vissa steg som behöver göras. Först de rent administrativa stegen:
 
 Sen kommer själva skapandet:
 
-* [Proxy:a in på Lysators nät](../annat/proxy-via-lysator.md)
+* [Proxy:a in på Lysators nät](/annat/proxy-via-lysator/)
 * Logga in på trocca: `ssh trocca.ad`
 * Bli root: `sudo -s`
 * Skaffa en Kerberosbiljett: `kinit <Användarnamn>`
@@ -35,7 +35,7 @@ Sen kommer själva skapandet:
 ## Ta bort en användare
 
 Användarhantering sker på trocca.ad.
-För att nå trocca hemmifrån behöver du [slå på en proxy](../annat/proxy-via-lysator.md) till lysators system.
+För att nå trocca hemmifrån behöver du [slå på en proxy](/annat/proxy-via-lysator/) till lysators system.
 
 Därefter kan du påbörja borttagningen av en användare:
 
@@ -64,7 +64,7 @@ Nästa person som försöker göra detta ska skriva detta kapitel
 
 ## Byta användarlösenord
 
-* [Proxy:a in på Lysators nät](../annat/proxy-via-lysator.md).
+* [Proxy:a in på Lysators nät](/annat/proxy-via-lysator/).
 * Slå på proxyn i din webläsare.
 * Logga in på `trocca.ad.lysator.liu.se` i din webläsare.
 * Sök upp användaren och klicka på deras användarnamn i webbgränssnittet.
@@ -77,7 +77,7 @@ med det tillfälliga lösenordet.
 
 För att redigera användargrupper:
 
-* [Proxy:a in på Lysators nät](../annat/proxy-via-lysator.md).
+* [Proxy:a in på Lysators nät](/annat/proxy-via-lysator/).
 * Slå på proxyn i din webläsare.
 * Logga in på `trocca.ad.lysator.liu.se` i din webläsare.
 * Sök upp användaren och klicka på deras användarnamn i webbgränssnittet.

@@ -1,12 +1,13 @@
-name: Rumdl Check
+---
+name: Astro Check
 
-on:
+"on":
   push:
   pull_request:
   workflow_dispatch:
 
 jobs:
-  rumdl:
+  check:
     container:
       image: forge.lysator.liu.se/kindergarten/runners/alpine-docker:latest
 
@@ -19,5 +20,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run rumdl
-        run: rumdl check
+      - name: Run Astro check
+        run: npm run check:astro

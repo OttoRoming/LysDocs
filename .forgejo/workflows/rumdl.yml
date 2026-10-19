@@ -1,12 +1,13 @@
-name: Biome Check
+---
+name: Rumdl Check
 
-on:
+"on":
   push:
   pull_request:
   workflow_dispatch:
 
 jobs:
-  biome:
+  rumdl:
     container:
       image: forge.lysator.liu.se/kindergarten/runners/alpine-docker:latest
 
@@ -16,8 +17,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Install Biome
-        run: apk add biome
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Run Biome
-        run: biome ci
+      - name: Run rumdl
+        run: npm run check:rumdl

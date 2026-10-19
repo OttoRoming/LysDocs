@@ -3,6 +3,7 @@
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
 import starlightLinksValidatorPlugin from "starlight-links-validator";
+import starlightLlmsTxt from "starlight-llms-txt";
 import starlightSidebarTopicsPlugin from "starlight-sidebar-topics";
 
 // https://astro.build/config
@@ -11,18 +12,18 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: "LysDocs",
-      logo: {
-        src: "./src/assets/lysdocs.svg",
-      },
+			logo: {
+				src: "./src/assets/lysdocs.svg",
+			},
 			social: [
 				{
 					icon: "forgejo",
 					label: "Forge",
 					href: "https://forge.lysator.liu.se/lysdocs/lysdocs",
 				},
-      ],
-      editLink: {
-        baseUrl: "https://forge.lysator.liu.se/lysdocs/lysdocs/_edit/main/"
+			],
+			editLink: {
+				baseUrl: "https://forge.lysator.liu.se/lysdocs/lysdocs/_edit/main/",
 			},
 			components: {
 				Header: "./src/components/overrides/Header.astro",
@@ -30,8 +31,8 @@ export default defineConfig({
 			},
 			customCss: ["./src/styles/custom.css"],
 			plugins: [
+				starlightLlmsTxt(),
 				starlightLinksValidatorPlugin({
-					errorOnRelativeLinks: false,
 					errorOnLocalLinks: false,
 				}),
 				starlightSidebarTopicsPlugin(

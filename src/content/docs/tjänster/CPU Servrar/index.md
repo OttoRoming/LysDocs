@@ -36,7 +36,7 @@ till root-gruppen (<root@lysator.liu.se>) om du undrar över något.
 **CPU**: 16-core (32 threads) <br>
 **RAM**: Ca 128GB <br>
 **Övrigt**: Har ssd och hdd scratchdisk monterad på /scratch/{ssd,hdd}, kör RDP server (se länk nedan för mer information) <br>
-[Mer detaljerad information om servern finns här](auriel.mdx)
+[Mer detaljerad information om servern finns här](/tjänster/cpu-servrar/auriel/)
 
 ##### Användningsområden
 
