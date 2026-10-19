@@ -1,6 +1,5 @@
 ---
 title: Dokumentation
-topic: rootmanualen
-sidebar:
-  hidden: true
 ---
+
+Se [LysDocs](/tjänster/lysdocs)
