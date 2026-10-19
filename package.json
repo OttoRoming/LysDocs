@@ -1,39 +1,39 @@
 {
-  "name": "lysdocs",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "check:astro": "astro check",
-    "check:biome": "biome check",
-    "check:rumdl": "rumdl check",
-    "check:ryl": "ryl check .",
-    "check": "biome check && rumdl check && ryl check . && astro check",
-    "fix:biome": "biome check --write",
-    "fix:rumdl": "rumdl check --fix",
-    "fix:ryl": "ryl check --fix .",
-    "fix": "biome check --write && rumdl check --fix && ryl check --fix ."
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.9.10",
-    "@astrojs/starlight": "^0.42.5",
-    "astro": "^7.2.10",
-    "sharp": "^0.35.3",
-    "starlight-links-validator": "^0.27.0",
-    "starlight-llms-txt": "^0.12.0",
-    "starlight-sidebar-topics": "^0.9.0",
-    "typescript": "^6.0.3"
-  },
-  "allowScripts": {
-    "esbuild": true
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.5.15",
-    "@owenlamont/ryl": "^0.25.1",
-    "rumdl": "^0.2.79"
-  }
+	"name": "lysdocs",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"check:astro": "astro check",
+		"check:biome": "biome check",
+		"check:rumdl": "rumdl check",
+		"check:ryl": "ryl check .",
+		"check": "biome check && rumdl check && ryl check . && astro check",
+		"fix:biome": "biome check --write",
+		"fix:rumdl": "rumdl check --fix",
+		"fix:ryl": "ryl check --fix .",
+		"fix": "biome check --write && rumdl check --fix && ryl check --fix ."
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.9.10",
+		"@astrojs/starlight": "^0.42.5",
+		"astro": "^7.2.10",
+		"sharp": "^0.35.3",
+		"starlight-links-validator": "^0.27.0",
+		"starlight-llms-txt": "^0.12.0",
+		"starlight-sidebar-topics": "^0.9.0",
+		"typescript": "^6.0.3"
+	},
+	"allowScripts": {
+		"esbuild": true
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.5.15",
+		"@owenlamont/ryl": "^0.25.1",
+		"rumdl": "^0.2.79"
+	}
 }
