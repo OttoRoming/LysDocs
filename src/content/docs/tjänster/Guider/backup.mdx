@@ -14,7 +14,7 @@ Exkludera data från att säkerhetskopieras genom att skapa filen `.nobackup` i 
 
 ### Använda cpu-servar för att säkerhetskopiera data
 
-_Detta går självklart att tillämpa för säkerhetskopiering mot andra system_  
+_Detta går självklart att tillämpa för säkerhetskopiering mot andra system_
 Det enklaste sättet att säkerhetskopiera egen data till hemdisk är att använda rsync. Däremot har det ett antal nackdelar:
 
 1. Nya versioner av filer skriver över de gamla så om en fil modifieras (felaktigt) och sedan säkerhetskopieras så går det inte att återställa den tidigare versionen.
@@ -51,7 +51,7 @@ Nedan beskrivs hur man kan sätta upp restic.
     restic backup [SÖKVÄG 1] [SÖKVÄG 2] [SÖKVÄG 3]
     ```
    Ge användaren som ska genomföra säkerhetskopieringen rätt att köra skriptet samt läsa `repo.sh`
-10. Testa att göra en första backup. (Tips: Kör i en screen/tmux om du har "mycket" data). Gå till mappen med scripten och kör `./backup.sh`
+10. Testa att göra en första backup. (Tips: Kör i en `screen`, `tmux` eller `zellij` om du har "mycket" data). Gå till mappen med scripten och kör `./backup.sh`
 
 </Steps>
 
