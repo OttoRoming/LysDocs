@@ -89,17 +89,17 @@ för att lägga till användargrupper.
 ### Ändra användarlösenord
 
 * Det här kan man göra på vilken dator som helst.
-* Starta kadmin: kadmin -p <root>/admin
-* Ändra lösenordet: cpw <användarnamn>
+* Starta kadmin: `kadmin -p <root>/admin`
+* Ändra lösenordet: `cpw <användarnamn>`
 * Låt användaren skriva in sitt lösenord när programmet frågar efter det.
 
 ### Ta bort password expire
 
 * Det här kan man göra på vilken dator som helst.
-* Starta kadmin: kadmin -p <root>/admin
-* Ta bort expire: modprinc -pwexpire never <användarnamn>
+* Starta kadmin: `kadmin -p <root>/admin`
+* Ta bort expire: `modprinc -pwexpire never <användarnamn>`
 
-Nuvarande status kan ses genom att köra getprinc <användarnamn>
+Nuvarande status kan ses genom att köra `getprinc <användarnamn>`
 
 ### Skapa admin-principal
 
