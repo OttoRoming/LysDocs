@@ -44,17 +44,14 @@ monteringen på `shinobu-proxy`.
 services:
   shinobu-proxy:
     image: git.lysator.liu.se:5050/lysator/shinobu-proxy
-    ports:
-      # Du exponera en port när du debuga, stäng kanske av när det fungerar
-      # - "6969:80"
     environment:
-      UPSTREAM_HOST: din_container
+      UPSTREAM_HOST: <din_container>
       UPSTREAM_PORT: "<porten din applikation lyssnar på>"
     volumes:
-      - "/var/lib/haproxy/domains/<din domän>:/var/proxy:rw"
+      - "/var/lib/haproxy/domains/<din domän>:/run/proxy:rw"
 
     depends_on:
-      - some_downstream
+      - <din_container>
     networks:
       - app
 
