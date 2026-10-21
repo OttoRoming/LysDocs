@@ -1,14 +1,25 @@
 FROM node:24-alpine AS builder
 WORKDIR /app
 
-COPY --exclude=Caddyfile package*.json ./
+COPY package*.json ./
 RUN npm ci
 
-COPY --exclude=Caddyfile . .
+COPY --exclude=httpd.conf . .
 RUN npm run build
 
-FROM caddy:2-alpine AS runner
+FROM alpine:3.24 AS runner
 
-COPY --from=builder /app/dist /usr/share/caddy
+RUN apk add busybox-extras
 
-COPY Caddyfile /etc/caddy/Caddyfile
+RUN addgroup -g 1001 -S abc && \
+    adduser -u 1001 -S abc -G abc
+
+COPY httpd.conf /etc/httpd.conf
+
+WORKDIR /app
+COPY --from=builder --chown=abc:abc /app/dist .
+
+USER abc
+
+EXPOSE 3000
+CMD ["httpd", "-f", "-p", "0.0.0.0:3000"]
