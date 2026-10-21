@@ -1,0 +1,71 @@
+---
+title: Milou
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+| Komponent | Detaljer |
+| --- | --- |
+| Operativsystem | Debian 13 |
+| Arkitektur | x86_64 |
+| Modell | ASUS RS300-E10-RS4 |
+| Processor | 2 × Intel Xeon E5-2640 v3 |
+| Minne | 330 GB |
+| Placering | BAR-hallen, rack R3 |
+| Ansvarig root | littlefox |
+
+## Användningsområden
+
+Lämplig för diskintensiva jobb (mot /scratchpad) och minnesintensiva jobb. Milou har mycket resurser och är bestyckad för att klara det mesta. Monterar hemdisk och mailkataloger samt det delade Lysator-filsystemet.
+
+## Scratchpad
+
+Milou har en scratchdisk i form av en RAID5-array över 3 hårddiskar. Detta är
+händigt när man jobbar med stora datamängder och inte vill vänta på
+filöverföring mot hemdisk.
+
+Alla användare kan skriva till scratchpad. Du hittar den monterad på
+`/scratchpad`.
+
+<Aside type="caution" title="Data kan raderas">
+    Data på scratchpad kan komma att raderas om den är gammal och tar upp en
+    stor del av disken. Lägg inte data som du är rädd om här!
+</Aside>
+
+## SSH
+
+Serverns SSH-värdnycklar har följande SHA256-fingeravtryck:
+
+| Typ | Fingeravtryck |
+| --- | --- |
+| RSA | `SHA256:AIcnveBfj6/gctmuVXK+OevmtnoganLf2wXpEXt9EO0` |
+| ECDSA | `SHA256:95wyrTr3g9pew17fSjJfqUdVlCPqEuEhWNPk2OiWeF0` |
+| ED25519 | `SHA256:s1nfsDLLObgg5PNSZytTzEMzZalhKtCdNbcvoRkdX/w` |
+
+<details>
+<summary>PGP-signatur</summary>
+
+```text
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+3072 SHA256:AIcnveBfj6/gctmuVXK+OevmtnoganLf2wXpEXt9EO0 root@milou (RSA)
+256 SHA256:95wyrTr3g9pew17fSjJfqUdVlCPqEuEhWNPk2OiWeF0 root@milou (ECDSA)
+256 SHA256:s1nfsDLLObgg5PNSZytTzEMzZalhKtCdNbcvoRkdX/w root@milou (ED25519)
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAEBCgAdFiEErErxcXvoUO3SxBcDkaOTy666P18FAmeGt7YACgkQkaOTy666
+P1+scgv/dq00jZg2SvMLX+f8WNXgd3hoKfa6NiHDy1MHQohBuHgQXgM2kk5Z/bEO
+ZKVqGz8OQBltv3q3BgpvzPNTl+KBegUwjaMjgUAw5/qh/I3RjRpYhOLfVovSxgps
+Epg8OPUqyiSHVs877Fs4azXFNgT7pcsBLLCx713FNiAKn279Zy+Gp76mUQsBFAGw
+O5Pt6OpfJVQhSZIyV3/zcYOtTMgvMOIlXXjWC2+ti6wwCL9juQgGEXUQ7XOnqqHx
+FUcNdkMQJrnI9b+Fd1FPuimQ/iVmlNeu32c7ksuSx8aG4V53vySpHY1JjRQGEJd3
+OjYllRgrH5outZElo/LQXQJRM/wU4Tv/S5Rgg8SM1zJQKblXfpq/d1SY9zr5ps0E
+GMejfYNQC5mLtgoPn2C8TDtwsUKnV7BFvy/nqMHPoEEXWHDWOG/xR92rGDdHp4oR
+OkYkQ6qgoaRRF/e1gIPGg5kS/NM5111CU7yjluO5vL8VJONVD0FGhGet2+FI/tft
+vWyBBZcV
+=mFM7
+-----END PGP SIGNATURE-----
+```
+
+</details>

@@ -4,7 +4,7 @@ disable = ["MD013"]
 respect-gitignore = true
 
 [MD033]
-allowed-elements = ["kbd", "br"]
+allowed-elements = ["kbd", "br", "details", "summary"]
 
 [per-file-flavor]
 "src/content/docs/**/*.mdx" = "mdx"

@@ -1,0 +1,67 @@
+---
+title: Volton
+---
+
+| Komponent | Detaljer |
+| --- | --- |
+| Operativsystem | NixOS |
+| Arkitektur | x86_64 |
+| Modell | ASUS RS720Q-E8-RS12 (en nod) |
+| Processor | 2 × Intel Xeon E5-2695 v4 |
+| Minne | 128 GB DDR4 |
+| Placering | BAR-hallen, rack R5 |
+| Ansvarig root | kacper |
+
+## Användningsområden
+
+Speciellt lämplig för tunga, parallella jobb, såsom kompilering. Monterar hemdisk och mailkataloger samt det delade Lysator-filsystemet. 
+
+[Apptainer](https://apptainer.org/) kan användas för att köra OCI-containers likt docker.
+
+## Pakethantering
+
+Då Volton kör NixOS kan varje användare tillfälligt få tillgång till valfria
+paket. För att sättas i ett skal med tillgång till ett paket, `$PAKET`, skriv:
+
+```bash
+nix-shell -p $PAKET
+```
+
+eller:
+
+```bash
+nix shell nixpkgs#$PAKET
+```
+
+För att se vilka paket som finns, sök i nixpkgs på
+[search.nixos.org/packages](https://search.nixos.org/packages).
+
+## SSH
+
+Serverns SSH-värdnycklar har följande SHA256-fingeravtryck:
+
+| Typ | Fingeravtryck |
+| --- | --- |
+| RSA | `SHA256:t/YoqrdJ1IpBHYbXL4Ygxs5+Uj8iEPoBXR+J2x9RM+c` |
+| ED25519 | `SHA256:h6f1rgzUzZmrteHVETpuqdOP3tjqxSt9qs8VPtvkWV4` |
+
+<details>
+<summary>PGP-signatur</summary>
+
+```text
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+256 SHA256:h6f1rgzUzZmrteHVETpuqdOP3tjqxSt9qs8VPtvkWV4 volton.lysator.liu.se (ED25519)
+4096 SHA256:t/YoqrdJ1IpBHYbXL4Ygxs5+Uj8iEPoBXR+J2x9RM+c volton.lysator.liu.se (RSA)
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQQ9+T3ryqmB+rPip/CH2iAd4C8UsQUCaQZ9jQAKCRCH2iAd4C8U
+sWyFAP9RBpjAQzAVJH72rbSPCQzKVl+ZuGFZ/+wirP6BhmaubQD9Ec96cGjFfgtZ
+0n3cLy4ksWpIP/JelSP68+1h7QbdvQU=
+=/ie1
+-----END PGP SIGNATURE-----
+```
+
+</details>
