@@ -66,7 +66,7 @@ på ISO-image-fältet följt av "Other" innan du trycker "Next".
 
 ![Dialogen Unattended Guest OS Install Setup med fälten Username, Password, Repeat Password, Hostname och Domain Name](../images/virtualbox_passwdscreen.png)
 
-På dialogen i ovanstående bild väljer du ett användarnamn och [lämpligt lösenord](../../annat/lösenord.md)
+På dialogen i ovanstående bild väljer du ett användarnamn och [lämpligt lösenord](/annat/lösenord/)
 för att logga in på din dator innan du trycker "Next".
 
 ![Dialogen Hardware med reglage för Base Memory satt till 4096 MB och Processors satt till 1 CPU](../images/virtualbox_specscreen.png)

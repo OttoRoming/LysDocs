@@ -1,8 +1,16 @@
 ---
-title: Nya artiklar
+title: LysDocs
 ---
 
 import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Lysators Dokumentation
+
+På LysDocs hittar du information om Lysators tjänster,
+guider för diverse teknik och tips för hur man kommer igång som ny medlem.
+Du är varm välkommen att bidra till att förbättra lysdocs om du har ideér.
+
+![Drawing Hands](./DrawingHands.jpg)
 
 ## Lägg till och redigera nya artiklar till datorhandboken
 
@@ -26,18 +34,18 @@ import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 
 2. Navigera till toppen av den nedhämtade katalogen och kör
     ```bash
-    bun i
+    npm i
     ```
    för att installera alla beroenden
 
 3. För att starta utvecklingsservern kör
     ```bash
-    bun dev
+    npm run dev
     ```
 
-4. Öppna nu din webbläsare och navigera till [http://localhost:4321/](http://localhost:4321/) för att se sidan lokalt
+4. Öppna nu din webbläsare och navigera till http://localhost:4321/ för att se sidan lokalt
 
-5. Mer information om Starlight går att hitta på [https://starlight.astro.build/](https://starlight.astro.build/)
+5. Mer information om Starlight går att hitta på https://starlight.astro.build/
 
 </Steps>
 
@@ -49,7 +57,7 @@ import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
         git checkout -b *<namn på din gren>*
         ```
     2. Gör dina önskade ändringar, spara dem med `git add *<filnamn>*` och `git commit`.
-    3. Tryck upp dina önskade ändringar till gitlab med `git push` och logga in på [https://forge.lysator.liu.se/lysdocs/lysdocs](https://forge.lysator.liu.se/lysdocs/lysdocs) för att skapa en pull request.
+    3. Tryck upp dina önskade ändringar till gitlab med `git push` och logga in på https://forge.lysator.liu.se/lysdocs/lysdocs för att skapa en pull request.
     4. Din request ses över och mergas till eller nekas från master.
 </Steps>
 

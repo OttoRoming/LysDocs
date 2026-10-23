@@ -33,7 +33,6 @@ export default defineConfig({
 			plugins: [
 				starlightLlmsTxt(),
 				starlightLinksValidatorPlugin({
-					errorOnRelativeLinks: false,
 					errorOnLocalLinks: false,
 				}),
 				starlightSidebarTopicsPlugin(

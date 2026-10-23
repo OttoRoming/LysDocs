@@ -1,0 +1,96 @@
+---
+title: Shipon
+---
+
+| Komponent | Detaljer |
+| --- | --- |
+| Operativsystem | FreeBSD |
+| Arkitektur | x86_64 |
+| Modell | HP SL230s Gen8 |
+| Processor | 2 × Intel Xeon E5-2660 2.2 GHz |
+| Minne | 64 GB |
+| Placering | BAR-hallen, rack R2 |
+| Ansvarig root | kempe |
+
+## Användningsområden
+
+Lämplig för CPU- och minnesintensiva jobb. Har god upptid och stabilitet. Kör en annan smak *nix vilket kan vara kul! Monterar hemdisk och mailkataloger samt det delade Lysator-filsystemet. Kör samma konfiguration som arbetsstationer med FreeBSD. Önskar man använda X11 finns `xpra` installerat för vidarebefordring.
+
+## Vindbrygga
+
+Vindbrygga är en tjänst som tillhandahåller SSH på portar utöver standardporten.
+Shipon kör en separat sshd på port 21, 22, 80, 443 och 1022 med egna nycklar för
+att underlätta flytt av tjänsten till andra maskiner.
+
+## SSH
+
+Serverns SSH-värdnycklar har följande SHA256-fingeravtryck:
+
+| Typ | Fingeravtryck |
+| --- | --- |
+| RSA | `SHA256:nMJJm97tZtD0XNZ43NHpjYZByXKmvbWLYJJZrkOjk1o` |
+| ECDSA | `SHA256:+JoM1bO+E6ZfVS+utbU6VN+WVDibWbqF+OCRcyZ08z8` |
+| ED25519 | `SHA256:G6Mw6wiz4z1sdJB0qQU7SK6yUd/3lC9W54lUXpMzSu4` |
+
+<details>
+<summary>PGP-signatur</summary>
+
+```text
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+shipon.lysator.liu.se har följande SSH-fingeravtryck:
+256 SHA256:+JoM1bO+E6ZfVS+utbU6VN+WVDibWbqF+OCRcyZ08z8 root@shipon.lysator.liu.se (ECDSA)
+256 SHA256:G6Mw6wiz4z1sdJB0qQU7SK6yUd/3lC9W54lUXpMzSu4 root@shipon.lysator.liu.se (ED25519)
+2048 SHA256:nMJJm97tZtD0XNZ43NHpjYZByXKmvbWLYJJZrkOjk1o root@shipon.lysator.liu.se (RSA)
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEETci4cPcl+ZcyiACiCkqKrhcKSD0FAmACKvwACgkQCkqKrhcK
+SD1iXBAAiv4k/CFdr+P27/ScMRjZhZv+ItQoWHwqgu0MCZMQqlQlJgJktewvImcd
+IYcN7M5ztwVT13Xh6SfYjSwyoIOJii+v3Sz7Vn4EWUFuumv0oslf04vFS+fIEC/K
+KUU8+QB56EPa8qaTpOIG/QmPDvb4IMZxJdK6HaPkHkaBZLb+ImaqWuHu983tWk01
+UhU2UP/M/aBmGZsZWnxQaKvZLRt8sQGzBDCvYK55mPf1qdFLePG0QgLLWEt/hLtx
+VmmrUt5Qmei7gBJWxzjzJW8uXpbNwUsCmzGMZ8l42Vs0HpLd+jlOkq4GovpEKO5e
+Y/SZPq2j/XKEpCljS2DwR097spH4GXGM30J6VS9bXDB7mKywnQOvw16/94/xps81
+jcfxBNEAuiwV+yikylpVC9yxDtQbdCTbEoeW5hbFF7XUkSpwoORncbtIVeHZook0
+dj5hVQ3ZbyswnHPfBWJC/28PufibRybl4/3pXTAGnS0aCw7b7V7MehuioRwc6Jev
+lSLHy+Z797kSzY6RvWsB2CXFvKxydLxeQwdrzD3U/PoSlfCAg5VrmoQrdYqSEaYm
+aD7OX3WWOy42SfRHViyrqixcPWR0JKGKTov7XTpoAdddhVyEy+ARt0SEDBM41h2I
+WoG2F3T9OasCtDv82hDqVTtvDkm9Ygh8GvChuCAmhKafg038uEY=
+=x7qs
+-----END PGP SIGNATURE-----
+```
+
+</details>
+
+<details>
+<summary>PGP-signatur (vindbrygga)</summary>
+
+```text
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+vindbrygga.lysator.liu.se har följande SSH-fingeravtryck:
+1024 SHA256:NhhVqARrpU2gIqkTolkpcv5YK5qNZp5bmuYoYEYRd50 root@koeberg (DSA)
+256 SHA256:YMV9M5/06vZyr+b0sA8WyMHhzXkNKRaYMZqchLtMsfQ root@shipon (ECDSA)
+256 SHA256:k7U7UYk0EyTzT2Lx76A0Zn6iDxExXDrIWura/wgrZt8 root@shipon (ED25519)
+1024 SHA256:QlJP7V0YsuUIeA2NXSQbN9YsKyt2gTKYwtBuV5HfuXE root@koeberg (RSA)
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEETci4cPcl+ZcyiACiCkqKrhcKSD0FAmAIeVYACgkQCkqKrhcK
+SD1dGg/+LUrG7Fw5bhQqEseVVuj+1Dyotx71Wb9mGqfVX/5Fr82cljE9xVkVB+Hy
+qxHfc6BcKX26TaDmhLvPtmdkqw/87PFcmttuYPW+lpuuqh606IOnfvvjXPThbfjg
+SBk+C+Ys2UfUoPd2ux0kMdkCxqCV8UgHNAh1qYaxEJw9DzfLArj8+/L9opR3PNWI
+xPzZh15eQuPb07ImV2H6NZsgTsNsrBfD603tBHiKjot8Uslg4TDoFAysYo1PQ3V1
+15YJjIMJitUWcgNb1s++b6Z8XLRzw+K9kQjfj8Yz0Cc37TWMP9B9BlbnCSh61KUU
+IfRFuak4YVVoMxYuLOAzm1p5g5krNU9NaTsaMVjIeFKfbARVIR2eJlcxpVpM3uFn
+U/DZBObxXpA0NqgncygULCmdWKMYGHYIJYYJMF1gE+V9C63pwowWmB+IY8R575qD
+Q3kqgpWMJiVwIHU8V8Ztbl3o6jUykKe0l2wNtN7BVH2VM4/mfmNbqMQ3Cc0aa2w8
+QsEXY95N7hgbc0wSinTg0h2JnPfl9s0lscKCju0t18YrbQCGyN+JrHSOVNgXqZRl
+qvtYI9CGQ7DIeYYAdHV2ia/6k+XJteFI2VgMtzoGsm16oCc4bkf57+E5BmKeLbff
+9PLLSgIpoxqb7mjXwaz8bPU7ubw0svTBh67HqT6R4GnEfpFeHdM=
+=jgq9
+-----END PGP SIGNATURE-----
+```
+
+</details>

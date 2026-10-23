@@ -8,6 +8,7 @@ node_modules
 public
 biome.json
 README.md
+ryl.toml
 tsconfig.json
 
 docker-compose.yml

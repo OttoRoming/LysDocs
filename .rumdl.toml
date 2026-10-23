@@ -4,7 +4,12 @@ disable = ["MD013"]
 respect-gitignore = true
 
 [MD033]
-allowed-elements = ["kbd", "br"]
+allowed-elements = ["kbd", "br", "details", "summary"]
+
+[per-file-flavor]
+"src/content/docs/**/*.mdx" = "mdx"
+"README.md" = "goldmark" # Forgejo uses goldmark https://docs.codeberg.org/markdown/
 
 [per-file-ignores]
 "src/content/docs/rootmanualen/Nätverk/ipv6.md" = ["MD033"]
+"src/content/docs/**/*.mdx" = ["MD034"]
