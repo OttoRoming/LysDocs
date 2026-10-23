@@ -2,7 +2,7 @@
 title: Backup
 ---
 
-import { Steps } from '@astrojs/starlight/components';
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 
 ## Säkerhetskopiering
 
@@ -38,14 +38,17 @@ Nedan beskrivs hur man kan sätta upp restic.
 5. Generera en lösenord (nyckeln som säkerhetskopian krypteras med)
 6. Skapa en mapp som kommer innehålla skripten för säkerhetskopieringen och i den skapa en filen `repo.sh` med följande innehåll.
     ```text
+    #!/bin/sh
+
     export RESTIC_PASSWORD=[LÖSENORD HÄR]
-    export RESTIC_REPOSITORY=sftp:lysator-backup:[SÖKVÄG TILL MAPP FÖR SÄKERHETSKOPIA]
+    export RESTIC_REPOSITORY=sftp:lysator-backup:[SÖKVÄG TILL KATALOG FÖR SÄKERHETSKOPIA]
     ```
 7. Läs in miljövariablerna genom att köra `source repo.sh`
 8. Initiera förrådet genom att köra `restic init`
 9. Skapa ett skript som gör själva säkerhetskopieringen `backup.sh` med följande innehåll:
     ```text
     #!/bin/sh
+
     export RESTIC_CACHE_DIR=~/.cache/restic/
     source repo.sh
     restic backup [SÖKVÄG 1] [SÖKVÄG 2] [SÖKVÄG 3]
@@ -57,39 +60,52 @@ Nedan beskrivs hur man kan sätta upp restic.
 
 #### Schemalägg säkerhetskopiering med systemd
 
-Nedan så skapas en systemd-tjänst som kör säkerhetskopieringen varje natt.
-Säkerhetskopieringen sker vid ett slumpat tillfälle mellan 00:00 och 05:00.
+<Tabs>
+    <TabItem label="SystemD timer">
+    Nedan så skapas en systemd-tjänst som kör säkerhetskopieringen varje natt.
+    Säkerhetskopieringen sker vid ett slumpat tillfälle mellan 00:00 och 05:00.
 
-<Steps>
+        <Steps>
 
-1. Skapa filen `/etc/systemd/system/backup.service`
-    ```text
-    [Unit]
-    Description=Backup
-    After=network.target
+        1. Skapa filen `/etc/systemd/system/backup.service`
+            ```text
+            [Unit]
+            Description=Backup
+            After=network.target
 
-    [Service]
-    Type=exec
-    ExecStart=[SÖKVÄG TILL backup.sh]
-    WorkingDirectory=[SÖKVÄG TILL MAPP MED BACKUP SKRIPT]
-    User=[ANVÄNDARE SOM KÖR BACKUP] # Denna rad kan tas bort om backup körs som root
+            [Service]
+            Type=exec
+            ExecStart=[SÖKVÄG TILL backup.sh]
+            WorkingDirectory=[SÖKVÄG TILL KATALOG MED BACKUP SKRIPT]
+            User=[ANVÄNDARE SOM KÖR BACKUP] # Denna rad kan tas bort om backup körs som root
 
-    [Install]
-    WantedBy=default.target
-    ```
-2. Skapa filen `/etc/systemd/system/backup.timer`
-    ```text
-    [Unit]
-    Description=Nightly backup
+            [Install]
+            WantedBy=default.target
+            ```
+        2. Skapa filen `/etc/systemd/system/backup.timer`
+            ```text
+            [Unit]
+            Description=Nightly backup
 
-    [Timer]
-    Unit=backup.service
-    OnCalendar=*-*-* 00:00:00
-    RandomizedDelaySec=5h
+            [Timer]
+            Unit=backup.service
+            OnCalendar=*-*-* 00:00:00
+            RandomizedDelaySec=5h
 
-    [Install]
-    WantedBy=timers.target
-    ```
-3. Aktivera skriptet: `systemctl enable --now backup.timer`
+            [Install]
+            WantedBy=timers.target
+            ```
+        3. Aktivera skriptet: `systemctl enable --now backup.timer`
 
-</Steps>
+        </Steps>
+    </TabItem>
+
+
+    <TabItem label="Cron">
+        Nedan så skapas ett cronjobb som kör backup skripet vid midnatt varje dag.
+
+        ```cron
+        0       *       *       *       *       cd [SÖKVÄG TILL KATALOG MED BACKUP SKRIPT] && ./backup.sh
+        ```
+    </TabItem>
+</Tabs>
