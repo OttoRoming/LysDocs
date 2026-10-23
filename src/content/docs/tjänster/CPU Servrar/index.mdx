@@ -29,6 +29,23 @@ till root-gruppen (root@lysator.liu.se) om du undrar över något.
 3. Kör långa och CPU- eller I/O-tunga jobb med `nice` (och gärna också
    `ionice`) så att andra fortfarande kan jobba på maskinen.
 
+### SSH Config
+
+För att göra det smidigare att logga in på Lysator CPU-Servrar kan man använda sig av en SSH config för att skapa alias.
+Här är ett exempel på hur man skapar alias till CPU-Servrarna + [Jukebox](/tjänster/tilde/jukebox).
+
+```ssh-config
+Host shinobu auriel milou shipon totoro volton jukebox
+    HostName %h.lysator.liu.se
+    User [LYSATOR NICK]
+```
+
+Nu går det att logga in via SSH genom att endast köra till exempel
+
+```bash
+ssh volton
+```
+
 ### Servrarna
 
 | Server | Operativsystem | Övrigt |
