@@ -180,7 +180,7 @@ göra det vi vill. Vi tillhandahålls ett antal byggblock:
 * `|` : "pipe", dirigerar om `stdout` från ett kommando till `stdin` på ett annat.
   Ett relativt avancerat exempel på vad `|` låter dig göra är följande
 
-  ```text
+  ```bash
   w | cut -f 1 -d\t | uniq | wc -l
   ```
 
@@ -196,7 +196,7 @@ göra det vi vill. Vi tillhandahålls ett antal byggblock:
   Skillnaden mellan dem är att `>` tömmer målfilen medan `>>` lägger till `stdin` i slutet
   på filen. Som exempel på detta betrakta
 
-  ```text
+  ```bash
   echo "hejsan" > fil
   ```
 
@@ -206,14 +206,14 @@ göra det vi vill. Vi tillhandahålls ett antal byggblock:
 * `*` : "wildcard" används för att representera "vad som helst". För att hitta alla
   pdf:er i en katalog kan vi till exemel skriva
 
-  ```text
+  ```bash
   ls *.pdf
   ```
 
   vilket betyder "list (`ls`) all objects (`*`) suffixed by .pdf (`.pdf`)".
   Enligt samma principer kan vi även hitta filer som börjar på ett särskilt sätt med
 
-  ```text
+  ```bash
   ls abc*
   ```
 
@@ -221,14 +221,14 @@ göra det vi vill. Vi tillhandahålls ett antal byggblock:
 
 * `&&` och `&` : Används för att exekvera flera kommandon.
 
-  ```text
+  ```bash
   echo "hello" && echo "world"
   ```
 
   skriver "hello" till `stdout`, väntar till att den processen signalerat att
   den är färdig och skriver sedan "world" till `stdout`.
 
-  ```text
+  ```bash
   echo "hello" & echo "world"
   ```
 
@@ -241,7 +241,7 @@ göra det vi vill. Vi tillhandahålls ett antal byggblock:
   Dessa ger dock en stark grund för att börja göra saker även om listan
   inte är fullständig. För vidare läsning se
 
-  ```text
+  ```bash
   man bash
   ```
 
@@ -249,25 +249,25 @@ göra det vi vill. Vi tillhandahålls ett antal byggblock:
 
 För att få en uppfattning om hur flitigt en dator används kan du exekvera kommandot
 
-```text
+```bash
 htop
 ```
 
 För att få veta hur mycket diskutrymme som finns kvar på datorn kan du använda
 
-```text
+```bash
 df -h
 ```
 
 För att veta hur mycket plats en specifik fil använder kan du använda
 
-```text
+```bash
 du -h
 ```
 
 För att skriva ut aktiva processer direkt till kommandoraden kan du använda
 
-```text
+```bash
 ps -aux
 ```
 
@@ -275,7 +275,7 @@ ps -aux
 
 För att söka efter filer i katalogstrukturen kan du använda
 
-```text
+```bash
 find / -name [filnamn] 2> /dev/null
 ```
 
@@ -283,6 +283,6 @@ som söker igenom hela katalogstrukturen och direkt slänger alla i `/dev/null` 
 
 För att söka i en textfil eller i `stdout` kan du använda
 
-```text
+```bash
 grep [sökterm] [fil]
 ```

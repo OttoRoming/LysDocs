@@ -9,7 +9,7 @@ sidebar:
 Om allt gått väl i "[Logga in på Lysator](/kom-igång/som-ny-medlem/logga-in/)" befinner du dig nu i Milous terminalgränsnitt (Skal). Ett vanligt
 första steg är nu att lista ut allt innehåll i katalogen med
 
-```text
+```bash
 ls -la
 ```
 
@@ -45,7 +45,7 @@ Hemkatalogen är dock användbar för mycket mer. Du kan:
   `touch ursprungsfil`, och flytta sedan in den i
   `Documents` katalogen med
 
-    ```text
+    ```bash
     mv ursprungsfil Documents/målfil
     ```
 
@@ -55,7 +55,7 @@ Hemkatalogen är dock användbar för mycket mer. Du kan:
 
   För att sedan se filen kan du lista innehållet i `Documents` med
 
-    ```text
+    ```bash
     ls Documents
     ```
 
@@ -76,7 +76,7 @@ Du kan även transportera filer mellan din dator och CPU-servern med:
   `fil` och vill leverera den in på lysators system till `Downloads`
   mappen i din hemkatalog. Då kan du åstadkomma detta med
 
-  ```text
+  ```bash
   rsync fil [användarnamn]@milou.lysator.liu.se:Downloads/   
   ```
 

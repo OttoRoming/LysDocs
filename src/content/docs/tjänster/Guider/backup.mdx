@@ -37,7 +37,7 @@ Nedan beskrivs hur man kan sätta upp restic.
 4. Skapa filen `.nobackup` i den mappen (se ovan)
 5. Generera en lösenord (nyckeln som säkerhetskopian krypteras med)
 6. Skapa en mapp som kommer innehålla skripten för säkerhetskopieringen och i den skapa en filen `repo.sh` med följande innehåll.
-    ```text
+    ```bash
     #!/bin/sh
 
     export RESTIC_PASSWORD=[LÖSENORD HÄR]
@@ -46,7 +46,7 @@ Nedan beskrivs hur man kan sätta upp restic.
 7. Läs in miljövariablerna genom att köra `source repo.sh`
 8. Initiera förrådet genom att köra `restic init`
 9. Skapa ett skript som gör själva säkerhetskopieringen `backup.sh` med följande innehåll:
-    ```text
+    ```bash
     #!/bin/sh
 
     export RESTIC_CACHE_DIR=~/.cache/restic/

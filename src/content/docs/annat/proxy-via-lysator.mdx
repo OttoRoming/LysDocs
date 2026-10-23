@@ -8,7 +8,7 @@ Detta kan göras på flera sett. En metod är att använda `ssh`.
 
 En dynamisk proxy sätter du upp med t.ex
 
-```text
+```bash
 ssh -D 5050 [användare]@milou.lysator.liu.se
 ```
 
@@ -28,7 +28,7 @@ valda proxydatorn.
 
 Ett annat sätt att vidarebefodra lokal data via en server är att använda
 
-```text
+```bash
 ssh -L 5050:localhost:5050 [användare]@milou.lysator.liu.se
 ```
 
@@ -38,6 +38,6 @@ Detta specificerar att internettrafik via port 5050 på localhost ska vidarebefo
 
 Motsatsen till fjärrproxy är lokal proxy, som ruttar trafik från en annan dator via sig själv längs en given port. För att sätta upp en sådan proxy använd t.ex.
 
-```text
+```bash
 ssh -R 5050:localhost:5050 [användare]@milou.lysator.liu.se
 ```

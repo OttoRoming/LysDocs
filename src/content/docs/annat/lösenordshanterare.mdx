@@ -43,7 +43,7 @@ pass insert [namn]
 Notera att `[namn]` är en filsökväg, pass stödjer sortering av lösenord i en katalogstruktur.
 För att sedan få ut lösenordet skriver du
 
-```text
+```bash
 pass [namn]
 ```
 
@@ -65,7 +65,7 @@ se till att kompensera genom att öka längden på lösenordet.
 Vidare läsning finns på programmets [man-sida](https://linux.die.net/man/1/pass)
 som kan nås i terminalen med
 
-```text
+```bash
 man pass
 ```
 
@@ -81,14 +81,14 @@ Det grafiska gränssnittet är intuitivt nog så jag kommer inte att ge en förk
 
 Kommandoradsgränssnittet är enklast att börja utforska med
 
-```text
+```bash
 keepassxc-cli
 ```
 
 En rekommendation är att binda om kommandot med ett `alias`, förslagsvis `kpcli`.
 Du skapar sedan en lösenordsdatabas med
 
-```text
+```bash
 kpcli db-create -p [lösenordsdatabas]
 ```
 
@@ -96,7 +96,7 @@ som kommer ge dig en prompt att sätta ett lösenord på din lösenordsdatabas.
 
 Du lägger sedan till en fil i databasen med
 
-```text
+```bash
 kpcli add [lösenordsdatabas] [namn] 
 ```
 

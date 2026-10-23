@@ -26,7 +26,7 @@ Lösenord: Det genererade lösenordet från [minit.liu.se](https://minit.liu.se/
 
         Hitta namnet på din WLAN-nätverkskort:
 
-        ```text
+        ```bash
         $ ip -br l
         lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP>
         enp0s31f6        DOWN           f8:85:a4:6c:be:91 <NO-CARRIER,BROADCAST,MULTICAST,UP>
@@ -35,7 +35,7 @@ Lösenord: Det genererade lösenordet från [minit.liu.se](https://minit.liu.se/
 
         I detta fall heter det `wlp0s20f3`.
 
-        ```text
+        ```bash
         nmcli con add \
           type wifi \
           ifname <NAMN PÅ NÄTVERKSKORT> \
