@@ -1,0 +1,27 @@
+---
+title: Shipon
+pagefind: false
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+<Aside>
+    Baserad på [Shipon - Datorhandboken](https://datorhandbok.lysator.liu.se/index.php/Shipon)
+</Aside>
+
+## Paket och uppdateringar
+
+Om ingen specialkonfiguration krävs installeras paket med `pkg`. Paket som behöver specialkonfiguration byggs med poudriere på Sisyfos och rsyncas över till /usr/local/packages. Dessa paket är låsta med `pkg lock $pkg` och behöver byggas om om datorn uppdateras.
+
+I den virtuella FreeBSD-maskinen på Sisyfos ligger det en paketlista för Shipon med namn freebsd12-amd64-shipon. Den byggs m.h.a. poudriere i fängelset shipon med portträdet default, ex `poudriere bulk -J 32 -j shipon -p default -f freebsd12-amd64-shipon` för att bygga paketen med 32 parallella jobb. Se dokumentation för poudriere för mer information.
+
+Uppdatering av operativsystemet görs med freebsd-update enligt rådande konvention i FreeBSD-handboken för systemuppgradering.
+
+## Paketkonfiguration
+
+```
+mail/alpine: MAILDIR = on
+
+sysutils/screen: MULTIUSER = off # orsakar problem med rootsqash p.g.a. setuid 
+```
+
