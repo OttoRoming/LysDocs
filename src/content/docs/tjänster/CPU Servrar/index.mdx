@@ -1,17 +1,15 @@
 ---
 title: CPU-servrar
 sidebar:
-  order: 0
+  order: 20
 ---
-
-## CPU-servrarna på Lysator
 
 CPU-servrarna är till för föreningens medlemmar att kunna logga in remote och köra sina program på.
 Få restriktioner gäller förutom [Lysators Användarvillkor](https://www.lysator.liu.se/foreningen/styrelsen/villkor.pdf).
 
 Vilka servrar som finns tillgängliga och vad de är kapabla till varierar över tid. Nedan finns en lista på de nuvarande aktiva servrarna.
 
-### Vett och etikett
+## Vett och etikett
 
 Lysators system är till för att alla medlemmar ska kunna använda och experimentera med.
 För att det ska fortsätta funka behöver vi hjälpas åt lite.
@@ -29,12 +27,51 @@ till root-gruppen (root@lysator.liu.se) om du undrar över något.
 3. Kör långa och CPU- eller I/O-tunga jobb med `nice` (och gärna också
    `ionice`) så att andra fortfarande kan jobba på maskinen.
 
-### Servrarna
+## Servrarna
 
 | Server | Operativsystem | Övrigt |
 | --- | --- | --- |
+| [Shinobu](/tjänster/cpu-servrar/shinobu/) | Debian | [Podman](/tjänster/cpu-servrar/shinobu/01-introduktion/) |
 | [Auri-El](/tjänster/cpu-servrar/auriel/) | Arch Linux | RDP |
 | [Milou](/tjänster/cpu-servrar/milou/) | Debian 13 | Scratchpad |
 | [Shipon](/tjänster/cpu-servrar/shipon/) | FreeBSD | Vindbrygga |
 | [Totoro](/tjänster/cpu-servrar/totoro/) | Arch Linux (`linux-lts`) | Virtuell i Proxmox |
 | [Volton](/tjänster/cpu-servrar/volton/) | NixOS | — |
+
+## Tips ock trix
+
+### SSH Config
+
+För att göra det smidigare att logga in på Lysator CPU-Servrar kan man använda sig av en SSH config för att skapa alias.
+Här är ett exempel på hur man skapar alias till CPU-Servrarna + [Jukebox](/tjänster/tilde/jukebox).
+
+```ssh-config
+Host shinobu auriel milou shipon totoro volton jukebox
+    HostName %h.lysator.liu.se
+    User [LYSATOR NICK]
+```
+
+Nu går det att logga in via SSH genom att endast köra till exempel
+
+```bash
+ssh volton
+```
+
+### Ändra skal på CPU-servrar / arbetsstationer
+
+Det går inte att ändra skal med `chsh` så istället så modifieras `.bashrc` så att den
+uppgraderar till ett nytt skall om det är tillgängligt och bash körs interaktivt.
+
+Alla skal finns inte tillgängligt på alla maskiner så flera if-satser kan användas för att ranka skal efter preferens.
+
+Miljövariabeln `$USE_BASH` kan sättas till 1 för att faktiskt använda bash
+(eftersom om man kör kommandot bash så öppnas inte längre bash).
+
+Lägg till följande i din `.bash_rc` och byt SKAL mot ditt skal.
+
+```bash
+if [ -x "$(command -v SKAL)" ] && [[ ! $USE_BASH = 1 ]]; then  
+    [[ $- != *i* ]] && return    
+    exec SKAL
+fi
+```

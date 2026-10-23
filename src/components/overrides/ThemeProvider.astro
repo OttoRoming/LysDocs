@@ -1,0 +1,37 @@
+---
+import { Icon } from "@astrojs/starlight/components";
+---
+
+{/* This is intentionally inlined to avoid FOUC. */}
+<script is:inline>
+window.StarlightThemeProvider = (() => {
+	const storedTheme =
+		typeof localStorage !== "undefined" &&
+		localStorage.getItem("starlight-theme");
+	// Dark is the default theme. The system preference is never used and old
+	// stored values (such as 'auto') fall back to dark.
+	const theme = storedTheme === "light" ? "light" : "dark";
+	document.documentElement.dataset.theme = theme;
+	return {
+		updatePickers(theme = storedTheme === "light" ? "light" : "dark") {
+			document.querySelectorAll("starlight-theme-select").forEach((picker) => {
+				const select = picker.querySelector("select");
+				if (select) select.value = theme;
+				const tmpl = document.querySelector(`#theme-icons`);
+				const newIcon = tmpl?.content.querySelector(`.${theme}`);
+				if (newIcon) {
+					const oldIcon = picker.querySelector("svg.label-icon");
+					if (oldIcon) {
+						oldIcon.replaceChildren(...newIcon.cloneNode(true).childNodes);
+					}
+				}
+			});
+		},
+	};
+})();
+</script>
+
+<template id="theme-icons">
+	<Icon name="sun" class="light" />
+	<Icon name="moon" class="dark" />
+</template>

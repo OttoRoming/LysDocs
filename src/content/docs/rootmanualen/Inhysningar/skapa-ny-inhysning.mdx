@@ -3,7 +3,7 @@ title: Skapa ny inhysning
 weight: -10
 ---
 
-import { Steps } from '@astrojs/starlight/components';
+import { Aside, Steps } from '@astrojs/starlight/components';
 
 ## Innan du bjuder in kontaktpersonen
 
@@ -19,15 +19,16 @@ Du behöver ha gjort följande:
 
    IPv6-adressen ska ha samma ändelse som IPv4-an, fast omvandlat till hex. Exempelvis blir `130.236.254.27` till `2001:6b0:17:f0a0::1b`.
 
-   !!! tip "Använd `printf`"
+   <Aside type="tip" label="Använd `printf`">
    `printf` kan användas för att konvertera mellan hex och decimaltal:
-        ```sh
+        ```bash
         $ printf %d 0x1b
         27
 
         $ printf %x 27
         1b
         ```
+   </Aside>
 
 3. Skapat en [ny virtuell maskin](/rootmanualen/proxmox/virtuella-maskiner/) för inhysningen, och gjort följande ändringar:
 
