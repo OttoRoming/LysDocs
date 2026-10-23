@@ -10,28 +10,69 @@ med [Podman](https://podman.io/). Machinen har 256 GB DDR4 RAM, 48 trådar och
 dedikerat lagring av ~3.5TB för lagring av applikationsdata, monterad under
 `/podman`.
 
-Eftersom den är tänkt som en tjänsteserver, förvänta dig inte upptiden som
-[Shipon](/tjänster/cpu-servrar/shipon/) eller [Milou](/tjänster/cpu-servrar/milou/) erbjuder. Sätt
-därför upp automatstartning för dina Podman applikationer med systemd-tjänster
-eller Quadlet.
+Machinen är inte gammal och som sådant kan *breaking changes* introduceras
+närsom. En sådan är whitelistan som introducerades.
 
-Det gäller samma vett och etikett som på andra maskiner - kör inte QBittorrent,
-gräv inte Bitcoin - kör annars hårt och fråga om du vill ha hjälp. Rootgruppen
-kan periodvis kolla på vilka images som körs på maskinen för att säkerställa
-att ingen uråldrig applikation med flera CVE:er mot sig körs.
+Maskinen har en whitelist på vilka som få logga in, inte för att gatekeepa men
+för att jag vill vara säkert på att folk kan håller sina saker uppdaterade och
+generellt håller säkerhetsnivån av saker relativ hög. För att få tillgång till
+Shinobu läs först hela denna sida och prata sedan med kindergarten, fysiskt
+eller via mejl.
 
-<Aside type="caution" title="Alla portar är öppnade">
-    Portar på maskinen kan nås från det publika internet. **Säkerhetshål i det
-    du kör kan komma att exploateras för att hacka din användare.** Ingen tycker
-    det är kul, så vänligen håll dina containers uppdaterade. Om du vill ha en
-    guldsjärna, gå med i security-mejllistan för tjänsterna du driver.
-</Aside>
+Om du har problem eller frågor vill vi gärna hjälpa
+dig. Rootgruppen är till för att hjälpa, ingen fråga är för dum. Du kan nå
+maskinansvarige rooten [här](mailto:kindergarten@lysator.liu.se) eller
+rootgruppen direkt [här](mailto:root@lysator.liu.se). Vi finns givetvis också på
+bryggan.
 
-Följ [denna](/tjänster/cpu-servrar/shinobu/01-introduktion/) guide för att få en introduktion till
-Podman. Om du har problem eller frågor vill vi gärna hjälpa dig. Rootgruppen
-är till för att hjälpa, ingen fråga är för dum. Du kan nå maskinansvarige
-rooten [här](mailto:kindergarten@lysator.liu.se) eller rootgruppen direkt
-[här](mailto:root@lysator.liu.se). Vi finns givetvis också på bryggan.
+## Regler
+
+Shinobu har lite extra regler förutom [det
+vanliga](/tjänster/cpu-servrar/#vett-och-etikett). Det finns inga andra machiner
+för användare att flytta sig till, du ska därför inte använda 100% CPU under en
+längre tid. Generellt tycks det inte heller om att folk kör AI-modeller på
+maskinen, använd [Laila](https://www.lysator.liu.se/projekt/#laila) för det. Hur
+vi hantera AI på maskinen i framtiden har inte bestämts än.
+
+## Säkerhet
+
+Portar är öppna - don't fuck around and find out.
+
+Säkerhetsbilden på Shinobu skiljer sig från din vanliga VPS.
+
+Vi är en del av Sunet och ska som sådan förhålla oss till deras regler. När du
+blev medlem skrev du under att du inte bara följer Lysators regler för
+systemanvänding men också LIU's. Sunet vill inte att tjänster ska exponeras ut
+utan inlogg. Som sådant tolerera vi INGA tjänster som kör utan lösenord eller
+öppna dashboards utåt. Detta är inte en rekommendation men ett MÅSTE om du vill
+använda maskinen.
+
+Podman gör det smidigt att starta slumpmässiga tjänster. Du ska inte köra random
+containrar, det ska vara projekt med ordentliga säkerhetspolicy och
+release-cykler. Viktigast är att du läser dokumentationen och framför allt
+avsnittet om säkerhet innan du startar något, var inte jag och ta en random
+´docker-compose.yaml´ fil som fungerar och bli ägd.
+
+Om du följer regelerna ovan har det du kör release-cykler, följ de! Du ska inte
+köra utdaterad mjukvara. Om du inte använder något stäng av det tills du
+behöver det igen. Personligen tycker jag inte att du måste pinna dina containrar
+till en specifik hash, en major-version är fine. Hur du gör är det viktig att du
+uppgradera dina containrar från tid till tid, att sätta ´latest´ innebär inte
+att dina containrar uppgradera sig själv. Om du bygger dina egna containrar
+måste du bygga om de själva, hursom ska du förstöra de gammla containrar och
+sedan starta igen (`docker compose down`, `docker compose pull` sen `docker
+compose up`).
+
+## TLDR
+
+Följ [denna](/tjänster/cpu-servrar/shinobu/01-introduktion/) guide för att få en
+introduktion till Podman. För att saker ska fungera som du förvänta dig, kör:
+
+```bash
+systemctl --user enable --now podman.socket
+loginctl enable-linger "$USER"
+```
+
 
 ## Lagring på `/podman`
 
@@ -63,7 +104,7 @@ in första gången på maskinen skapas mapparna `/podman/containers/<nick>` och
     använd den för sånt.
 </Aside>
 
-## Vanliga fel
+## Vanliga missar
 
 <Aside type="note" title="Klaga gärna när något är fel!">
     Nedan följer ett antal fel som är enkla att stöta på. Om du
