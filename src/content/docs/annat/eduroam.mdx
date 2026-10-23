@@ -2,6 +2,8 @@
 title: EDURoam
 ---
 
+import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
+
 Några tips för att kunna ansluta till eduroam från olika enheter, operativsystem och verktyg.
 
 ---
@@ -15,34 +17,69 @@ Lösenord: Det genererade lösenordet från [minit.liu.se](https://minit.liu.se/
 
 ## Linux
 
-### NetworkManager
+<Tabs>
+    <TabItem label="NetworkManager">
+        [NetworkManager](https://en.wikipedia.org/wiki/NetworkManager)
+        är en nätverksdemon som fungerar bra med populära skrivbordsmiljöer som GNOME och KDE Plasma.
 
-> Baserat på https://gist.github.com/BollaBerg/7a3fc9744d5bf6eb16f8aab5928df755
+        > Baserat på https://gist.github.com/BollaBerg/7a3fc9744d5bf6eb16f8aab5928df755
 
-Hitta namnet på din WLAN-nätverkskort:
+        Hitta namnet på din WLAN-nätverkskort:
 
-```text
-$ ip -br l
-lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP>
-enp0s31f6        DOWN           f8:85:a4:6c:be:91 <NO-CARRIER,BROADCAST,MULTICAST,UP>
-wlp0s20f3        UP             50:f0:85:81:5a:65 <BROADCAST,MULTICAST,UP,LOWER_UP>
-```
+        ```text
+        $ ip -br l
+        lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP>
+        enp0s31f6        DOWN           f8:85:a4:6c:be:91 <NO-CARRIER,BROADCAST,MULTICAST,UP>
+        wlp0s20f3        UP             50:f0:85:81:5a:65 <BROADCAST,MULTICAST,UP,LOWER_UP>
+        ```
 
-I detta fall heter det `wlp0s20f3`.
+        I detta fall heter det `wlp0s20f3`.
 
-```text
-nmcli con add \
-  type wifi \
-  ifname <NAMN PÅ NÄTVERKSKORT> \
-  con-name eduroam \
-  ssid eduroam \
-  ipv4.method auto \
-  802-1x.eap peap \
-  802-1x.phase2-auth mschapv2 \
-  802-1x.identity <IDENTITET> \
-  802-1x.password <det> \
-  wifi-sec.key-mgmt wpa-eap
-```
+        ```text
+        nmcli con add \
+          type wifi \
+          ifname <NAMN PÅ NÄTVERKSKORT> \
+          con-name eduroam \
+          ssid eduroam \
+          ipv4.method auto \
+          802-1x.eap peap \
+          802-1x.phase2-auth mschapv2 \
+          802-1x.identity <IDENTITET> \
+          802-1x.password <det> \
+          wifi-sec.key-mgmt wpa-eap
+        ```
+    </TabItem>
+
+    <TabItem label="iwd">
+        [iwd](https://iwd.wiki.kernel.org/) (iNet wireless daemon)
+        är en trådlösnätverksdemon utvecklad av Intel som har lägre RAM användning än NetworkManager.
+
+        <Steps>
+        1. Skapa konfigurationsfilen för eduroam som `root`
+
+            ```bash
+            mkdir -p /var/lib/iwd
+            touch /var/lib/eduroam.8021x
+            chmod 600 /var/lib/eduroam.8021x
+            ```
+
+        2. [Hämta EDURoam uppgifter från LiU](https://minit.liu.se/myaccounts/Eduroam)
+
+        3. Redigera filen med en lämplig textredigerare
+            ```ini
+            [Security]
+            EAP-Method=PEAP
+            EAP-Identity=anonymous@liu.se
+            EAP-PEAP-Phase2-Method=MSCHAPV2
+            EAP-PEAP-Phase2-Identity=[PERONLIG EDUROAM EMAIL]
+            EAP-PEAP-Phase2-Password=[PERONLIG EDUROAM LÖSENORD]
+
+            [Settings]
+            AutoConnect=true
+            ```
+        </Steps>
+    </TabItem>
+</Tabs>
 
 ## Android
 
