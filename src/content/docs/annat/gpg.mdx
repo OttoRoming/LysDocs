@@ -7,7 +7,7 @@ title: GPG
 För att skapa din gpg-nyckel exekvera följande skalinstruktion och
 välj rsa4096 som krypto:
 
-```text
+```bash
 gpg --full-generate-key
 ```
 
@@ -16,7 +16,7 @@ gpg --full-generate-key
 För att lista ut alla nycklar du har skapat och signerat/signerats av
 kan du köra
 
-```text
+```bash
 gpg --list-keys
 ```
 
@@ -61,7 +61,7 @@ För att göra din nyckel tillgänglig för andra måste den finnas på en
 nyckelserver. Du kan ladda upp din gpg-nyckel till samma server som
 lysator använder med
 
-```text
+```bash
 gpg --keyserver keyserver.ubuntu.com --send-keys [Fingeravtryck]
 ```
 
@@ -69,7 +69,7 @@ gpg --keyserver keyserver.ubuntu.com --send-keys [Fingeravtryck]
 
 För att ladda ner nycklar lokalt kör
 
-```text
+```bash
 gpg --recv-keys [Fingeravtryck]
 ```
 
@@ -78,7 +78,7 @@ gpg --recv-keys [Fingeravtryck]
 Om någons nyckel är utgången eller har fått ändrad tillit kan du informera
 ditt lokala system om detta genom att använda
 
-```text
+```bash
 gpg --refresh-keys
 ```
 
@@ -86,7 +86,7 @@ gpg --refresh-keys
 
 För att redigera nycklar du har privat nyckel till, kör
 
-```text
+```bash
 gpg --edit-key [Fingeravtryck]
 ```
 
@@ -111,12 +111,12 @@ För att ändra tillit till en nyckel gå in i redigeringsgränssnittet och skri
 
 För att signera en nyckel, kör
 
-```text
+```bash
 gpg --sign-key [Fingeravtryck]
 ```
 
 ## Vidare läsning
 
-```text
+```bash
 man gpg
 ```
