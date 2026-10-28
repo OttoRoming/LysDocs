@@ -5,6 +5,7 @@ import { defineConfig } from "astro/config";
 import starlightLinksValidatorPlugin from "starlight-links-validator";
 import starlightLlmsTxt from "starlight-llms-txt";
 import starlightSidebarTopicsPlugin from "starlight-sidebar-topics";
+import starlightGitContributors from 'starlight-git-contributors';
 
 // https://astro.build/config
 export default defineConfig({
@@ -30,6 +31,7 @@ export default defineConfig({
 				Sidebar: "./src/components/overrides/Sidebar.astro",
 				ThemeProvider: "./src/components/overrides/ThemeProvider.astro",
 				ThemeSelect: "./src/components/overrides/ThemeSelect.astro",
+				// Footer: "./src/components/overrides/Footer.astro",
 			},
 			customCss: ["./src/styles/custom.css"],
 			plugins: [
@@ -37,6 +39,7 @@ export default defineConfig({
 				starlightLinksValidatorPlugin({
 					errorOnLocalLinks: false,
 				}),
+                starlightGitContributors(),
 				starlightSidebarTopicsPlugin(
 					[
 						{
