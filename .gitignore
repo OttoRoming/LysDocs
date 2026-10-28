@@ -21,3 +21,6 @@ pnpm-debug.log*
 
 # rumdl
 .rumdl_cache
+
+# Nix
+.direnv
