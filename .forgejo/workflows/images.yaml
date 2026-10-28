@@ -19,7 +19,9 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
 
       - name: Log in to Forgejo Container Registry
         uses: https://github.com/docker/login-action@v3
