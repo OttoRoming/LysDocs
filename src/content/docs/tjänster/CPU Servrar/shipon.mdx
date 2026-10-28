@@ -22,18 +22,9 @@ Vindbrygga är en tjänst som tillhandahåller SSH på portar utöver standardpo
 Shipon kör en separat sshd på port 21, 22, 80, 443 och 1022 med egna nycklar för
 att underlätta flytt av tjänsten till andra maskiner.
 
-## SSH
+## SSH-fingeravtryck
 
 Serverns SSH-värdnycklar har följande SHA256-fingeravtryck:
-
-| Typ | Fingeravtryck |
-| --- | --- |
-| RSA | `SHA256:nMJJm97tZtD0XNZ43NHpjYZByXKmvbWLYJJZrkOjk1o` |
-| ECDSA | `SHA256:+JoM1bO+E6ZfVS+utbU6VN+WVDibWbqF+OCRcyZ08z8` |
-| ED25519 | `SHA256:G6Mw6wiz4z1sdJB0qQU7SK6yUd/3lC9W54lUXpMzSu4` |
-
-<details>
-<summary>PGP-signatur</summary>
 
 ```text
 -----BEGIN PGP SIGNED MESSAGE-----
@@ -61,11 +52,8 @@ WoG2F3T9OasCtDv82hDqVTtvDkm9Ygh8GvChuCAmhKafg038uEY=
 -----END PGP SIGNATURE-----
 ```
 
-</details>
-
 <details>
-<summary>PGP-signatur (vindbrygga)</summary>
-
+<summary>Vindbrygga</summary>
 ```text
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA256
@@ -92,5 +80,5 @@ qvtYI9CGQ7DIeYYAdHV2ia/6k+XJteFI2VgMtzoGsm16oCc4bkf57+E5BmKeLbff
 =jgq9
 -----END PGP SIGNATURE-----
 ```
-
 </details>
+
