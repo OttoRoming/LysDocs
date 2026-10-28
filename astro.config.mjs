@@ -2,10 +2,10 @@
 
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
+import starlightGitContributors from "starlight-git-contributors";
 import starlightLinksValidatorPlugin from "starlight-links-validator";
 import starlightLlmsTxt from "starlight-llms-txt";
 import starlightSidebarTopicsPlugin from "starlight-sidebar-topics";
-import starlightGitContributors from 'starlight-git-contributors';
 
 // https://astro.build/config
 export default defineConfig({
@@ -39,7 +39,7 @@ export default defineConfig({
 				starlightLinksValidatorPlugin({
 					errorOnLocalLinks: false,
 				}),
-                starlightGitContributors(),
+				starlightGitContributors(),
 				starlightSidebarTopicsPlugin(
 					[
 						{
