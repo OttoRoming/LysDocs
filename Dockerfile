@@ -1,4 +1,7 @@
 FROM node:24-alpine AS builder
+
+RUN apk add git
+
 WORKDIR /app
 
 COPY package*.json ./
