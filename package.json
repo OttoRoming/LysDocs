@@ -12,6 +12,7 @@
 		"check:biome": "biome check",
 		"check:rumdl": "rumdl check",
 		"check:ryl": "ryl check .",
+		"check:cspell": "cspell **/*",
 		"check": "biome check && rumdl check && ryl check . && astro check",
 		"fix:biome": "biome check --write",
 		"fix:rumdl": "rumdl check --fix",
@@ -33,7 +34,9 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.15",
+		"@cspell/dict-sv": "^2.3.4",
 		"@owenlamont/ryl": "^0.25.1",
+		"cspell": "^10.4.0",
 		"rumdl": "^0.2.79"
 	}
 }
