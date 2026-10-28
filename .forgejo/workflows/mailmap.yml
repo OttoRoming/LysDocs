@@ -1,0 +1,81 @@
+---
+name: Mailmap Check
+
+"on":
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  mailmap:
+    container:
+      image: forge.lysator.liu.se/kindergarten/runners/alpine-docker:latest
+
+    runs-on: docker
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Check all contributors are listed in .mailmap
+        run: |
+          set -eu
+
+          mailmap=.mailmap
+
+          if [ ! -f "$mailmap" ]; then
+            echo "error: $mailmap does not exist" >&2
+            exit 1
+          fi
+
+          if [ "$(git rev-parse --is-shallow-repository)" = "true" ]; then
+            echo "error: shallow clone, cannot check all contributors" >&2
+            echo "hint: set 'fetch-depth: 0' on actions/checkout" >&2
+            exit 1
+          fi
+
+          tmpdir=$(mktemp -d)
+          trap 'rm -rf "$tmpdir"' EXIT
+
+          grep -v -E '^[[:space:]]*(#|$)' "$mailmap" \
+            | grep -o -E '<[^<>]+>' \
+            | tr -d '<>' \
+            | tr '[:upper:]' '[:lower:]' \
+            | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' \
+            | sort -u > "$tmpdir/mailmap-emails"
+
+          git log --format='%aN <%aE>' | sort -u > "$tmpdir/authors"
+
+          missing=0
+          while IFS= read -r author; do
+            email=$(printf '%s\n' "$author" \
+              | sed -n 's/^.*<\([^<>]*\)>.*$/\1/p' \
+              | tr '[:upper:]' '[:lower:]')
+
+            if [ -z "$email" ]; then
+              continue
+            fi
+
+            if ! grep -Fxq -- "$email" "$tmpdir/mailmap-emails"; then
+              if [ "$missing" -eq 0 ]; then
+                echo "The following contributors are missing from $mailmap:" >&2
+                echo >&2
+              fi
+              printf '  %s\n' "$author" >&2
+              missing=1
+            fi
+          done < "$tmpdir/authors"
+
+          if [ "$missing" -ne 0 ]; then
+            echo >&2
+            echo "Add one entry per contributor to $mailmap, e.g." >&2
+            echo "  nick <nick@lysator.liu.se>" >&2
+            echo "or map an old identity to it, e.g." >&2
+            echo "  nick <nick@lysator.liu.se> Real Name <real@example.com>" >&2
+            exit 1
+          fi
+
+          author_count=$(wc -l < "$tmpdir/authors" | tr -d ' ')
+          echo "All $author_count contributors are listed in $mailmap."
