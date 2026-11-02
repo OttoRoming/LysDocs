@@ -14,17 +14,22 @@ import { Aside, Steps } from '@astrojs/starlight/components';
 
 - "SISTA VARNING: alla dina foton, mappar och filer kommer att raderas."
 
-Då kanske du är intresserad av att sätta upp regler som automatiskt filtrerar din inkommande mail! Det kan du göra med **procmail**.
+Då kanske du är intresserad av att sätta upp regler som automatiskt filtrerar
+din inkommande mail! Det kan du göra med **procmail**.
 
 ## Att sätta upp procmail på sitt konto
 
-För att konfigurera procmail, behövs en inställningsfil `.procmailrc`. Det är också lämpligt att ha en katalog `.procmail` innehållande filter, och loggar som procmail skapar.
+För att konfigurera procmail, behövs en inställningsfil `.procmailrc`. Det är
+också lämpligt att ha en katalog `.procmail` innehållande filter, och loggar som
+procmail skapar.
 
-För att överhuvudtaget köra procmail för inkommande post måste man ändra sin `.forward`.
+För att överhuvudtaget köra procmail för inkommande post måste man ändra sin
+`.forward`.
 
 ## Skapa en `.procmailrc`
 
-Det första steget är att skapa inställningsfilen `.procmailrc` i roten på din mailspool `/var/mail/$USER`. Följande exempel kan med fördel användas:
+Det första steget är att skapa inställningsfilen `.procmailrc` i roten på din
+mailspool `/var/mail/$USER`. Följande exempel kan med fördel användas:
 
 ```text
 # Set on when debugging
@@ -52,9 +57,11 @@ LOGFILE=$PMDIR/log
 
 ## Skapa filter
 
-För att definera hur procmail ska hantera inkommande mail (inklusive att filtrera bort spam), behövs filter skapas.
+För att definera hur procmail ska hantera inkommande mail (inklusive att
+filtrera bort spam), behövs filter skapas.
 
-Du kan skriva filter direkt i `/var/mail/<ANVÄNDARNAMN>/.procmailrc`, men lite snyggare är att skriva filter i externa filer och sen inkludera dem.
+Du kan skriva filter direkt i `/var/mail/<ANVÄNDARNAMN>/.procmailrc`, men lite
+snyggare är att skriva filter i externa filer och sen inkludera dem.
 
 <Steps>
 
@@ -74,7 +81,10 @@ Du kan skriva filter direkt i `/var/mail/<ANVÄNDARNAMN>/.procmailrc`, men lite 
 
 ## Skapa `.forward`
 
-Nu är vi nästan redo att testa vår filter! Det som saknas är att faktiskt slussa inkommande mail genom procmail. Det gör du genom att skapa/redigera filen `.forward` som också ligger i roten på din mailspool. Filen ska ha följande innehåll, inklusive citationstecken.
+Nu är vi nästan redo att testa vår filter! Det som saknas är att faktiskt slussa
+inkommande mail genom procmail. Det gör du genom att skapa/redigera filen
+`.forward` som också ligger i roten på din mailspool. Filen ska ha följande
+innehåll, inklusive citationstecken.
 
 ```text
 "|exec /usr/bin/procmail"
@@ -90,15 +100,25 @@ Nu är vi nästan redo att testa vår filter! Det som saknas är att faktiskt sl
 
 ## En första test av procmail
 
-Nu kan du äntligen testa filtret! Skicka därför ett brev till dig själv där subject-raden innehåller ordet "test". Om procmail fungerar ska detta brev hamna i mailkatalogen `INBOX` > `test`, alltså en katalog under inkorgen. Detta borde även reflekteras i [webmail](/tjänster/kommunikation/elektronisk-post-på-lysatorvis/#webmail).
+Nu kan du äntligen testa filtret! Skicka därför ett brev till dig själv där
+subject-raden innehåller ordet "test". Om procmail fungerar ska detta brev hamna
+i mailkatalogen `INBOX` > `test`, alltså en katalog under inkorgen. Detta borde
+även reflekteras i
+[webmail](/tjänster/kommunikation/elektronisk-post-på-lysatorvis/#webmail).
 
-När du med ovanstående test klargjort att procmail fungerar kan du kommentera bort den rad i din '.procmailrc' som inkluderar test-filtret. Kommentering sker genom att placera tecknet "#" i början av raden.
+När du med ovanstående test klargjort att procmail fungerar kan du kommentera
+bort den rad i din '.procmailrc' som inkluderar test-filtret. Kommentering sker
+genom att placera tecknet "#" i början av raden.
 
 ## Spamfilter
 
-Här är en regel som filtrerar bort väldigt mycket spam som annars släpps igenom på Lysators servrar. Läs detaljerna under koden för att lära dig om varför det fungerar.
+Här är en regel som filtrerar bort väldigt mycket spam som annars släpps igenom
+på Lysators servrar. Läs detaljerna under koden för att lära dig om varför det
+fungerar.
 
-Du kan ändra målkatalogen till `/dev/null` för att ta bort spammarkerade mail automatiskt, men smidigast är att matcha katalogen med din e-postklients "skräpkorg". För Roundcube är det `.Junk/`.
+Du kan ändra målkatalogen till `/dev/null` för att ta bort spammarkerade mail
+automatiskt, men smidigast är att matcha katalogen med din e-postklients
+"skräpkorg". För Roundcube är det `.Junk/`.
 
 <Aside type="note" title="Se nya kataloger i Roundcube!">
     Om du skapar nya kataloger i din mailspool så måste du aktivera dem i Roundcube. Det görs genom att gå till "Settings" > "Folders" och aktiverar de katalogerna som annars är avaktiverade.
@@ -123,12 +143,18 @@ Du kan ändra målkatalogen till `/dev/null` för att ta bort spammarkerade mail
 
 ### Varför funkar regeln ovan?
 
-Lysators e-post ligger bakom LiU, som tillhandahåller ett spamfilter. När mail passerar LiU, läggs en rapport till i headern `X-Forefront-Antispam-Report`. Headern är strukturerad som semikolonseparerade värden.
-Exakt vad dessa värden betyder går att läsa [här](https://learn.microsoft.com/en-us/defender-office-365/message-headers-eop-mdo), men troligtvis är det "SFV:SPM" du vill använda.
+Lysators e-post ligger bakom LiU, som tillhandahåller ett spamfilter. När mail
+passerar LiU, läggs en rapport till i headern `X-Forefront-Antispam-Report`.
+Headern är strukturerad som semikolonseparerade värden. Exakt vad dessa värden
+betyder går att läsa
+[här](https://learn.microsoft.com/en-us/defender-office-365/message-headers-eop-mdo),
+men troligtvis är det "SFV:SPM" du vill använda.
 
 ## Filter för engångsaddresser
 
-Man kan sätta upp regel för att automatiskt skapa kataloger beroende på vilken [user-domän](/tjänster/kommunikation/elektronisk-post-på-lysatorvis/extra-adresser/) mailet skickades till. Så här kan det se ut:
+Man kan sätta upp regel för att automatiskt skapa kataloger beroende på vilken
+[user-domän](/tjänster/kommunikation/elektronisk-post-på-lysatorvis/extra-adresser/)
+mailet skickades till. Så här kan det se ut:
 
 ```text
 # User-domän

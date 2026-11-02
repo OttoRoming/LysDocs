@@ -24,7 +24,8 @@ Alla kommandon som nämns i denna artikel har en motsvarande manualsida under
 man [kommandonamn]
 ```
 
-Skriv ovanstående i terminalen för att hitta vidare läsning om ett givet kommando.
+Skriv ovanstående i terminalen för att hitta vidare läsning om ett givet
+kommando.
 
 ## Grundläggande navigering
 
@@ -33,9 +34,9 @@ Skriv ovanstående i terminalen för att hitta vidare läsning om ett givet komm
 Din dator lagrar allt den har i filer och kataloger. Kataloger kan innehålla
 både filer och kataloger medan filer inte kan innehålla andra kataloger eller
 filer. En lämplig liknelse är ett träd. Filer är blad på trädet medan kataloger
-är kvistar. Ju längre upp i katalogstrukturen du kommer destå tjockare är kvistarna
-tills du når trädets rot. I Linux kallas den översta katalogen `/` därför
-"root" (på engelska).
+är kvistar. Ju längre upp i katalogstrukturen du kommer destå tjockare är
+kvistarna tills du når trädets rot. I Linux kallas den översta katalogen `/`
+därför "root" (på engelska).
 
 Katalogstrukturen innehåller även en mängd andra kataloger som du kan läsa om på
 manualsidan "[hier](https://linux.die.net/man/7/hier)"
@@ -58,7 +59,8 @@ pwd
 
 som står för "path (to) working directory".
 
-För att se vad som finns i din nuvarande katalog kan du använda "list" kommandot med
+För att se vad som finns i din nuvarande katalog kan du använda "list" kommandot
+med
 
 ```bash
 ls
@@ -113,7 +115,8 @@ För att skapa en ny katalog använder du "make directory" genom att skriva
 mkdir /sökväg/till/ny/katalog
 ```
 
-till exempel kan vi skapa en katalog `test` i `Documents` mappen genom att skriva
+till exempel kan vi skapa en katalog `test` i `Documents` mappen genom att
+skriva
 
 ```bash
 mkdir ~/Documents/test
@@ -168,17 +171,17 @@ oavsett om den i verkligheten innehåller filer eller inte.
 
 ## Strömmar och stömmanipulering
 
-All text i terminalen transporteras genom så kallade "strömmar". När du skriver text i
-terminalen matar du in text i `stdin`-strömmen (standard in). När du exekverar ett kommando
-får du ut information på `stdout` (standard out) och `errout` (error out). `stdout` innehåller
-all ordinarie information som programmet skriver ut, medan `errout` är en dedikerad ström för
-felmeddelanden.
+All text i terminalen transporteras genom så kallade "strömmar". När du skriver
+text i terminalen matar du in text i `stdin`-strömmen (standard in). När du
+exekverar ett kommando får du ut information på `stdout` (standard out) och
+`errout` (error out). `stdout` innehåller all ordinarie information som
+programmet skriver ut, medan `errout` är en dedikerad ström för felmeddelanden.
 
-Som terminalanvändare ges vi tillgång att manipulera dessa strömmar för att få datorn att
-göra det vi vill. Vi tillhandahålls ett antal byggblock:
+Som terminalanvändare ges vi tillgång att manipulera dessa strömmar för att få
+datorn att göra det vi vill. Vi tillhandahålls ett antal byggblock:
 
-* `|` : "pipe", dirigerar om `stdout` från ett kommando till `stdin` på ett annat.
-  Ett relativt avancerat exempel på vad `|` låter dig göra är följande
+* `|` : "pipe", dirigerar om `stdout` från ett kommando till `stdin` på ett
+  annat. Ett relativt avancerat exempel på vad `|` låter dig göra är följande
 
   ```bash
   w | cut -f 1 -d\t | uniq | wc -l
@@ -192,26 +195,27 @@ göra det vi vill. Vi tillhandahålls ett antal byggblock:
   Detta kommando listar alltså ut alla som är inloggade
   och räknar sedan upp hur många de är.
 
-* `>` och `>>`: "plough" och "double plough" används för att dirigera in strömmar i filer.
-  Skillnaden mellan dem är att `>` tömmer målfilen medan `>>` lägger till `stdin` i slutet
-  på filen. Som exempel på detta betrakta
+* `>` och `>>`: "plough" och "double plough" används för att dirigera in
+  strömmar i filer. Skillnaden mellan dem är att `>` tömmer målfilen medan `>>`
+  lägger till `stdin` i slutet på filen. Som exempel på detta betrakta
 
   ```bash
   echo "hejsan" > fil
   ```
 
-  detta skriver ut "hejsan" till `stdout` och skickar sedan `stdout` till
-  `fil` vars innehåll ersätts med "hejsan"
+  detta skriver ut "hejsan" till `stdout` och skickar sedan `stdout` till `fil`
+  vars innehåll ersätts med "hejsan"
 
-* `*` : "wildcard" används för att representera "vad som helst". För att hitta alla
-  pdf:er i en katalog kan vi till exemel skriva
+* `*` : "wildcard" används för att representera "vad som helst". För att hitta
+  alla pdf:er i en katalog kan vi till exemel skriva
 
   ```bash
   ls *.pdf
   ```
 
   vilket betyder "list (`ls`) all objects (`*`) suffixed by .pdf (`.pdf`)".
-  Enligt samma principer kan vi även hitta filer som börjar på ett särskilt sätt med
+  Enligt samma principer kan vi även hitta filer som börjar på ett särskilt sätt
+  med
 
   ```bash
   ls abc*
@@ -247,7 +251,8 @@ göra det vi vill. Vi tillhandahålls ett antal byggblock:
 
 ## Grundläggande prestandaöversikt
 
-För att få en uppfattning om hur flitigt en dator används kan du exekvera kommandot
+För att få en uppfattning om hur flitigt en dator används kan du exekvera
+kommandot
 
 ```bash
 htop
@@ -279,7 +284,8 @@ För att söka efter filer i katalogstrukturen kan du använda
 find / -name [filnamn] 2> /dev/null
 ```
 
-som söker igenom hela katalogstrukturen och direkt slänger alla i `/dev/null` (se `man hier`)
+som söker igenom hela katalogstrukturen och direkt slänger alla i `/dev/null`
+(se `man hier`)
 
 För att söka i en textfil eller i `stdout` kan du använda
 

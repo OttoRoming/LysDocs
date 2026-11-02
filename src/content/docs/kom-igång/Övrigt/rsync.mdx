@@ -35,7 +35,8 @@ lysatordatorn _bar_ vänder man på det:
   rsync milou.lysator.liu.se:gazonk . 
 ```
 
-För att kopiera hela mappar måste inställningen `-r` specificeras. Detta görs genom:
+För att kopiera hela mappar måste inställningen `-r` specificeras. Detta görs
+genom:
 
 ```bash 
 rsync -r gazonk bar@milou.lysator.liu.se
@@ -55,16 +56,25 @@ man rsync
 
 Ett smakprov av användbara flaggor (inställningar) för dagligt bruk är:
 
-* `-r` : Rekursiv uppladdning, låter dig ladda upp hela kataloger istället för individuella filer.
+* `-r` : Rekursiv uppladdning, låter dig ladda upp hela kataloger istället för
+  individuella filer.
 * `-h` : Hjälpmeny, öppnar upp en kortare manualsida direkt i din stdout.
-* `-v` : Verbos utskrift, informerar dig om exakt vad `rsync` gör vid ett givet tillfälle. Användbart för felsökning.
-* `-n`,`--dry-run`: Låter dig testa ditt `rsync` kommando utan att faktiskt genomföra filöverföringen.
-* `-4`,`-6`: Låter dig specificera att du vill koppla upp dig med IPv4 respektive IPv6.
-* `--delete`: Låter dig ta bort filer som finns på fjärrdatorn men som saknas lokalt.
-* `--port=` : Låter dig specificera vilken port du vill koppla upp dig mot på fjärrdatorn.
-* `-z` : Zippa, låter dig komprimera datan som ska skickas innan den sänds till fjärrdatorn.
+* `-v` : Verbos utskrift, informerar dig om exakt vad `rsync` gör vid ett givet
+  tillfälle. Användbart för felsökning.
+* `-n`,`--dry-run`: Låter dig testa ditt `rsync` kommando utan att faktiskt
+  genomföra filöverföringen.
+* `-4`,`-6`: Låter dig specificera att du vill koppla upp dig med IPv4
+  respektive IPv6.
+* `--delete`: Låter dig ta bort filer som finns på fjärrdatorn men som saknas
+  lokalt.
+* `--port=` : Låter dig specificera vilken port du vill koppla upp dig mot på
+  fjärrdatorn.
+* `-z` : Zippa, låter dig komprimera datan som ska skickas innan den sänds till
+  fjärrdatorn.
 * `--progress` : Visar upp vilken fil det är som överförs.
-* `-p` : bevara rättigheter, säkerställer att filen har samma läs-/skrivrättigheter som på den lokala datorn.
+* `-p` : bevara rättigheter, säkerställer att filen har samma
+  läs-/skrivrättigheter som på den lokala datorn.
 * `--exclude` : Låter dig exkludera filer/kataloger från överföringen.
 
-Det finns dock många fler att läsa om på [man-sidan](https://linux.die.net/man/1/rsync)
+Det finns dock många fler att läsa om på
+[man-sidan](https://linux.die.net/man/1/rsync)

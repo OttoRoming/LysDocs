@@ -4,9 +4,9 @@ title: IPv6
 
 ## Adressplan
 
-För datorer i 254-nätet (`130.236.254.0/24`) gäller för närvarande följande standard:
-IPv6-adressen bildas genom att den sista oktetten i IPv4-adressen skrivs om till
-hexadecimal form och läggs efter prefixet `2001:6b0:17:f0a0::`.
+För datorer i 254-nätet (`130.236.254.0/24`) gäller för närvarande följande
+standard: IPv6-adressen bildas genom att den sista oktetten i IPv4-adressen
+skrivs om till hexadecimal form och läggs efter prefixet `2001:6b0:17:f0a0::`.
 
 ```shell
 printf '2001:6b0:17:f0a0::%x\n' `echo IPv4-adress | cut -d'.' -f4`
@@ -14,11 +14,11 @@ printf '2001:6b0:17:f0a0::%x\n' `echo IPv4-adress | cut -d'.' -f4`
 
 Exempelvis blir `130.236.254.27` alltså `2001:6b0:17:f0a0::1b`.
 
-Varje adress ska även ha en motsvarande reverse-post (`PTR`) i zonfilen `f0a.zone`,
-som är reverse-zon för `2001:6b0:17:f0a0::/64`
-(se [Lysators namnserver](/rootmanualen/dns/lysators-namnserver/)).
-Postens namn är den sista oktettens två hexadecimala siffror i omvänd ordning.
-För `ftp.lysator.liu.se` (`130.236.254.253`, det vill säga `2001:6b0:17:f0a0::fd`)
+Varje adress ska även ha en motsvarande reverse-post (`PTR`) i zonfilen
+`f0a.zone`, som är reverse-zon för `2001:6b0:17:f0a0::/64` (se
+[Lysators namnserver](/rootmanualen/dns/lysators-namnserver/)). Postens namn är
+den sista oktettens två hexadecimala siffror i omvänd ordning. För
+`ftp.lysator.liu.se` (`130.236.254.253`, det vill säga `2001:6b0:17:f0a0::fd`)
 ser posten ut så här:
 
 ```text
@@ -27,7 +27,8 @@ d.f    PTR    ftp.lysator.liu.se.
 
 ## Omvandlare
 
-Skriv in en IPv4-adress så räknas motsvarande IPv6-adress och reverse-post ut direkt.
+Skriv in en IPv4-adress så räknas motsvarande IPv6-adress och reverse-post ut
+direkt.
 
 <div class="ipv6-omvandlare">
   <label for="ipv4-input">IPv4-adress</label>

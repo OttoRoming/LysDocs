@@ -8,20 +8,29 @@ import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 
 ### Säkerhetskopiering av hemdisk
 
-Hemdisk säkerhetskopieras regelbundet (4 gånger per dygn). Servern som säkerhetskopieringen sker mot en server som är betydligt mindre än hemdisk (Hermaeus) så om en större datamängd ska lagras som inte kräver säkerhetskopiering (till exempel om hemdisk används för just säkerhetskopiering) så behöver den exkluderas från säkerhetskopieringen.
+Hemdisk säkerhetskopieras regelbundet (4 gånger per dygn). Servern som
+säkerhetskopieringen sker mot en server som är betydligt mindre än hemdisk
+(Hermaeus) så om en större datamängd ska lagras som inte kräver
+säkerhetskopiering (till exempel om hemdisk används för just säkerhetskopiering)
+så behöver den exkluderas från säkerhetskopieringen.
 
-Exkludera data från att säkerhetskopieras genom att skapa filen `.nobackup` i mappen som ska exkluderas.
+Exkludera data från att säkerhetskopieras genom att skapa filen `.nobackup` i
+mappen som ska exkluderas.
 
 ### Använda cpu-servar för att säkerhetskopiera data
 
-_Detta går självklart att tillämpa för säkerhetskopiering mot andra system_
-Det enklaste sättet att säkerhetskopiera egen data till hemdisk är att använda rsync. Däremot har det ett antal nackdelar:
+_Detta går självklart att tillämpa för säkerhetskopiering mot andra system_ Det
+enklaste sättet att säkerhetskopiera egen data till hemdisk är att använda
+rsync. Däremot har det ett antal nackdelar:
 
-1. Nya versioner av filer skriver över de gamla så om en fil modifieras (felaktigt) och sedan säkerhetskopieras så går det inte att återställa den tidigare versionen.
+1. Nya versioner av filer skriver över de gamla så om en fil modifieras
+   (felaktigt) och sedan säkerhetskopieras så går det inte att återställa den
+   tidigare versionen.
 2. Filerna ligger okrypterade på servern.
 
-Båda problemen kan lösas genom att använda för ändamålet skapade program. Två välanvända program med gott anseende är restic och borg.
-Nedan beskrivs hur man kan sätta upp restic.
+Båda problemen kan lösas genom att använda för ändamålet skapade program. Två
+välanvända program med gott anseende är restic och borg. Nedan beskrivs hur man
+kan sätta upp restic.
 
 <Steps>
 

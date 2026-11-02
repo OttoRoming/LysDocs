@@ -20,19 +20,19 @@ mästarlösenordet läcker.
 ## pass
 
 `pass` är en lösenordshanterare som använts flitigt inom Lysator. Programmet bor
-helt och hållet i terminalen och krypterar din lösenordsdatabas med pgp (du kommer
-alltså behöva en [gpg-nyckel](/annat/gpg/). För att initialisera ett pass-repo
-(lösenordsdatabas) så skriver du
+helt och hållet i terminalen och krypterar din lösenordsdatabas med pgp (du
+kommer alltså behöva en [gpg-nyckel](/annat/gpg/). För att initialisera ett
+pass-repo (lösenordsdatabas) så skriver du
 
 ```bash
 pass init [gpg-fingeravtryck]
 ```
 
 Detta skapar ett pass-repo under `~/.password-store`. Vill du att fler än en
-[gpg-nyckel](/annat/gpg/) ska kunna avkryptera repot så är det bara att lägga till fler
-gpg-fingeravtryck efter det första, separerade med mellanslag. Vill du att repot
-ska ligga någon annanstans så kan du lägga till `-p sökväg/till/katalog` efter
-`init`.
+[gpg-nyckel](/annat/gpg/) ska kunna avkryptera repot så är det bara att lägga
+till fler gpg-fingeravtryck efter det första, separerade med mellanslag. Vill du
+att repot ska ligga någon annanstans så kan du lägga till
+`-p sökväg/till/katalog` efter `init`.
 
 För att lägga in gamla lösenord skriver du
 
@@ -40,17 +40,17 @@ För att lägga in gamla lösenord skriver du
 pass insert [namn]
 ```
 
-Notera att `[namn]` är en filsökväg, pass stödjer sortering av lösenord i en katalogstruktur.
-För att sedan få ut lösenordet skriver du
+Notera att `[namn]` är en filsökväg, pass stödjer sortering av lösenord i en
+katalogstruktur. För att sedan få ut lösenordet skriver du
 
 ```bash
 pass [namn]
 ```
 
 `pass` kommer sedan att be dig avkryptera lösenordet i `[namn]` med din
-[gpg-nyckel](/annat/gpg/). `pass` skriver sedan ut lösenordet du angett till `stdout`.
-Om du vill undvika detta (t.ex. om någon sitter och axelsurfar) så kan du även skriva
-direkt till din `x-clipboard` med `pass -c [namn]`.
+[gpg-nyckel](/annat/gpg/). `pass` skriver sedan ut lösenordet du angett till
+`stdout`. Om du vill undvika detta (t.ex. om någon sitter och axelsurfar) så kan
+du även skriva direkt till din `x-clipboard` med `pass -c [namn]`.
 
 För att lägga till nya lösenord automatiskt kan du använda
 
@@ -58,9 +58,9 @@ För att lägga till nya lösenord automatiskt kan du använda
 pass generate [namn] [lösenordslängd]
 ```
 
-du kan begränsa genereringen till alphanumeriska tecken med hjälp av `-n` vilket kan
-vara lämpligt att göra under särskilda omständigheter. Under sådana omständigheter
-se till att kompensera genom att öka längden på lösenordet.
+du kan begränsa genereringen till alphanumeriska tecken med hjälp av `-n` vilket
+kan vara lämpligt att göra under särskilda omständigheter. Under sådana
+omständigheter se till att kompensera genom att öka längden på lösenordet.
 
 Vidare läsning finns på programmets [man-sida](https://linux.die.net/man/1/pass)
 som kan nås i terminalen med
@@ -71,13 +71,15 @@ man pass
 
 ## keepassxc
 
-`keepassxc` är en lösenordshanterare med både grafiskt och kommandoradsgränssnitt.
-Dess stora fördel gentemot `pass` är att lösenordsdatabasen är krypterad med ett
-kvantsäkert symmetriskt krypto (standard är AES-256 som ska vara säkert på
-överskådlig framtid förutsatt att inte förbättringar sker på Grovers algoritm
-eller att det utvecklas kvantdatorer med många miljarder qubits).
+`keepassxc` är en lösenordshanterare med både grafiskt och
+kommandoradsgränssnitt. Dess stora fördel gentemot `pass` är att
+lösenordsdatabasen är krypterad med ett kvantsäkert symmetriskt krypto (standard
+är AES-256 som ska vara säkert på överskådlig framtid förutsatt att inte
+förbättringar sker på Grovers algoritm eller att det utvecklas kvantdatorer med
+många miljarder qubits).
 
-Det grafiska gränssnittet är intuitivt nog så jag kommer inte att ge en förklaring för det.
+Det grafiska gränssnittet är intuitivt nog så jag kommer inte att ge en
+förklaring för det.
 
 Kommandoradsgränssnittet är enklast att börja utforska med
 
@@ -85,8 +87,8 @@ Kommandoradsgränssnittet är enklast att börja utforska med
 keepassxc-cli
 ```
 
-En rekommendation är att binda om kommandot med ett `alias`, förslagsvis `kpcli`.
-Du skapar sedan en lösenordsdatabas med
+En rekommendation är att binda om kommandot med ett `alias`, förslagsvis
+`kpcli`. Du skapar sedan en lösenordsdatabas med
 
 ```bash
 kpcli db-create -p [lösenordsdatabas]
