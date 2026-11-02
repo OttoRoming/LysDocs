@@ -1,6 +1,7 @@
 ---
 services:
   docs:
+    # image: forge.lysator.liu.se/lysdocs/lysdocs/lysdocs:latest
     build: .
     ports:
       - 3000:3000
