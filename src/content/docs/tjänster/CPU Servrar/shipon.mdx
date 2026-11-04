@@ -16,15 +16,8 @@ title: Shipon
 
 Lämplig för CPU- och minnesintensiva jobb. Har god upptid och stabilitet. Kör en annan smak *nix vilket kan vara kul! Monterar hemdisk och mailkataloger samt det delade Lysator-filsystemet. Kör samma konfiguration som arbetsstationer med FreeBSD. Önskar man använda X11 finns `xpra` installerat för vidarebefordring.
 
-## Vindbrygga
-
-Vindbrygga är en tjänst som tillhandahåller SSH på portar utöver standardporten.
-Shipon kör en separat sshd på port 21, 22, 80, 443 och 1022 med egna nycklar för
-att underlätta flytt av tjänsten till andra maskiner.
-
-## SSH-fingeravtryck
-
-Serverns SSH-värdnycklar har följande SHA256-fingeravtryck:
+<details>
+<summary>SSH-fingeravtryck</summary>
 
 ```text
 -----BEGIN PGP SIGNED MESSAGE-----
@@ -52,8 +45,16 @@ WoG2F3T9OasCtDv82hDqVTtvDkm9Ygh8GvChuCAmhKafg038uEY=
 -----END PGP SIGNATURE-----
 ```
 
+</details>
+
+## Vindbrygga
+
+Vindbrygga är en tjänst som tillhandahåller SSH på portar utöver standardporten.
+Shipon kör en separat sshd på port 21, 22, 80, 443 och 1022 med egna nycklar för
+att underlätta flytt av tjänsten till andra maskiner.
+
 <details>
-<summary>Vindbrygga</summary>
+<summary>SSH-fingeravtryck</summary>
 
 ```text
 -----BEGIN PGP SIGNED MESSAGE-----
