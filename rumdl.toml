@@ -7,13 +7,11 @@ allowed-elements = ["kbd", "br", "details", "summary"]
 [MD013]
 line-length = 80
 reflow = true
-# Tabeller formateras av MD060 i stället.
 tables = false
 code-blocks = false
 code-spans = false
 headings = false
 
-# Aligned tables utan auto-compact vid MD013:s line-length.
 [MD060]
 enabled = true
 style = "aligned"
