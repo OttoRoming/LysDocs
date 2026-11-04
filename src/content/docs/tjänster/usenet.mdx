@@ -4,11 +4,11 @@ title: Usenet
 
 import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
 
-Det är möjligt att läsa och skriva NNTP-nyheter på Lysator igen.
-Detta görs på servern nyheter.lysator.liu.se port 563 med TLS,
-där inloggningen är din vanliga Lysatorinloggning.
-Det kan vara möjligt att logga in okrypterat via port 119,
-men det är inte rekommenderat [då ditt lösenord med mer kan komma på vift](https://en.wikipedia.org/wiki/Snowden_disclosures).
+Det är möjligt att läsa och skriva NNTP-nyheter på Lysator igen. Detta görs på
+servern nyheter.lysator.liu.se port 563 med TLS, där inloggningen är din vanliga
+Lysatorinloggning. Det kan vara möjligt att logga in okrypterat via port 119,
+men det är inte rekommenderat
+[då ditt lösenord med mer kan komma på vift](https://en.wikipedia.org/wiki/Snowden_disclosures).
 I synnerhet om du ansluter via en dator som befinner sig någon annanstans än ~.
 
 <Aside type="danger" >
@@ -69,7 +69,8 @@ slrn -h snews://nyheter.lysator.liu.se
 
 ## Emacs
 
-Emacs inbyggda e-postklient gnus kan också användas som nyhetsläsare. Lägg till detta i din `~/.emacs.el` fil:
+Emacs inbyggda e-postklient gnus kan också användas som nyhetsläsare. Lägg till
+detta i din `~/.emacs.el` fil:
 
 ```elisp
 (setq gnus-select-method '(nntp "nyheter.lysator.liu.se"
@@ -78,4 +79,5 @@ Emacs inbyggda e-postklient gnus kan också användas som nyhetsläsare. Lägg t
                                 (nntp-address "nyheter.lysator.liu.se")))
 ```
 
-Sedan kan du ansluta med kommandot `M-x gnus` och för att få en översikt över alla nyheter använd `M-d`.
+Sedan kan du ansluta med kommandot `M-x gnus` och för att få en översikt över
+alla nyheter använd `M-d`.

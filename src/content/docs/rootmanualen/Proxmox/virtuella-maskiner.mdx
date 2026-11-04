@@ -8,12 +8,15 @@ import { Steps, Aside } from '@astrojs/starlight/components';
 
 ![Posten 187 (template-inhysning) i Proxmox-trädet](./template-inhysning.png)
 
-VM 187 (template-inhysning) är en s.k. template VM. Den är baserad på Debian 12, och är förkonfigurerad enligt följande:
+VM 187 (template-inhysning) är en s.k. template VM. Den är baserad på Debian 12,
+och är förkonfigurerad enligt följande:
 
-- den har "Cloud-Init" så att man direkt i Proxmox, under den klonade VMen:s "Cloud-Init"-flik kan:
+- den har "Cloud-Init" så att man direkt i Proxmox, under den klonade VMen:s
+  "Cloud-Init"-flik kan:
   - ställa in `lysroot`:s lösenord
   - sätta ipv4 och ipv4 och dess gateway
-- den har `qemu-guest-agent` förinstallerad, så att man exempelvis kan styra VM:en med graceful shutdown genom Proxmox VE
+- den har `qemu-guest-agent` förinstallerad, så att man exempelvis kan styra
+  VM:en med graceful shutdown genom Proxmox VE
 - openssh-server är installerad och aktiverad med `PasswordAuthentication yes`.
 - den får sin `hostname` från sitt VM-namn i klustret
 - dess apt sources använder `ftp.lysator.liu.se`
@@ -64,7 +67,8 @@ VM 187 (template-inhysning) är en s.k. template VM. Den är baserad på Debian 
 
 ### Manuellt
 
-> Baserad på https://datorhandbok.lysator.liu.se/index.php/Rootmanual:Skapa_Inhysning
+> Baserad på
+> https://datorhandbok.lysator.liu.se/index.php/Rootmanual:Skapa_Inhysning
 
 <Steps>
 

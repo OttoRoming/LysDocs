@@ -6,18 +6,22 @@ import { Aside, Steps } from '@astrojs/starlight/components';
 
 ## Auri-El
 
-Auri-El är en Archlinux CPU-server som kan användas för både generell användning och som fjärrskrivbordsserver.
-Servern är av modellen ASUS RS720Q-E8-RS12 (en nod) och är utrustad med två Intel Xeon CPU E5-2640 v3 och till det 128 GB DDR4 RAM.
-Operativsystemet kör på en SSD och det finns hårddisk (4TB) för scratchanvändning.
+Auri-El är en Archlinux CPU-server som kan användas för både generell användning
+och som fjärrskrivbordsserver. Servern är av modellen ASUS RS720Q-E8-RS12 (en
+nod) och är utrustad med två Intel Xeon CPU E5-2640 v3 och till det 128 GB DDR4
+RAM. Operativsystemet kör på en SSD och det finns hårddisk (4TB) för
+scratchanvändning.
 
-Eftersom Auri-El är en fjärrskrivbordsserver är den konfigurerad med samma paketlistor som för arbetsstationerna.
-Om du saknar paket kontakta `root@lysator...` eller `ivma@lysator...`.
+Eftersom Auri-El är en fjärrskrivbordsserver är den konfigurerad med samma
+paketlistor som för arbetsstationerna. Om du saknar paket kontakta
+`root@lysator...` eller `ivma@lysator...`.
 
 ### Diskar och monteringar
 
-Auri-El monterar de vanliga Lysator mapparna (`/home`, `~/.public`, mail, `/lysator`).
-Scratch finns tillgänglig både som ssd (`/scratch/ssd`, 500GB) och hårddisk (`/scratch/hdd`, 4TB).
-Var snäll mot `/scratch/ssd` (undvik att skriva jättemycket i onödan) och respektera andra användare på systemet.
+Auri-El monterar de vanliga Lysator mapparna (`/home`, `~/.public`, mail,
+`/lysator`). Scratch finns tillgänglig både som ssd (`/scratch/ssd`, 500GB) och
+hårddisk (`/scratch/hdd`, 4TB). Var snäll mot `/scratch/ssd` (undvik att skriva
+jättemycket i onödan) och respektera andra användare på systemet.
 
 <Aside type="caution" title="Varning!">
     Scratch har ingen säkerhetskopiering och kan dessutom rensas vid brist på utrymme.
@@ -66,15 +70,16 @@ RvKrCvnF/93Epxc0TNkmJGB+QLWArgU=
     är för något så rekommenderas xfce4 och att läsa [Getting Started with Xfce](https://docs.xfce.org/xfce/4.10/getting-started)
 </Aside>
 
-Av säkerhetsskäl exponerar inte Auri-El sin RDP-port (3389) utanför Lysators nät.
-Det är därför nödvändigt att tunnla med ssh för att nå RDP.
-Eftersom detta är en ganska vanlig konfiguration finns det inbyggt stöd
-för att tunnla genom ssh i vissa RDP-klienter bland annat Remmina.
+Av säkerhetsskäl exponerar inte Auri-El sin RDP-port (3389) utanför Lysators
+nät. Det är därför nödvändigt att tunnla med ssh för att nå RDP. Eftersom detta
+är en ganska vanlig konfiguration finns det inbyggt stöd för att tunnla genom
+ssh i vissa RDP-klienter bland annat Remmina.
 
 #### 1. Fönsterhanterare
 
-Fönsterhanterare väljs genom att ändra i filen `~/.xinitrc`.
-Det kan vara smakfullt att ha något i stil med nedanstående i filen för att det ska gå att välja fönsterhanterare på vissa arbetsstationer.
+Fönsterhanterare väljs genom att ändra i filen `~/.xinitrc`. Det kan vara
+smakfullt att ha något i stil med nedanstående i filen för att det ska gå att
+välja fönsterhanterare på vissa arbetsstationer.
 
 ```bash
 if [ "$1" = "default" ] || [ "$1" = "" ]; then
@@ -124,10 +129,13 @@ Vid önskemål på fler fönsterhanterare kontakta `ivma@lysator...`
 
 ##### Fönstret stängs direkt efter inloggning
 
-1. Din `.xinitrc` kan vara felaktig eller så finns inte din valda fönsterhanterare på Auri-El, se [Fönsterhanterare](#1-fönsterhanterare)
-2. Tidigare sessioner som var igång när rdp-tjänsten startades om kan ha blivit zombies, döda dem med `killall -u [användade] Xorg`
+1. Din `.xinitrc` kan vara felaktig eller så finns inte din valda
+   fönsterhanterare på Auri-El, se [Fönsterhanterare](#1-fönsterhanterare)
+2. Tidigare sessioner som var igång när rdp-tjänsten startades om kan ha blivit
+   zombies, döda dem med `killall -u [användade] Xorg`
 
 ##### "User does not exist, or could not be authenticated"
 
-Antaligen blir lösenordet fel. Kontrollera att tangentbordslayouten är rätt i RDP-klienten (se punkt 1 i [Konfigurera Remmina](#2-konfigurera-remmina)
-och kontrollera att du kan ssh till Auri-El.
+Antaligen blir lösenordet fel. Kontrollera att tangentbordslayouten är rätt i
+RDP-klienten (se punkt 1 i [Konfigurera Remmina](#2-konfigurera-remmina) och
+kontrollera att du kan ssh till Auri-El.

@@ -4,11 +4,13 @@ title: Skuldafn
 
 import { Steps } from '@astrojs/starlight/components';
 
-Skuldafn är ett subnät för enheter som inte behöver en publik IP-address (t.e.x. noderna i Conina).
+Skuldafn är ett subnät för enheter som inte behöver en publik IP-address (t.e.x.
+noderna i Conina).
 
 ## IP-rymd
 
-Skuldafn använder `10.10.0.0/16` som subnät. IP-adresserna är uppdelade så att näst sista oktetten anger ändamål för IP-adressen.
+Skuldafn använder `10.10.0.0/16` som subnät. IP-adresserna är uppdelade så att
+näst sista oktetten anger ändamål för IP-adressen.
 
 | Oktett | Användning                                                                           |
 |--------|--------------------------------------------------------------------------------------|
@@ -28,7 +30,8 @@ Skuldafn använder `10.10.0.0/16` som subnät. IP-adresserna är uppdelade så a
 
 ## Wireguard
 
-För att förenkla administering finns en wireguard server tillgänglig för root-gruppen på skuldafn för att kunna nå subnätet utifrån.
+För att förenkla administering finns en wireguard server tillgänglig för
+root-gruppen på skuldafn för att kunna nå subnätet utifrån.
 
 <Steps>
 
