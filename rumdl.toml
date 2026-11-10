@@ -1,10 +1,21 @@
 [global]
-disable = ["MD013"]
-
 respect-gitignore = true
 
 [MD033]
 allowed-elements = ["kbd", "br", "details", "summary"]
+
+[MD013]
+line-length = 80
+reflow = true
+tables = false
+code-blocks = false
+code-spans = false
+headings = false
+
+[MD060]
+enabled = true
+style = "aligned"
+max-width = 0
 
 [per-file-flavor]
 "src/content/docs/**/*.mdx" = "mdx"

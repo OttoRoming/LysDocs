@@ -32,11 +32,13 @@ Ett annat sätt att vidarebefodra lokal data via en server är att använda
 ssh -L 5050:localhost:5050 [användare]@milou.lysator.liu.se
 ```
 
-Detta specificerar att internettrafik via port 5050 på localhost ska vidarebefodras via port 5050 på `milou.lysator.liu.se`.
+Detta specificerar att internettrafik via port 5050 på localhost ska
+vidarebefodras via port 5050 på `milou.lysator.liu.se`.
 
 ## Lokal proxy
 
-Motsatsen till fjärrproxy är lokal proxy, som ruttar trafik från en annan dator via sig själv längs en given port. För att sätta upp en sådan proxy använd t.ex.
+Motsatsen till fjärrproxy är lokal proxy, som ruttar trafik från en annan dator
+via sig själv längs en given port. För att sätta upp en sådan proxy använd t.ex.
 
 ```bash
 ssh -R 5050:localhost:5050 [användare]@milou.lysator.liu.se

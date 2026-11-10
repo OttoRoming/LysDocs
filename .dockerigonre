@@ -2,13 +2,13 @@
 .rumdl_cache
 .vscode
 .gitignore
-.rumdl.toml
 
 node_modules
 public
 biome.json
 README.md
 ryl.toml
+rumdl.toml
 tsconfig.json
 
 docker-compose.yml

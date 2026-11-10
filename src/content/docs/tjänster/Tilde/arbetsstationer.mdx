@@ -4,26 +4,276 @@ title: Arbetsstationer
 
 import { Aside } from "@astrojs/starlight/components"
 
-| Arbetsstation | Rum | Ansvarig Root | OS | Övrigt |
-| - | - | - | - | - |
-| funky-boy | vardagsrummet | kacper | NixOS |  |
-| moira | vardagsrummet | ivma | Arch Linux |  |
-| lynchman | vardagsrummet | kacper | NixOS | Inkopplad till tv:n |
-| borsalino | byrån | kacper | NixOS |  |
-| renge | byrån | kempe | FreeBSD |  |
-| babette | byrån | ivma | Arch Linux |  |
-| sweet-jp | byrån | kacper | NixOS | Inkopplad till VT-510 |
-| mikochi | byrån | ivma | Arch Linux |  |
-
 ## Logga in
 
-På arbetsstationerna kan du logga in med ditt Lysator konto precis som på [CPU Servrarna](/tjänster/cpu-servrar).
+På arbetsstationerna kan du logga in med ditt Lysator konto precis som på
+[CPU Servrarna](/tjänster/cpu-servrar).
 
 ## Paket
 
-Om paket som önskas saknas på arbetsstationerna kan man kontakta ansvarig root via mail.
+Om paket som önskas saknas på arbetsstationerna kan man kontakta ansvarig root
+via mail.
 
 <Aside type="tip">
     Det går att lägga till paket på NixOS maskinerna administrerade av Kacper genom att
     [skapa en merge request på Lysator Nix Gitlab repot](https://git.lysator.liu.se/lysator/nix/nixos).
 </Aside>
+
+## Maskiner
+
+### Funky boy
+
+| Komponent      | Detaljer            |
+| -------------- | ------------------- |
+| Operativsystem | NixOS               |
+| Arkitektur     | x86_64              |
+| Modell         | Akasa NUC           |
+| Processor      | Intel Core i5-4250U |
+| Minne          | 16 GB               |
+| Placering      | Vardagsrummet       |
+| Ansvarig root  | kacper              |
+
+Funky boy är en NixOS-baserad arbetsstation i ett Akasa NUC-chassi. Den är
+namngiven efter det biologiska vapnet Funky Boy från filmen Redline.
+
+<details>
+<summary>SSH-fingeravtryck</summary>
+
+```text
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+4096 SHA256:r6RjBybDhY++vTEuS7hSgfvgbvTjXRaMNfOs+fwMOc4 funky-boy.lysator.liu.se (RSA)
+256 SHA256:Oc6JdUmBpbQjxgtjAw7+WBAhTSskZ/7hl8I1ohFkblc funky-boy.lysator.liu.se (ED25519)
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQQ9+T3ryqmB+rPip/CH2iAd4C8UsQUCaX0kmAAKCRCH2iAd4C8U
+sZzWAP9mx28MkozxJJVgVmnWnVahjLd+1dgIlbnJILPbzrZNOQD+K6XiAiYJHi+i
+sA85X8qiyw/rbB4OIf2tXwbYfCWDlwM=
+=TCFF
+-----END PGP SIGNATURE-----
+```
+
+</details>
+
+### Moira
+
+| Komponent      | Detaljer      |
+| -------------- | ------------- |
+| Operativsystem | Arch Linux    |
+| Placering      | Vardagsrummet |
+| Ansvarig root  | ivma          |
+
+### Lynchman
+
+| Komponent      | Detaljer            |
+| -------------- | ------------------- |
+| Operativsystem | NixOS               |
+| Arkitektur     | x86_64              |
+| Modell         | Akasa NUC           |
+| Processor      | Intel Core i5-4250U |
+| Minne          | 16 GB               |
+| Placering      | Vardagsrummet       |
+| Ansvarig root  | kacper              |
+
+Lynchman är en NixOS-baserad Akasa NUC i vardagsrummet. Förutom att vara en
+arbetsstation inkopplad till tv:n. fungerar den som
+[Jukebox (MPD-server)](/tjänster/tilde/jukebox) och står bredvid
+Yamaha-förstärkaren.
+
+<details>
+<summary>SSH-fingeravtryck</summary>
+
+```text
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+4096 SHA256:KMYp8PHgmV03B8LS7Pl4mYTv64bz4JZ7MxbK16KITZQ lynchman.lysator.liu.se (RSA)
+256 SHA256:3jPEVdMckWwwjrftrMIw3kLhZT6Qm2MOhO80D46AgN0 lynchman.lysator.liu.se (ED25519)
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQQ9+T3ryqmB+rPip/CH2iAd4C8UsQUCabNbkAAKCRCH2iAd4C8U
+sceiAPoDBpl2Q4Zh6Ilhn+YW0vNF2Sr0Sq04BdfiSKbKb3j1owEAzb329DUa8FtK
+RQZk8Grg+xHkmPO35kwliM2uoBmrXg8=
+=1OA0
+-----END PGP SIGNATURE-----
+```
+
+</details>
+
+### Borsalino
+
+| Komponent      | Detaljer           |
+| -------------- | ------------------ |
+| Operativsystem | NixOS              |
+| Arkitektur     | x86_64             |
+| Modell         | Eget bygge         |
+| Processor      | AMD Ryzen 5 2600   |
+| Minne          | 16 GB              |
+| Grafikkort     | AMD Radeon 5700 XT |
+| Placering      | Byrån              |
+| Ansvarig root  | kacper             |
+
+Borsalino är ett eget bygge med en AMD Ryzen 5 2600-processor och ett AMD Radeon
+5700 XT-grafikkort.
+
+<details>
+<summary>SSH-fingeravtryck</summary>
+
+```text
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+3072 SHA256:Nd74WEruCzRiIfWw3I88bBcJU3BX+5ROzJKNZOJsggY borsalino.lysator.liu.se (RSA)
+256 SHA256:LkxHE3274jNNcHNmIXWijg0zrR1mfHN7kwNMUYaOCS0 borsalino.lysator.liu.se (ECDSA)
+256 SHA256:hfz0CY5r/vEHPh1pJLShsJJyx4HzQZpGcyG9Zsi6AHY borsalino.lysator.liu.se (ED25519)
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQQ9+T3ryqmB+rPip/CH2iAd4C8UsQUCaRI6rAAKCRCH2iAd4C8U
+sXZeAP0e/T8MwxaXv4v1JRNA+U9OGcwxuGMWfA2vETZGBu2AAgD+MbN4gAivrNHO
+vcEN8weAwaYaX0Qhcdf2D6atMpn7Lg0=
+=gB0n
+-----END PGP SIGNATURE-----
+```
+
+</details>
+
+### Renge
+
+| Komponent      | Detaljer                     |
+| -------------- | ---------------------------- |
+| Operativsystem | FreeBSD                      |
+| Arkitektur     | amd64                        |
+| Modell         | HP EliteDesk 800 G1 USDT     |
+| Processor      | Intel Core i7-4790S 3.20 GHz |
+| Minne          | 16 GB                        |
+| Placering      | Byrån                        |
+| Ansvarig root  | kempe                        |
+
+Renge är en FreeBSD-arbetsstation i ett HP EliteDesk 800 G1 USDT-chassi. Den är
+namngiven efter Renge Miyauchi från serien Non Non Biyori.
+
+<details>
+<summary>SSH-fingeravtryck</summary>
+
+```text
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+renge.lysator.liu.se har följande SSH-fingeravtryck:
+256 SHA256:nmvB01u80hibho7DoHquyan/wgOGvdsvCPJkMZ1qKkk root@renge.lysator.liu.se (ECDSA)
+256 SHA256:eP/jr0y1Y5ScoumI0gW2B9Mcaa9rEfIgy8TyW1JwX2E root@renge.lysator.liu.se (ED25519)
+3072 SHA256:VL1HLrG3X1TsZyZnV76hkfwXfjU9A5SWt7YjL5zaJTo root@renge.lysator.liu.se (RSA)
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEETci4cPcl+ZcyiACiCkqKrhcKSD0FAmMRF2sACgkQCkqKrhcK
+SD2lZg/+LVFS/nhXQ/Moj/DXf9q/RTkiDgZjExU7PTlin5aano/vKpvE954/S37l
+9zcDHm9WS6fPrGxVbDAL/iros9KtomNk7F0AXkAeaIBNabsg28pisQav+0XghfBD
+4FpDzqu21jAIb3UqBYfKagW/3lROY43UYt+OwmohWm9rEK0Xju7BCYoHtFdQrRQW
+JN3wamEcNuzgfzR1lFXH2zhn99g+xfAECTvmBSyFIwZIHBcxIyEfilo6c8eSs1s8
+04glqc8npW/IZRRw9xRbzMW/yGp9Iwu5GOLGdA2mOWSrgzGhZ3NqhH64BZSadXgu
+qKx2o7YCHOxdmuT13/EIMhcprrQppomaEhKFzF4sx+BSRm3/9no5ryhC0R2mZJvA
+19cHvHBa84GzcG67ExAQy086Ke6xQmYA5VIEvJEw+6ISQEKZsztQbLUgOIUs9Yse
+2ZQX1LTpxs4V+oAD5g2RZAHA9G27jQI++GDUVT0NLcgq59g37VSNRGDaWgURTtgZ
+E6YYnpodjvNFn547V8dJWk+E3UjEe+P5xknS9/+JloxdUebQbtCo1EYfj7RMxRsp
+yJBneoSP6o5KhbKpDe+GVjLIt3DgQP2e2DcgQOBQFcp3N5wQLmcouhKU6NKUtTc2
+O3Nawiw2Us41vr7j4txdhFMH0OeVJ/oqgh3x74O36/GNnBGbdh4=
+=aPJQ
+-----END PGP SIGNATURE-----
+```
+
+</details>
+
+### Babette
+
+| Komponent      | Detaljer   |
+| -------------- | ---------- |
+| Operativsystem | Arch Linux |
+| Placering      | Byrån      |
+| Ansvarig root  | ivma       |
+
+### Sweet JP
+
+| Komponent      | Detaljer            |
+| -------------- | ------------------- |
+| Operativsystem | NixOS               |
+| Arkitektur     | x86_64              |
+| Modell         | Självbygge          |
+| Processor      | Intel Core i7-4770K |
+| Minne          | 16 GB               |
+| Placering      | Byrån               |
+| Ansvarig root  | kacper              |
+
+Sweet JP är ett NixOS-bygge med en Intel Core i7-4770K-processor. Den är
+inkopplad till VT-510 och namngiven efter Sweet JP från filmen Redline.
+
+<details>
+<summary>SSH-fingeravtryck</summary>
+
+```text
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+4096 SHA256:HkSi07HPE4o3Wjqovu3QtWVo+doBsHVwpC2fkkwd/24 sweet-jp.lysator.liu.se (RSA)
+256 SHA256:JflXwhG8dBwZy5I075sIuuCJaxDe/QRrlKRO/k7iNLU sweet-jp.lysator.liu.se (ED25519)
+
+-----BEGIN PGP SIGNATURE-----
+
+wr0EARYKAG8FgmpBUhgJEIfaIB3gLxSxRxQAAAAAAB4AIHNhbHRAbm90YXRpb25z
+LnNlcXVvaWEtcGdwLm9yZ7GvcvILSr1U1suvsrouqobJ7/qW7ge2liAMHME8Wx2a
+FiEEPfk968qpgfqz4qfwh9ogHeAvFLEAABtHAP9wliFafsvlStWGg0A64kuM+1FY
+HxlhcLngv3RoFEXBWAD8Cyv+jqpAUMIFB/OrbxPJqeqGs0M6TGjZt1JYv7jTqAg=
+=Z3GV
+-----END PGP SIGNATURE-----
+```
+
+</details>
+
+### Mikochi
+
+| Komponent      | Detaljer                     |
+| -------------- | ---------------------------- |
+| Operativsystem | Arch Linux                   |
+| Arkitektur     | amd64                        |
+| Modell         | HP EliteDesk 800 G1 USDT     |
+| Processor      | Intel Core i7-4790S 3.20 GHz |
+| Minne          | 16 GB                        |
+| Placering      | Byrån                        |
+| Ansvarig root  | ivma                         |
+
+Mikochi är en Arch Linux-arbetsstation i ett HP EliteDesk 800 G1 USDT-chassi.
+Den är namngiven efter Mikochi från serien Hakumei och Mikochi.
+
+<details>
+<summary>SSH-fingeravtryck</summary>
+
+```text
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+mikochi.lysator.liu.se har följande SSH-fingeravtryck:
+256 SHA256:kEoNy/F9jIZAxphuAoM1pCjFvbFBgYR26rxX3KCkiog /etc/ssh/ssh_host_ecdsa_key.pub (ECDSA)
+256 SHA256:S7uce6MueDZS7FpFmN9k5nixafwOWN9muFA1KXgCSO8 /etc/ssh/ssh_host_ed25519_key.pub (ED25519)
+3072 SHA256:wqA81skC9V9q8zW+5sAFnVFnc0+wE+q6k/oWaSSX9Fs /etc/ssh/ssh_host_rsa_key.pub (RSA)
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEETci4cPcl+ZcyiACiCkqKrhcKSD0FAmMSvOUACgkQCkqKrhcK
+SD0SHA/+JApO9V9WQ7oevgwe/GvZkcOzSTjoaU3/DLo1Ep3BtwYoGZZdMohKc6++
+c5XbOmsSOG1nJY+ZSIlagxIhZRL/aOoHuN1B1YgB0Ns48W3IemoMriHgGUA30ss4
+FLlclqhOAKIHgcYuZb+OVLp7TgIsO4FpIwKZYXc+K/B6pL4EcqZILkoqCHVvhU0g
++5GNkF0zFBUbXvbL+2GgI0+aB9hIQxRp0Tv7SBU6k9MZ1v/kWobOYZvTPquMDS6V
+pTpYGjSRkfskX/hao7GMY/bDEubOYn5nJU11nsWf1Rcqz/pnaj4f0n6J/iqq5RCD
+QHsDN6m97vIrX7zJBH/heqHipzvV7x6aixQOQRsu7dp3YnS7IUpjMb3dxdh2ARP4
+r1gO1hcY01b5d5IJ58xfj73nhKhweTstlm15LOzdU4B9FkAI14EjSuOLNhgT5u8f
+4la/yZEXeWyWf8DTiJci4fmHPFSHYJTiNPfYybzy48PjK8brVSrrT4VUbTt2paHT
+icrKsIKTJ6rFLI+zNEY0md4Nnbcwam/Og0+EpQvzTl4/45JqA6AH7AAmmH0siHtS
+3hWyiPQ3OcuGBlExOCPqwRDVrIpw1SEkg/3wZ0lUYMuJYsVBJiGIbZV/htUrpdjr
+jZk+66KXK2t58kCscLn38k1LIdP0Tisvepqjk0/JZCe9IXYQLEM=
+=Sbik
+-----END PGP SIGNATURE-----
+```
+
+</details>

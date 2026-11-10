@@ -2,21 +2,23 @@
 title: Volton
 ---
 
-| Komponent | Detaljer |
-| --- | --- |
-| Operativsystem | NixOS |
-| Arkitektur | x86_64 |
-| Modell | ASUS RS720Q-E8-RS12 (en nod) |
-| Processor | 2 × Intel Xeon E5-2695 v4 |
-| Minne | 128 GB DDR4 |
-| Placering | BAR-hallen, rack R5 |
-| Ansvarig root | kacper |
+| Komponent      | Detaljer                     |
+| -------------- | ---------------------------- |
+| Operativsystem | NixOS                        |
+| Arkitektur     | x86_64                       |
+| Modell         | ASUS RS720Q-E8-RS12 (en nod) |
+| Processor      | 2 × Intel Xeon E5-2695 v4    |
+| Minne          | 128 GB DDR4                  |
+| Placering      | BAR-hallen, rack R5          |
+| Ansvarig root  | kacper                       |
 
 ## Användningsområden
 
-Speciellt lämplig för tunga, parallella jobb, såsom kompilering. Monterar hemdisk och mailkataloger samt det delade Lysator-filsystemet.
+Speciellt lämplig för tunga, parallella jobb, såsom kompilering. Monterar
+hemdisk och mailkataloger samt det delade Lysator-filsystemet.
 
-[Apptainer](https://apptainer.org/) kan användas för att köra OCI-containers likt docker.
+[Apptainer](https://apptainer.org/) kan användas för att köra OCI-containers
+likt docker.
 
 ## Pakethantering
 
@@ -36,9 +38,8 @@ nix shell nixpkgs#$PAKET
 För att se vilka paket som finns, sök i nixpkgs på
 [search.nixos.org/packages](https://search.nixos.org/packages).
 
-## SSH-fingeravtryck
-
-Serverns SSH-värdnycklar har följande SHA256-fingeravtryck:
+<details>
+<summary>SSH-fingeravtryck</summary>
 
 ```text
 -----BEGIN PGP SIGNED MESSAGE-----
@@ -55,3 +56,5 @@ sWyFAP9RBpjAQzAVJH72rbSPCQzKVl+ZuGFZ/+wirP6BhmaubQD9Ec96cGjFfgtZ
 =/ie1
 -----END PGP SIGNATURE-----
 ```
+
+</details>

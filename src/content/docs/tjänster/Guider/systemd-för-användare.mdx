@@ -6,11 +6,16 @@ import { Aside } from '@astrojs/starlight/components';
 
 ## Tjänster för icke-root
 
-Vill du kunna ha långtidskörande bakgrundprocesser på ett smidigt och pålitligt sätt? Har du fram tills nu kanske kört på en `tmux`/`screen`-session och behövt starta upp den manuellt, de få gånger Lysator har haft nedtid?
+Vill du kunna ha långtidskörande bakgrundprocesser på ett smidigt och pålitligt
+sätt? Har du fram tills nu kanske kört på en `tmux`/`screen`-session och behövt
+starta upp den manuellt, de få gånger Lysator har haft nedtid?
 
 Här kommer en bättre lösning: skapa en `systemd`-tjänst.
 
-Du kanske tänker "det inte är möjligt, jag är inte root", men sanningen är att man kan använda nästan alla funktioner av `systemd` som vanlig dödlig användare, bara man lägger konfigurationen för tjänsten på rätt ställe, och tillägger flaggan `--user` i alla `systemctl`-kommandon.
+Du kanske tänker "det inte är möjligt, jag är inte root", men sanningen är att
+man kan använda nästan alla funktioner av `systemd` som vanlig dödlig användare,
+bara man lägger konfigurationen för tjänsten på rätt ställe, och tillägger
+flaggan `--user` i alla `systemctl`-kommandon.
 
 ### Exempel på användartjänsts enhetssfil
 
@@ -42,9 +47,12 @@ WantedBy=default.target
     ```
 </Aside>
 
-Detta ser precis ut som en vanlig systemtjänst. Enda skillnaden är kanske `%h`. Detta är en specifierare som kommer omvandlas till användarens hemkatalog. [Det finns en hel del sådana.](https://man.archlinux.org/man/systemd.unit.5#SPECIFIERS)
+Detta ser precis ut som en vanlig systemtjänst. Enda skillnaden är kanske `%h`.
+Detta är en specifierare som kommer omvandlas till användarens hemkatalog.
+[Det finns en hel del sådana.](https://man.archlinux.org/man/systemd.unit.5#SPECIFIERS)
 
-För att installera och starta tjänsten, kör `systemctl --user enable --now <TJÄNSTNAMN>`
+För att installera och starta tjänsten, kör
+`systemctl --user enable --now <TJÄNSTNAMN>`
 
 <Aside type="note" title="Mer om användartjänster">
     Läs mer detaljerat om att skapa `systemd` user-unit:s på Arch Wiki: https://wiki.archlinux.org/title/Systemd/User

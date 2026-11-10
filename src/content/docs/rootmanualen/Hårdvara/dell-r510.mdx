@@ -27,8 +27,8 @@ den startar. Detta sparar på strömförsörjningen i BAR.
 ## Management (iDRAC)
 
 För att använda management-gui på R510, använd först `ipmitool` på systemet för
-att ansluta till [management-nätet](/rootmanualen/nätverk/management-nätet/). Sätt också
-användare och lösenord.
+att ansluta till [management-nätet](/rootmanualen/nätverk/management-nätet/).
+Sätt också användare och lösenord.
 
 Därefter anslut via [proxy](/annat/proxy-via-lysator/) till orwell och gå
 in med en webbläsare på enhetens management-ip. Använd användaren och lösenordet
@@ -82,8 +82,8 @@ _horribel_ upplevelse.
 Vårt mål är att uppdatera till _relativt_ ny firmware och nyaste BIOS. Tyvärr
 kan vi inte bara dra ner nyaste firmware, sätta det på en USB-sticka, och be
 servern uppdatera sig från det. Servern verifierar nämligen signaturer så att
-alla uppdateringar är "auktoriserade" av Dell. Vi börjar därför med att uppdatera
-iDRAC.
+alla uppdateringar är "auktoriserade" av Dell. Vi börjar därför med att
+uppdatera iDRAC.
 
 Ladda ner nyaste iDRAC från Dells hemsida. Detta är vid skrivtid
 [version 2.92](https://www.dell.com/support/home/en-us/drivers/driversdetails?driverid=kpccc&oscode=ws8r2&productcode=poweredge-r510).
@@ -113,9 +113,10 @@ Lifecycle-kontrollern är tillräckligt ny för att verifiera och installera
 rimligt ny firmware.
 
 Starta om datorn och tryck på F10 för att gå in i _Dell Lifecycle
-Controller_Starta om datorn och tryck på F10 för att gå in
-i _Dell Lifecycle Controller_. Sätt upp nätverk (helst via
-[skuldafn-nätet](/rootmanualen/nätverk/skuldafn/)), och gå in i DLC:ns uppdateringsvy.
+Controller_Starta om datorn och tryck på F10 för att gå in i
+_Dell Lifecycle Controller_. Sätt upp nätverk (helst via
+[skuldafn-nätet](/rootmanualen/nätverk/skuldafn/)), och gå in i DLC:ns
+uppdateringsvy.
 
 Dell har sedan länge stängt ner sin FTP-server, så vi
 tvingas använda en inofficiell spegel. Vid skrivtid finns
@@ -124,7 +125,7 @@ tvingas använda en inofficiell spegel. Vid skrivtid finns
 skrivtid är dessa:
 
 | Fält         | Värde                  |
-|--------------|------------------------|
+| ------------ | ---------------------- |
 | Adress       | `ftp.updateyodell.net` |
 | Användarnamn | `dell`                 |
 | Lösenord     | `calvin`               |

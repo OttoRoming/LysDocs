@@ -6,11 +6,13 @@ import { Aside } from '@astrojs/starlight/components';
 
 ## Conina
 
-Conina är Lysators nya virtualiseringskluster och innehåller både inhysningar och vissa av Lysators egna tjänster.
+Conina är Lysators nya virtualiseringskluster och innehåller både inhysningar
+och vissa av Lysators egna tjänster.
 
 ### Hårdvara
 
-Conina består av 32 binoder och en SL4540 där varje nod har gigabit ethernet och är inkopplat till ett IB-nät för Ceph.
+Conina består av 32 binoder och en SL4540 där varje nod har gigabit ethernet och
+är inkopplat till ett IB-nät för Ceph.
 
 | Namn          | IP                                        | Modell | Kommentar               |
 | ------------- | ----------------------------------------- | ------ | ----------------------- |
@@ -50,8 +52,11 @@ Conina består av 32 binoder och en SL4540 där varje nod har gigabit ethernet o
 
 ### Åtkomst
 
-Webbgränssnittet (port 8006) kan nås från Lysators nät. Förslagsvis används ssh-proxy via `conina-1` från godtycklig cpu-server eller
-wireguard via Skuldafn. Inloggning kan ske antingen med Lysator-konto genom att välja `ad.lysator.liu.se` som realm alternativt välja `Linux PAM` och logga in med lösenordet i pass (root som användarnamn)
+Webbgränssnittet (port 8006) kan nås från Lysators nät. Förslagsvis används
+ssh-proxy via `conina-1` från godtycklig cpu-server eller wireguard via
+Skuldafn. Inloggning kan ske antingen med Lysator-konto genom att välja
+`ad.lysator.liu.se` som realm alternativt välja `Linux PAM` och logga in med
+lösenordet i pass (root som användarnamn)
 
 SSH kan enbart nås från Lysators nät.
 
@@ -63,15 +68,18 @@ SSH kan enbart nås från Lysators nät.
     Om många noder startar samtidigt kan corosync bilda separata grupper, genom att starta noderna en och en så undviks problemet.
 </Aside>
 
-Skriptet `/root/conina/turn_on.sh` på Orwell kan användas för att starta hela klustret via ipmi.
+Skriptet `/root/conina/turn_on.sh` på Orwell kan användas för att starta hela
+klustret via ipmi.
 
 #### Grafana
 
-Övervakning av bl.a. temperatur finns på https://graf.lysator.liu.se/d/celhn15dqhtz4c/conina?orgId=1
+Övervakning av bl.a. temperatur finns på
+https://graf.lysator.liu.se/d/celhn15dqhtz4c/conina?orgId=1
 
 #### Specialnoder/systemservrar
 
-conina1, conina23 och conina32 är specialnoder på så sätt att de har routningsbara ip:n.
+conina1, conina23 och conina32 är specialnoder på så sätt att de har
+routningsbara ip:n.
 
 conina1
 conina.lysator.liu.se har adress 130.236.254.43
