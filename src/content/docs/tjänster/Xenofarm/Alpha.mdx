@@ -4,7 +4,29 @@ sidebar:
   order: 30
 ---
 
+import { Aside } from "@astrojs/starlight/components"
+
 ![En gammal logotyp av DEC Alpha.](assets/alpha.svg)
 
 [Alpha](https://en.wikipedia.org/wiki/DEC_Alpha) är en 64-bitars RISC-arkitektur
-utvecklad av DEC på 90-talet.
+utvecklad av DEC på 90-talet. DEC köptes upp av Compaq, och Compaq köptes upp
+av HP som då arbetade på [Itanium](/tjänster/xenofarm/itanium) tillsamans med Intel. Arkitekturen blev då
+effektivt övergiven och slutade säljas under mitten av 2000-talet.
+
+# Maskiner
+
+## Clint
+| Komponent       | Detaljer                 |
+|-----------------|--------------------------|
+| Operativsystem  | Gentoo Linux             |
+| Modell          | Compaq AlphaServer DS20E |
+| Processor       | 2st EV67@667MHz          |
+| Minne           | 4 GB                     |
+| Placering       | BAR-hallen               |
+| Namngiven efter | Clint Eastwood           |
+| Ansvarig root   | kacper                   |
+
+<Aside type="note">
+  Login till clint måste just nu ske via SSH-nyckel då vi har haft problem med
+  att konfigurera lösenordsautentisering.
+</Aside>

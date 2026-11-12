@@ -9,16 +9,61 @@ sidebar:
   stiliserat som en blixt.
 ](assets/sparc.svg)
 
+[SPARC](https://en.wikipedia.org/wiki/SPARC) (Scalable Processor ARChitecture)
+är en RISC-arkitektur ursprungligen utvecklad av Sun Microsystems under mitten
+av 1980-talet. Oracle köpte upp Sun och annonserade under 2017 slutet av
+SPARC:s utveckling.
 
-# Servrar
+# Maskiner
+Xenofarm driftar idag exklusivt 64-bitars-versionen av arkitekturen, men den
+äldre 32-bitars-varianten kan tillkomma vid efterfråga.
 
-## Selene
+## Hyperion
+| Komponent       | Detaljer                            |
+|-----------------|-------------------------------------|
+| Operativsystem  | Oracle Solaris 11.4                 |
+| Modell          | Oracle SPARC T4-1                   |
+| Processor       | UltraSparc T4, 8 Kärnor, 64 Trådar  |
+| Minne           | 256 GB                              |
+| Placering       | BAR-hallen                          |
+| Namngiven efter | Titanen Hyperion i grekisk mytologi |
+| Ansvarig root   | kacper                              |
 
-| Komponent      | Detaljer                  |
-| -------------- | ------------------------- |
-| Operativsystem | Gentoo Linux              |
-| Modell         | LDOM på Oracle SPARC T4-1 |
-| Processor      | UltraSparc T4             |
-| Minne          | 64 GB                     |
-| Placering      | BAR-hallen                |
-| Ansvarig root  | kacper                    |
+Hyperion agerar LDOM-host till Selene, Eos, och Helios. Den delar därför sin
+processor och minne med dem. Antalet kärnor och minne som ges till varje LDOM
+kan justeras, så tveka inte på att be [Kacper](mailto:kacper@lysator.liu.se)
+justera dessa efter dina behov.
+
+# Eos
+| Komponent       | Detaljer                             |
+|-----------------|--------------------------------------|
+| Operativsystem  | OpenBSD                              |
+| Modell          | LDOM på Hyperion                     |
+| Processor       | UltraSparc T4                        |
+| Placering       | BAR-hallen                           |
+| Namngiven efter | Soluppgångens gud i grekisk mytologi |
+| Ansvarig root   | kacper                               |
+
+Login måste tills vidare delegeras manuellt
+
+# Helios
+| Komponent       | Detaljer                      |
+|-----------------|-------------------------------|
+| Operativsystem  | OpenIndiana (Illumos)         |
+| Modell          | LDOM på Hyperion              |
+| Processor       | UltraSparc T4                 |
+| Placering       | BAR-hallen                    |
+| Namngiven efter | Solens gud i grekisk mytologi |
+| Ansvarig root   | kacper                        |
+
+Login måste tills vidare delegeras manuellt
+
+# Selene
+| Komponent       | Detaljer                       |
+|-----------------|--------------------------------|
+| Operativsystem  | Gentoo Linux                   |
+| Modell          | LDOM på Hyperion               |
+| Processor       | UltraSparc T4                  |
+| Placering       | BAR-hallen                     |
+| Namngiven efter | Mångudinnan i grekisk mytologi |
+| Ansvarig root   | kacper                         |
