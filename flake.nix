@@ -18,7 +18,10 @@
         { pkgs, ... }:
         {
           devShells.default = pkgs.mkShell {
-            buildInputs = with pkgs; [ nodejs ];
+            buildInputs = with pkgs; [
+              nodejs
+              rumdl
+            ];
           };
         };
     };

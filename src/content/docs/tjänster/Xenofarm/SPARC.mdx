@@ -4,23 +4,23 @@ sidebar:
   order: 30
 ---
 
-![
-  Logotypen för SPARC. Röd-orange text i sans-serif. A:ets högra ben är
-  stiliserat som en blixt.
-](assets/sparc.svg)
+![Logotypen för SPARC. Röd-orange text i sans-serif. A:ets högra ben är
+  stiliserat som en blixt.](assets/sparc.svg)
 
 [SPARC](https://en.wikipedia.org/wiki/SPARC) (Scalable Processor ARChitecture)
 är en RISC-arkitektur ursprungligen utvecklad av Sun Microsystems under mitten
 av 1980-talet. Oracle köpte upp Sun och annonserade under 2017 slutet av
 SPARC:s utveckling.
 
-# Maskiner
+## Maskiner
+
 Xenofarm driftar idag exklusivt 64-bitars-versionen av arkitekturen, men den
 äldre 32-bitars-varianten kan tillkomma vid efterfråga.
 
-## Hyperion
+### Hyperion
+
 | Komponent       | Detaljer                            |
-|-----------------|-------------------------------------|
+| --------------- | ----------------------------------- |
 | Operativsystem  | Oracle Solaris 11.4                 |
 | Modell          | Oracle SPARC T4-1                   |
 | Processor       | UltraSparc T4, 8 Kärnor, 64 Trådar  |
@@ -34,9 +34,10 @@ processor och minne med dem. Antalet kärnor och minne som ges till varje LDOM
 kan justeras, så tveka inte på att be [Kacper](mailto:kacper@lysator.liu.se)
 justera dessa efter dina behov.
 
-# Eos
+## Eos
+
 | Komponent       | Detaljer                             |
-|-----------------|--------------------------------------|
+| --------------- | ------------------------------------ |
 | Operativsystem  | OpenBSD                              |
 | Modell          | LDOM på Hyperion                     |
 | Processor       | UltraSparc T4                        |
@@ -46,9 +47,10 @@ justera dessa efter dina behov.
 
 Login måste tills vidare delegeras manuellt
 
-# Helios
+## Helios
+
 | Komponent       | Detaljer                      |
-|-----------------|-------------------------------|
+| --------------- | ----------------------------- |
 | Operativsystem  | OpenIndiana (Illumos)         |
 | Modell          | LDOM på Hyperion              |
 | Processor       | UltraSparc T4                 |
@@ -58,9 +60,10 @@ Login måste tills vidare delegeras manuellt
 
 Login måste tills vidare delegeras manuellt
 
-# Selene
+## Selene
+
 | Komponent       | Detaljer                       |
-|-----------------|--------------------------------|
+| --------------- | ------------------------------ |
 | Operativsystem  | Gentoo Linux                   |
 | Modell          | LDOM på Hyperion               |
 | Processor       | UltraSparc T4                  |
