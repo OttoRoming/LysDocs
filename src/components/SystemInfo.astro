@@ -1,0 +1,56 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Code } from "@astrojs/starlight/components";
+
+interface Props {
+	data: CollectionEntry<"docs">["data"];
+}
+
+const { data } = Astro.props;
+const { category, ram, ramType, sshFingerprint } = data;
+
+const details: Array<[string, string | number | undefined]> = [
+	["Operativsystem", data.os],
+	["Arkitektur", data.arch],
+	["Modell", data.model],
+	["Processor", data.cpu],
+	[
+		"Minne",
+		ram === undefined
+			? undefined
+			: `${ram} GB${ramType === undefined ? "" : ` ${ramType}`}`,
+	],
+	["Grafikkort", data.gpu],
+	["Placering", data.placement],
+	["Namngiven efter", data.namedAfter],
+	["Ansvarig root", data.admin],
+];
+
+const rows = details.filter(
+	(row): row is [string, string | number] =>
+		row[1] !== undefined && row[1] !== "",
+);
+---
+
+{category && (rows.length > 0 || sshFingerprint) && (
+	<div class="sl-markdown-content">
+		{rows.length > 0 && (
+			<table>
+				<tbody>
+					{rows.map(([label, value]) => (
+						<tr>
+							<th scope="row">{label}</th>
+							<td>{value}</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		)}
+		{sshFingerprint && (
+			<details>
+				<summary>SSH-fingeravtryck</summary>
+				<Code code={sshFingerprint} />
+			</details>
+		)}
+	</div>
+)}
