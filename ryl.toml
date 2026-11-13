@@ -34,6 +34,7 @@ level = "warning"
 
 [lint.rules.document-start]
 level = "warning"
+present = false
 
 [lint.rules.truthy]
 level = "warning"
