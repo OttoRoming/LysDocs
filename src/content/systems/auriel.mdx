@@ -1,5 +1,28 @@
 ---
 title: Auri-El
+os: Arch Linux
+arch: x86_64
+model: ASUS RS720Q-E8-RS12
+cpu: "2 × Intel Xeon CPU E5-2640 v3"
+ram: 128
+ramType: DDR4
+admin: ivma
+sshFingerprint: |
+  -----BEGIN PGP SIGNED MESSAGE-----
+  Hash: SHA512
+
+  3072 SHA256:LqwtNGcpj/BX4QQWqNaL5yQbVSesUcc0fD8mLeZmOfQ auriel.lysator.liu.se (RSA)
+  256 SHA256:ymO4feTQOEtJVjunwDiAxNG5phFc9BVgljchmkoTIMQ auriel.lysator.liu.se (ECDSA)
+
+  -----BEGIN PGP SIGNATURE-----
+
+  iHUEARYKAB0WIQR0MUI9RZvpczlbzlXukfsRS97d2AUCaPTfPQAKCRDukfsRS97d
+  2NtaAQCNZXNeBDorj93YF/BaidyIFq+7aa35zVuwdzYJqNjK+QD+Oy0lG/T5jJgl
+  k6viREU3pNikfMkApN4A9epWpBlfCgU=
+  =gxJo
+  -----END PGP SIGNATURE-----
+
+category: cpu-server
 ---
 
 import { Aside, Steps } from '@astrojs/starlight/components';
@@ -35,28 +58,6 @@ jättemycket i onödan) och respektera andra användare på systemet.
 </Aside>
 
 Auri-El kör SSH på port 22.
-
-<details>
-<summary>SSH-fingeravtryck</summary>
-
-```text
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA512
-
-256 SHA256:ymO4feTQOEtJVjunwDiAxNG5phFc9BVgljchmkoTIMQ auriel.lysator.liu.se (ECDSA)
-3072 SHA256:LqwtNGcpj/BX4QQWqNaL5yQbVSesUcc0fD8mLeZmOfQ auriel.lysator.liu.se (RSA)
-256 SHA256:jZo+w5bLtfSgxhqV4GFeWsTMH2461xXzibteBTIqTrE auriel.lysator.liu.se (ED25519)
-
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQR0MUI9RZvpczlbzlXukfsRS97d2AUCaPVDbgAKCRDukfsRS97d
-2PGMAP9HVybs3jRvuerTCffOZcELF9n4joLFoVHrPRBz+TT9bwEAnpcO7u8Dx51N
-RvKrCvnF/93Epxc0TNkmJGB+QLWArgU=
-=fo9c
------END PGP SIGNATURE-----
-```
-
-</details>
 
 ### Anslut till fjärrskrivbord (RDP)
 

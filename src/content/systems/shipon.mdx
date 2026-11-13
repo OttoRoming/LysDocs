@@ -1,16 +1,39 @@
 ---
 title: Shipon
----
+os: FreeBSD
+arch: x86_64
+model: "HP SL230s Gen8"
+cpu: "2 × Intel Xeon E5-2660 2.2 GHz"
+ram: 64
+placement: "BAR-hallen, rack R2"
+admin: kempe
+sshFingerprint: |
+  -----BEGIN PGP SIGNED MESSAGE-----
+  Hash: SHA256
 
-| Komponent      | Detaljer                       |
-| -------------- | ------------------------------ |
-| Operativsystem | FreeBSD                        |
-| Arkitektur     | x86_64                         |
-| Modell         | HP SL230s Gen8                 |
-| Processor      | 2 × Intel Xeon E5-2660 2.2 GHz |
-| Minne          | 64 GB                          |
-| Placering      | BAR-hallen, rack R2            |
-| Ansvarig root  | kempe                          |
+  shipon.lysator.liu.se har följande SSH-fingeravtryck:
+  256 SHA256:+JoM1bO+E6ZfVS+utbU6VN+WVDibWbqF+OCRcyZ08z8 root@shipon.lysator.liu.se (ECDSA)
+  256 SHA256:G6Mw6wiz4z1sdJB0qQU7SK6yUd/3lC9W54lUXpMzSu4 root@shipon.lysator.liu.se (ED25519)
+  2048 SHA256:nMJJm97tZtD0XNZ43NHpjYZByXKmvbWLYJJZrkOjk1o root@shipon.lysator.liu.se (RSA)
+  -----BEGIN PGP SIGNATURE-----
+
+  iQIzBAEBCAAdFiEETci4cPcl+ZcyiACiCkqKrhcKSD0FAmACKvwACgkQCkqKrhcK
+  SD1iXBAAiv4k/CFdr+P27/ScMRjZhZv+ItQoWHwqgu0MCZMQqlQlJgJktewvImcd
+  IYcN7M5ztwVT13Xh6SfYjSwyoIOJii+v3Sz7Vn4EWUFuumv0oslf04vFS+fIEC/K
+  KUU8+QB56EPa8qaTpOIG/QmPDvb4IMZxJdK6HaPkHkaBZLb+ImaqWuHu983tWk01
+  UhU2UP/M/aBmGZsZWnxQaKvZLRt8sQGzBDCvYK55mPf1qdFLePG0QgLLWEt/hLtx
+  VmmrUt5Qmei7gBJWxzjzJW8uXpbNwUsCmzGMZ8l42Vs0HpLd+jlOkq4GovpEKO5e
+  Y/SZPq2j/XKEpCljS2DwR097spH4GXGM30J6VS9bXDB7mKywnQOvw16/94/xps81
+  jcfxBNEAuiwV+yikylpVC9yxDtQbdCTbEoeW5hbFF7XUkSpwoORncbtIVeHZook0
+  dj5hVQ3ZbyswnHPfBWJC/28PufibRybl4/3pXTAGnS0aCw7b7V7MehuioRwc6Jev
+  lSLHy+Z797kSzY6RvWsB2CXFvKxydLxeQwdrzD3U/PoSlfCAg5VrmoQrdYqSEaYm
+  aD7OX3WWOy42SfRHViyrqixcPWR0JKGKTov7XTpoAdddhVyEy+ARt0SEDBM41h2I
+  WoG2F3T9OasCtDv82hDqVTtvDkm9Ygh8GvChuCAmhKafg038uEY=
+  =x7qs
+  -----END PGP SIGNATURE-----
+
+category: cpu-server
+---
 
 ## Användningsområden
 
@@ -18,37 +41,6 @@ Lämplig för CPU- och minnesintensiva jobb. Har god upptid och stabilitet. Kör
 annan smak *nix vilket kan vara kul! Monterar hemdisk och mailkataloger samt det
 delade Lysator-filsystemet. Kör samma konfiguration som arbetsstationer med
 FreeBSD. Önskar man använda X11 finns `xpra` installerat för vidarebefordring.
-
-<details>
-<summary>SSH-fingeravtryck</summary>
-
-```text
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA256
-
-shipon.lysator.liu.se har följande SSH-fingeravtryck:
-256 SHA256:+JoM1bO+E6ZfVS+utbU6VN+WVDibWbqF+OCRcyZ08z8 root@shipon.lysator.liu.se (ECDSA)
-256 SHA256:G6Mw6wiz4z1sdJB0qQU7SK6yUd/3lC9W54lUXpMzSu4 root@shipon.lysator.liu.se (ED25519)
-2048 SHA256:nMJJm97tZtD0XNZ43NHpjYZByXKmvbWLYJJZrkOjk1o root@shipon.lysator.liu.se (RSA)
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCAAdFiEETci4cPcl+ZcyiACiCkqKrhcKSD0FAmACKvwACgkQCkqKrhcK
-SD1iXBAAiv4k/CFdr+P27/ScMRjZhZv+ItQoWHwqgu0MCZMQqlQlJgJktewvImcd
-IYcN7M5ztwVT13Xh6SfYjSwyoIOJii+v3Sz7Vn4EWUFuumv0oslf04vFS+fIEC/K
-KUU8+QB56EPa8qaTpOIG/QmPDvb4IMZxJdK6HaPkHkaBZLb+ImaqWuHu983tWk01
-UhU2UP/M/aBmGZsZWnxQaKvZLRt8sQGzBDCvYK55mPf1qdFLePG0QgLLWEt/hLtx
-VmmrUt5Qmei7gBJWxzjzJW8uXpbNwUsCmzGMZ8l42Vs0HpLd+jlOkq4GovpEKO5e
-Y/SZPq2j/XKEpCljS2DwR097spH4GXGM30J6VS9bXDB7mKywnQOvw16/94/xps81
-jcfxBNEAuiwV+yikylpVC9yxDtQbdCTbEoeW5hbFF7XUkSpwoORncbtIVeHZook0
-dj5hVQ3ZbyswnHPfBWJC/28PufibRybl4/3pXTAGnS0aCw7b7V7MehuioRwc6Jev
-lSLHy+Z797kSzY6RvWsB2CXFvKxydLxeQwdrzD3U/PoSlfCAg5VrmoQrdYqSEaYm
-aD7OX3WWOy42SfRHViyrqixcPWR0JKGKTov7XTpoAdddhVyEy+ARt0SEDBM41h2I
-WoG2F3T9OasCtDv82hDqVTtvDkm9Ygh8GvChuCAmhKafg038uEY=
-=x7qs
------END PGP SIGNATURE-----
-```
-
-</details>
 
 ## Vindbrygga
 

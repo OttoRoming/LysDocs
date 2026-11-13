@@ -19,6 +19,7 @@ max-width = 0
 
 [per-file-flavor]
 "src/content/docs/**/*.mdx" = "mdx"
+"src/content/systems/**/*.mdx" = "mdx"
 "README.md" = "goldmark" # Forgejo uses goldmark https://docs.codeberg.org/markdown/
 
 [per-file-ignores]
