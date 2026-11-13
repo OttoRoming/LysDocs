@@ -56,21 +56,6 @@ function findLink(
 	return undefined;
 }
 
-function findGroupByLabel(
-	entries: SidebarEntry[],
-	label: string,
-): SidebarGroup | undefined {
-	for (const entry of entries) {
-		if (entry.type !== "group") continue;
-		if (slugifyPath(entry.label) === slugifyPath(label)) return entry;
-
-		const found = findGroupByLabel(entry.entries, label);
-		if (found) return found;
-	}
-
-	return undefined;
-}
-
 export const onRequest = defineRouteMiddleware(async (context, next) => {
 	await next();
 
@@ -117,10 +102,9 @@ export const onRequest = defineRouteMiddleware(async (context, next) => {
 			continue;
 		}
 
-		const group =
-			found?.group ?? findGroupByLabel(starlightRoute.sidebar, categorySlug);
+		if (!found) continue;
 
-		if (!group) continue;
+		const group = found.group;
 
 		const systemHrefs = new Set(systemEntries.map((entry) => entry.href));
 		const remaining = group.entries.filter(
