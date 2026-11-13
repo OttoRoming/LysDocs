@@ -3,6 +3,8 @@ import { basename } from "node:path";
 import { docsSchema } from "@astrojs/starlight/schema";
 import { glob, type Loader, type ParseDataOptions } from "astro/loaders";
 import { z } from "astro/zod";
+import { autoSidebarLoader } from "starlight-auto-sidebar/loader";
+import { autoSidebarSchema } from "starlight-auto-sidebar/schema";
 import { topicSchema } from "starlight-sidebar-topics/schema";
 import {
 	resolveSystemCategory,
@@ -96,6 +98,11 @@ export const collections = {
 		schema: docsSchema({
 			extend: topicSchema.extend(z.object(systemFields).partial().shape),
 		}),
+	}),
+
+	autoSidebar: defineCollection({
+		loader: autoSidebarLoader(),
+		schema: autoSidebarSchema(),
 	}),
 
 	systems: defineCollection({

@@ -3,6 +3,10 @@ export const systemCategories = {
 		path: "tjänster/cpu-servrar",
 		topic: "tjänster",
 	},
+	arbetsstation: {
+		path: "tjänster/tilde/arbetsstationer",
+		topic: "tjänster",
+	},
 	"xenofarm-alpha": {
 		path: "tjänster/xenofarm/alpha",
 		topic: "tjänster",
