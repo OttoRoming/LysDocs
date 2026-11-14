@@ -28,7 +28,7 @@ const systemFields = {
 	arch: z.string().optional(),
 	model: z.string().optional(),
 	cpu: z.string().optional(),
-	ram: z.number().nonnegative().optional(),
+	ram: z.int().optional(),
 	ramType: z.string().optional(),
 	gpu: z.string().optional(),
 	placement: z.string().optional(),
