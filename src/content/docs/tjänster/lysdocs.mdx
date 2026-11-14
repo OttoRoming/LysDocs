@@ -92,3 +92,48 @@ Du är varm välkommen att bidra till att förbättra lysdocs om du har ideér.
         }
         ```
 </Steps>
+
+### Hantera system
+
+System finns i `src/content/systems` och söks efter med glob mönstret
+`**/*.mdx`. Det gör alltså ingen skillnad var man placerar systemet i
+`src/content/systems` men att ha krockande filnamn skapar för nuvarande problem
+med att flera system får internt samma ID i Astro.
+
+#### Frontmatter schema
+
+Varje system ska ha en frontmatter för systemets specs och det uppskattas om man
+dokumenterar sina system så utförligt som möjligt. Detta schema definieras i
+`src/content.config.ts`.
+
+| Nyckel         | Beskrivning                               |
+| -------------- | ----------------------------------------- |
+| titel[^1]      | Namnet på systemet                        |
+| os             | Operativsystemet                          |
+| model          | Model av system                           |
+| cpu            | Processor                                 |
+| ram            | Mängden minne i GB                        |
+| ramType        | Vilken standard minnet följer (tex. DDR4) |
+| gpu            | Grafikkort                                |
+| placement      | Placering, rum och rack                   |
+| admin          | Ansvarig root                             |
+| namedAfter     |                                           |
+| sshFingerprint | PGP signerat SSH fingeravtryck            |
+| category[^1]   | Systemets kategori                        |
+
+#### Kategorier
+
+Systemets kategori bestämmer var i LysDocs systemet kommer att synas för
+användare. Lista på kategorier finns i `src/settings.ts` i javascript objektet
+`systemCategories`.
+
+Kategorier går också att använda för att skapa länk rutnät över en
+systemkategori ([Exempel](/tjänster/xenofarm/sparc)).
+
+```mdx
+import SystemCategoryLinks from "@components/SystemCategoryLinks.astro"
+
+<SystemCategoryLinks category="[KATEGORI]"/>
+```
+
+[^1]: Obligatoriskt fält
