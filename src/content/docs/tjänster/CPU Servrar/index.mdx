@@ -4,6 +4,8 @@ sidebar:
   order: 20
 ---
 
+import SystemCategoryGrid from "@components/SystemCategoryGrid.astro"
+
 CPU-servrarna är till för föreningens medlemmar att kunna logga in remote och
 köra sina program på. Få restriktioner gäller förutom
 [Lysators Användarvillkor](https://www.lysator.liu.se/foreningen/styrelsen/villkor.pdf).
@@ -74,3 +76,7 @@ if [ -x "$(command -v SKAL)" ] && [[ ! $USE_BASH = 1 ]]; then
     exec SKAL
 fi
 ```
+
+## Maskiner
+
+<SystemCategoryGrid category="cpu-server" />

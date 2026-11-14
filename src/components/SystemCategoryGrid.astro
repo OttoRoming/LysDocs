@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import { CardGrid, LinkCard } from "@astrojs/starlight/components";
+import { systemRoute, systemSlug } from "../lib/systems";
+import type { SystemCategory } from "../settings";
+
+interface Props {
+	category: SystemCategory;
+}
+
+const { category } = Astro.props;
+const collator = new Intl.Collator("sv", { sensitivity: "base" });
+
+const systems = (await getCollection("systems"))
+	.filter((system) => system.data.category === category)
+	.sort((a, b) => collator.compare(a.data.title, b.data.title));
+---
+
+{systems.length > 0 && (
+	<CardGrid>
+		{systems.map((system) => (
+			<LinkCard
+				title={system.data.title}
+				description={system.data.os}
+				href={systemRoute(category, systemSlug(system.id))}
+			/>
+		))}
+	</CardGrid>
+)}
