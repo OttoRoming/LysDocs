@@ -24,7 +24,7 @@ const docsExtensions = [
 ];
 
 const systemFields = {
-	os: z.string(),
+	os: z.string().optional(),
 	arch: z.string().optional(),
 	model: z.string().optional(),
 	cpu: z.string().optional(),
@@ -32,7 +32,7 @@ const systemFields = {
 	ramType: z.string().optional(),
 	gpu: z.string().optional(),
 	placement: z.string().optional(),
-	admin: z.string(),
+	admin: z.string().optional(),
 	namedAfter: z.string().optional(),
 	sshFingerprint: z.string().optional(),
 
@@ -109,7 +109,7 @@ export const collections = {
 		loader: glob({
 			base: "./src/content/systems",
 			pattern: "**/*.mdx",
-			generateId: ({ entry }) => slugifyPath(basename(entry)),
+			generateId: ({ entry }) => slugifyPath(entry),
 		}),
 		schema: z.object({
 			title: z.string(),

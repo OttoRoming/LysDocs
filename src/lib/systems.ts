@@ -24,6 +24,11 @@ export function systemRouteId(category: SystemCategory, id: string) {
 	return `${systemCategories[category].path}/${id}`;
 }
 
+/** Systems collection IDs include their directory; routes only use the leaf. */
+export function systemSlug(id: string) {
+	return id.split("/").at(-1) ?? id;
+}
+
 export function systemRoute(category: SystemCategory, id: string) {
 	return `/${systemRouteId(category, id)}/`;
 }

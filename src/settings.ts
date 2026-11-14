@@ -15,6 +15,10 @@ export const systemCategories = {
 		path: "tjänster/xenofarm/sparc",
 		topic: "tjänster",
 	},
+	rootinfo: {
+		path: "rootmanualen/rootspecifik-systeminfo",
+		topic: "rootmanualen",
+	},
 } as const;
 
 export type SystemCategory = keyof typeof systemCategories;
