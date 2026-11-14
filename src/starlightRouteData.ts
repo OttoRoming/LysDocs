@@ -50,11 +50,56 @@ function findLink(
 	return undefined;
 }
 
+function flattenSidebar(entries: SidebarEntry[]): SidebarLink[] {
+	return entries.flatMap((entry) =>
+		entry.type === "group" ? flattenSidebar(entry.entries) : [entry],
+	);
+}
+
+type PrevNextConfig =
+	| boolean
+	| string
+	| { link?: string; label?: string }
+	| undefined;
+
+function applyPrevNextLinkConfig(
+	link: SidebarLink | undefined,
+	config: PrevNextConfig,
+): SidebarLink | undefined {
+	if (config === false) return undefined;
+	if (config === true) return link;
+	if (typeof config === "string" && link) return { ...link, label: config };
+	if (typeof config === "object" && config !== null) {
+		if (link) {
+			return {
+				...link,
+				label: config.label ?? link.label,
+				href: config.link ?? link.href,
+				attrs: {},
+			};
+		}
+
+		if (config.link && config.label) {
+			return {
+				type: "link",
+				label: config.label,
+				href: config.link,
+				isCurrent: false,
+				badge: undefined,
+				attrs: {},
+			};
+		}
+	}
+
+	return link;
+}
+
 export const onRequest = defineRouteMiddleware(async (context, next) => {
 	await next();
 
 	const { starlightRoute } = context.locals;
 	const allSystems = await getCollection("systems");
+	let changed = false;
 
 	for (const category of systemCategoryValues) {
 		const { path } = systemCategories[category];
@@ -97,6 +142,7 @@ export const onRequest = defineRouteMiddleware(async (context, next) => {
 				collapsed: false,
 				badge: found.link.badge,
 			};
+			changed = true;
 			continue;
 		}
 
@@ -111,5 +157,20 @@ export const onRequest = defineRouteMiddleware(async (context, next) => {
 		group.entries = [...remaining, ...systemEntries].sort((a, b) =>
 			sortSidebarEntries(indexHref, a, b),
 		);
+		changed = true;
+	}
+
+	if (changed) {
+		const links = flattenSidebar(starlightRoute.sidebar);
+		const currentIndex = links.findIndex((link) => link.isCurrent);
+
+		if (currentIndex !== -1) {
+			const { prev, next } = starlightRoute.entry.data;
+
+			starlightRoute.pagination = {
+				prev: applyPrevNextLinkConfig(links[currentIndex - 1], prev),
+				next: applyPrevNextLinkConfig(links[currentIndex + 1], next),
+			};
+		}
 	}
 });
