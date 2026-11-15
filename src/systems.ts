@@ -1,24 +1,9 @@
 export const systemCategories = {
-	"cpu-server": {
-		path: "tjänster/cpu-servrar",
-		topic: "tjänster",
-	},
-	arbetsstation: {
-		path: "tjänster/tilde/arbetsstationer",
-		topic: "tjänster",
-	},
-	"xenofarm-alpha": {
-		path: "tjänster/xenofarm/alpha",
-		topic: "tjänster",
-	},
-	"xenofarm-sparc": {
-		path: "tjänster/xenofarm/sparc",
-		topic: "tjänster",
-	},
-	rootinfo: {
-		path: "rootmanualen/rootspecifik-systeminfo",
-		topic: "rootmanualen",
-	},
+	"cpu-server": "CPU Servrar",
+	arbetsstation: "Arbetsstationer",
+	"xenofarm-alpha": "Xenofarm Alpha",
+	"xenofarm-sparc": "Xenofarm SPARC",
+	rootinfo: "Rootspecifik systeminfo",
 } as const;
 
 export type SystemCategory = keyof typeof systemCategories;
@@ -27,5 +12,3 @@ export const systemCategoryValues = Object.keys(systemCategories) as [
 	SystemCategory,
 	...SystemCategory[],
 ];
-
-export const defaultSystemCategory = systemCategoryValues[0];
