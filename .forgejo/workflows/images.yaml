@@ -1,4 +1,3 @@
----
 name: Build Docker images for LysDocs
 
 # Images are rebuilt nightly and on changes to the master branch.
