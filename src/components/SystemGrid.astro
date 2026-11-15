@@ -1,28 +1,47 @@
 ---
 import { getCollection } from "astro:content";
 import { CardGrid, LinkCard } from "@astrojs/starlight/components";
-import { systemRoute, systemSlug } from "../lib/systems";
-import type { SystemCategory } from "../systems";
+import { type SystemCategory, systemCategories } from "../systems";
 
 interface Props {
-	category: SystemCategory;
+	category?: SystemCategory;
 }
 
 const { category } = Astro.props;
 const collator = new Intl.Collator("sv", { sensitivity: "base" });
 
-const systems = (await getCollection("systems"))
-	.filter((system) => system.data.category === category)
+const systems = (await getCollection("docs"))
+	.filter(
+		(entry) =>
+			entry.data.category !== undefined &&
+			(category === undefined || entry.data.category === category),
+	)
 	.sort((a, b) => collator.compare(a.data.title, b.data.title));
+
+const cards = systems.map((system) => {
+	const categoryLabel =
+		category === undefined && system.data.category
+			? systemCategories[system.data.category]
+			: undefined;
+	const description = [categoryLabel, system.data.os]
+		.filter((value) => value !== undefined)
+		.join(" · ");
+
+	return {
+		title: system.data.title,
+		description: description || undefined,
+		href: `/${system.id}/`,
+	};
+});
 ---
 
-{systems.length > 0 && (
+{cards.length > 0 && (
 	<CardGrid>
-		{systems.map((system) => (
+		{cards.map((card) => (
 			<LinkCard
-				title={system.data.title}
-				description={system.data.os}
-				href={systemRoute(category, systemSlug(system.id))}
+				title={card.title}
+				description={card.description}
+				href={card.href}
 			/>
 		))}
 	</CardGrid>

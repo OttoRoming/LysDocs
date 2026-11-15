@@ -20,7 +20,7 @@ till /usr/local/packages. Dessa paket är låsta med `pkg lock $pkg` och behöve
 byggas om om datorn uppdateras.
 
 I den virtuella FreeBSD-maskinen på Sisyfos ligger det en paketlista för
-[Shipon](/tjänster/cpu-servrar/shipon) med namn `freebsd12-amd64-shipon`. Den
+[Shipon](/system/cpu-servrar/shipon/) med namn `freebsd12-amd64-shipon`. Den
 byggs m.h.a. poudriere i fängelset shipon med portträdet default, ex
 `poudriere bulk -J 32 -j shipon -p default -f freebsd12-amd64-shipon` för att
 bygga paketen med 32 parallella jobb. Se dokumentation för poudriere för mer

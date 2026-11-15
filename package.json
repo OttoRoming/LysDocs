@@ -22,7 +22,6 @@
 		"@astrojs/check": "^0.9.10",
 		"@astrojs/starlight": "^0.42.5",
 		"astro": "^7.2.10",
-		"github-slugger": "^2.0.0",
 		"sharp": "^0.35.3",
 		"starlight-auto-sidebar": "^0.4.1",
 		"starlight-git-contributors": "^0.2.1",
