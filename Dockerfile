@@ -10,9 +10,7 @@ RUN npm ci
 COPY --exclude=httpd.conf . .
 RUN npm run build
 
-FROM alpine:3.24 AS runner
-
-RUN apk add busybox-extras
+FROM busybox:1-musl AS runner
 
 RUN addgroup -g 1001 -S abc && \
     adduser -u 1001 -S abc -G abc
