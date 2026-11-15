@@ -7,18 +7,19 @@ interface Props {
 }
 
 const { data } = Astro.props;
-const { sshFingerprint } = data;
+const { system } = data;
+const sshFingerprint = system?.sshFingerprint;
 
 const details = new Map<string, string | undefined>([
-	["Operativsystem", data.os],
-	["Arkitektur", data.arch],
-	["Modell", data.model],
-	["Processor", data.cpu],
-	["Minne", data.ram],
-	["Grafikkort", data.gpu],
-	["Placering", data.placement],
-	["Namngiven efter", data.namedAfter],
-	["Ansvarig root", data.admin],
+	["Operativsystem", system?.os],
+	["Arkitektur", system?.arch],
+	["Modell", system?.model],
+	["Processor", system?.cpu],
+	["Minne", system?.ram],
+	["Grafikkort", system?.gpu],
+	["Placering", system?.placement],
+	["Namngiven efter", system?.namedAfter],
+	["Ansvarig root", system?.admin],
 ]);
 
 const hasDetails = details.values().some((v) => v);

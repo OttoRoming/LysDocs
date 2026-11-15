@@ -4,8 +4,7 @@ import SystemInfo from "../SystemInfo.astro";
 
 const { entry } = Astro.locals.starlightRoute;
 
-// all systems have a category
-const isSystem = entry.data.category !== undefined;
+const isSystem = entry.data.system !== undefined;
 ---
 
 <Default />

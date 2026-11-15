@@ -88,13 +88,13 @@ System finns i *[topicen](#topics)* "System" (`/src/contents/docs/systems`).
 
 #### Frontmatter schema
 
-Varje system ska ha en frontmatter för systemets specs och det uppskattas om man
-dokumenterar sina system så utförligt som möjligt. Detta schema definieras i
+Varje system ska ha ett `system` objekt definierat i sin frontmatter för
+systemets metadata och det uppskattas om man dokumenterar sina system så
+utförligt som möjligt. Schemat för `system` objektet definieras i
 `src/content.config.ts`.
 
 | Nyckel         | Beskrivning                                 |
 | -------------- | ------------------------------------------- |
-| title[^1]      | Namnet på systemet                          |
 | os             | Operativsystem                              |
 | arch           | Arkitektur                                  |
 | model          | Modell                                      |
@@ -105,16 +105,14 @@ dokumenterar sina system så utförligt som möjligt. Detta schema definieras i
 | namedAfter     | Namngiven efter                             |
 | admin          | Ansvarig root                               |
 | sshFingerprint | PGP signerat SSH fingeravtryck              |
-| category[^1]   | Systemets kategori                          |
-
-[^1]: Obligatoriskt fält
+| category       | Systemets kategori                          |
 
 #### Kategorier
 
 Kategorier används för att hålla reda på vilket projekt systemet används för med
 mer.
 
-Kategorier går att använda för att skapa länk rutnät över en
+Kategorier går också att använda för att skapa länk rutnät över en
 systemkategori ([Exempel](/tjänster/xenofarm/sparc)).
 
 ```mdx

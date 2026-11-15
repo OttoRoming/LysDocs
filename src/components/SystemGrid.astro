@@ -11,26 +11,25 @@ const { category } = Astro.props;
 const collator = new Intl.Collator("sv", { sensitivity: "base" });
 
 const systems = (await getCollection("docs"))
-	.filter(
-		(entry) =>
-			entry.data.category !== undefined &&
-			(category === undefined || entry.data.category === category),
-	)
-	.sort((a, b) => collator.compare(a.data.title, b.data.title));
+	.flatMap((entry) => {
+		const system = entry.data.system;
+		if (!system) return [];
+		if (category !== undefined && system.category !== category) return [];
+		return [{ entry, system }];
+	})
+	.sort((a, b) => collator.compare(a.entry.data.title, b.entry.data.title));
 
-const cards = systems.map((system) => {
+const cards = systems.map(({ entry, system }) => {
 	const categoryLabel =
-		category === undefined && system.data.category
-			? systemCategories[system.data.category]
-			: undefined;
-	const description = [categoryLabel, system.data.os]
+		category === undefined ? systemCategories[system.category] : undefined;
+	const description = [categoryLabel, system.os]
 		.filter((value) => value !== undefined)
 		.join(" · ");
 
 	return {
-		title: system.data.title,
+		title: entry.data.title,
 		description: description || undefined,
-		href: `/${system.id}/`,
+		href: `/${entry.id}/`,
 	};
 });
 ---

@@ -26,7 +26,9 @@ export const collections = {
 	docs: defineCollection({
 		loader: docsLoader(),
 		schema: docsSchema({
-			extend: topicSchema.extend(z.object(systemFields).partial().shape),
+			extend: topicSchema.extend({
+				system: z.object(systemFields).strict().optional(),
+			}),
 		}),
 	}),
 
