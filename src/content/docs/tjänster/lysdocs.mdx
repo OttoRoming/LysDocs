@@ -118,7 +118,7 @@ systemkategori ([Exempel](/tjänster/xenofarm/sparc)).
 ```mdx
 import { SystemGrid } from "@components";
 
-<SystemGrid category="[KATEGORI]"/>
+<SystemGrid filter={(s) => s.arch === "sparc" && s.category === "xenofarm"}/>
 ```
 
 ### Topics

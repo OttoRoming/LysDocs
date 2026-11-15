@@ -5,9 +5,8 @@ import { z } from "astro/zod";
 import { autoSidebarLoader } from "starlight-auto-sidebar/loader";
 import { autoSidebarSchema } from "starlight-auto-sidebar/schema";
 import { topicSchema } from "starlight-sidebar-topics/schema";
-import { systemCategoryValues } from "./systems";
 
-const systemFields = {
+const systemFields = z.strictObject({
 	os: z.string().optional(),
 	arch: z.string().optional(),
 	model: z.string().optional(),
@@ -19,15 +18,15 @@ const systemFields = {
 	namedAfter: z.string().optional(),
 	sshFingerprint: z.string().optional(),
 
-	category: z.enum(systemCategoryValues),
-};
+	category: z.string()
+});
 
 export const collections = {
 	docs: defineCollection({
 		loader: docsLoader(),
 		schema: docsSchema({
 			extend: topicSchema.extend({
-				system: z.object(systemFields).strict().optional(),
+				system: systemFields.optional(),
 			}),
 		}),
 	}),
@@ -37,3 +36,6 @@ export const collections = {
 		schema: autoSidebarSchema(),
 	}),
 };
+
+export type System = z.infer<typeof systemFields>;
+

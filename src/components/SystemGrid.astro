@@ -1,30 +1,26 @@
 ---
 import { getCollection } from "astro:content";
 import { CardGrid, LinkCard } from "@astrojs/starlight/components";
-import { type SystemCategory, systemCategories } from "../systems";
+import type { System } from "../content.config";
 
 interface Props {
-	category?: SystemCategory;
+	filter?: (value: System) => boolean;
 }
 
-const { category } = Astro.props;
+const { filter } = Astro.props;
 const collator = new Intl.Collator("sv", { sensitivity: "base" });
 
 const systems = (await getCollection("docs"))
 	.flatMap((entry) => {
 		const system = entry.data.system;
 		if (!system) return [];
-		if (category !== undefined && system.category !== category) return [];
 		return [{ entry, system }];
 	})
+	.filter(({ system }) => (filter ? filter(system) : true))
 	.sort((a, b) => collator.compare(a.entry.data.title, b.entry.data.title));
 
 const cards = systems.map(({ entry, system }) => {
-	const categoryLabel =
-		category === undefined ? systemCategories[system.category] : undefined;
-	const description = [categoryLabel, system.os]
-		.filter((value) => value !== undefined)
-		.join(" · ");
+	const description = system.os;
 
 	return {
 		title: entry.data.title,
