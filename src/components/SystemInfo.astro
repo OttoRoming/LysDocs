@@ -1,0 +1,50 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Code } from "@astrojs/starlight/components";
+
+interface Props {
+	data: CollectionEntry<"docs">["data"];
+}
+
+const { data } = Astro.props;
+const { sshFingerprint } = data;
+
+const details = new Map<string, string | undefined>([
+	["Operativsystem", data.os],
+	["Arkitektur", data.arch],
+	["Modell", data.model],
+	["Processor", data.cpu],
+	["Minne", data.ram],
+	["Grafikkort", data.gpu],
+	["Placering", data.placement],
+	["Namngiven efter", data.namedAfter],
+	["Ansvarig root", data.admin],
+]);
+
+const hasDetails = details.values().some((v) => v);
+---
+
+{hasDetails || sshFingerprint ? (
+	<div class="sl-markdown-content">
+		{hasDetails ? (
+			<table>
+				<tbody>
+					{details.entries().map(([label, value]) =>
+						value ? (
+							<tr>
+								<th scope="row">{label}</th>
+								<td>{value}</td>
+							</tr>
+						) : null,
+					)}
+				</tbody>
+			</table>
+		) : null}
+		{sshFingerprint && (
+			<details>
+				<summary>SSH-fingeravtryck</summary>
+				<Code code={sshFingerprint} />
+			</details>
+		)}
+	</div>
+) : null}

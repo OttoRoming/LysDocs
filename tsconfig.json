@@ -5,6 +5,7 @@
 	"compilerOptions": {
 		"paths": {
 			"@assets/*": ["./src/assets/*"],
+			"@components": ["./src/components"],
 			"@components/*": ["./src/components/*"],
 			"@content/*": ["./src/content/*"],
 			"@styles/*": ["./src/styles/*"]
