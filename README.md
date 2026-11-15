@@ -8,28 +8,8 @@ Mer information går att hitta på <https://starlight.astro.build/>
 
 Lysdocs utvecklas nu på <https://forge.lysator.liu.se/lysdocs/lysdocs>
 
-## Hur man utvecklar
+## Att utveckla LysDocs
 
-1. Installera beroenden
-
-```text
-npm i
-```
-
-2. Starta dev server
-
-```text
-npm run dev
-```
-
-3. Kolla efter linting fel
-
-```text
-npm run check
-```
-
-4. Försök använda autofixes
-
-```text
-npm run fix
-```
+LysDocs är självdokumenterande mjukvara. Läs Lysdocs dokumentationen på
+[LysDocs](https://docs.lysator.liu.se/tj%C3%A4nster/lysdocs/) eller
+[Lysator Forge](https://forge.lysator.liu.se/LysDocs/LysDocs/src/branch/main/src/content/docs/tj%C3%A4nster/lysdocs.mdx)
