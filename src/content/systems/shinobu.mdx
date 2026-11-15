@@ -1,5 +1,12 @@
 ---
 title: Shinobu
+os: "Debian Linux"
+arch: x86_64
+ram: "256 GB DDR4"
+admin: kindergarten
+namedAfter: Vampyren Shinobu från anime serien monogatari.
+
+category: cpu-server
 ---
 
 import { Aside } from '@astrojs/starlight/components';
@@ -65,7 +72,7 @@ compose up`).
 
 ## TLDR
 
-Följ [denna](/tjänster/cpu-servrar/shinobu/01-introduktion/) guide för att få en
+Följ [denna](/guider/shinobu/01-introduktion/) guide för att få en
 introduktion till Podman. För att saker ska fungera som du förvänta dig, kör:
 
 ```bash
@@ -126,3 +133,9 @@ podman.socket` för att starta kompabilitetslagret.
 ### Vars lagras volymer?
 
 Volymer lagras under `/podman/containers/<nick>/volumes`.
+
+## För vidare läsning
+
+- [Introduktion till Podman](/guider/shinobu/01-introduktion/)
+- [SystemD](/guider/shinobu/02-systemd/)
+- [Domäner](/guider/shinobu/03-domaner/)
