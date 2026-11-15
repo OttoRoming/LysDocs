@@ -4,6 +4,8 @@ sidebar:
   order: 20
 ---
 
+import { SystemGrid } from "@components"
+
 CPU-servrarna är till för föreningens medlemmar att kunna logga in remote och
 köra sina program på. Få restriktioner gäller förutom
 [Lysators Användarvillkor](https://www.lysator.liu.se/foreningen/styrelsen/villkor.pdf).
@@ -29,17 +31,6 @@ medanvändare, och hör av dig på bryggan eller till root-gruppen
    (`/home`) har ~479 TB lagring medan backup-servern Arisa bara har ~140 TB.
 3. Kör långa och CPU- eller I/O-tunga jobb med `nice` (och gärna också
    `ionice`) så att andra fortfarande kan jobba på maskinen.
-
-## Servrarna
-
-| Server                                    | Operativsystem           | Övrigt                                                   |
-| ----------------------------------------- | ------------------------ | -------------------------------------------------------- |
-| [Shinobu](/tjänster/cpu-servrar/shinobu/) | Debian                   | [Podman](/tjänster/cpu-servrar/shinobu/01-introduktion/) |
-| [Auri-El](/tjänster/cpu-servrar/auriel/)  | Arch Linux               | RDP                                                      |
-| [Milou](/tjänster/cpu-servrar/milou/)     | Debian 13                | Scratchpad                                               |
-| [Shipon](/tjänster/cpu-servrar/shipon/)   | FreeBSD                  | Vindbrygga                                               |
-| [Totoro](/tjänster/cpu-servrar/totoro/)   | Arch Linux (`linux-lts`) | Virtuell i Proxmox                                       |
-| [Volton](/tjänster/cpu-servrar/volton/)   | NixOS                    | Apptainer                                                |
 
 ## Tips ock trix
 
@@ -85,3 +76,7 @@ if [ -x "$(command -v SKAL)" ] && [[ ! $USE_BASH = 1 ]]; then
     exec SKAL
 fi
 ```
+
+## Maskiner
+
+<SystemGrid category="cpu-server" />
