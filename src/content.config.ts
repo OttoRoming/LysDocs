@@ -18,7 +18,7 @@ const systemFields = z.strictObject({
 	namedAfter: z.string().optional(),
 	sshFingerprint: z.string().optional(),
 
-	category: z.string()
+	category: z.string(),
 });
 
 export const collections = {
@@ -38,4 +38,3 @@ export const collections = {
 };
 
 export type System = z.infer<typeof systemFields>;
-
