@@ -1,0 +1,52 @@
+---
+title: Kryptera data
+---
+
+Hemdisken lagrar vanligtvis all data okrypterat vilket kan vara problematiskt om
+man vill lagra känslig data. För att lagra krypterad data på hemdisk går det att
+använda sig av
+[FUSE](https://www.kernel.org/doc/html/next/filesystems/fuse.html) filsystemet
+[gocryptfs](https://nuetzlich.net/gocryptfs/). FUSE är en kernelmodul som ger
+användarprocesser möjlighet till att emulera filsystem.
+
+Gocryptfs finns installerat på [Volton](/system/cpu-servrar/volton),
+[Auri-El](/system/cpu-servrar/auriel) och alla
+[arbetsstationer](/tjänster/tilde/arbetsstationer) förutom
+[Renge](/system/arbetsstationer/renge).
+
+## Skapa en volym
+
+För att skapa en volym behöver man ange en katalog som gocryptfs kommer att
+använda sig av för att lagra all krypterad fildata och metadata. Tänk på när du
+skapar volymen att använda dig av ett
+[lämpligt lösenord](/guider/lämpliga-lösenord).
+
+```bash
+mkdir [VOLYM]
+gocryptfs -init [VOLYM]
+```
+
+## Montera volymen
+
+För att montera volymen är det nu bara att köra gocryptfs och mata in det
+tidigare satta lösenordet
+
+```bash
+gocryptfs [VOLYM] [MONTERINGSPUNKT]
+```
+
+## Avmontera volymen
+
+Du kanske är van med att köra cli verktyget `umount` för att avmontera diskar på
+andra system. Det fungerar dock inte på Lysator eftersom att det verktyget
+kräver rootrettigheter för att kunna avmontera volymer. Som tur är så finns det
+ett specifikt cli verktyg (`fusermount3`) för att interagera med FUSE filsystem.
+
+```bash
+fusermount3 -u [MONTERINGSPUNKT]
+```
+
+Om du får något i stil med
+`failed to unmount [MONTERINGSPUNKT]: Device or resource busy` kan man använda
+sig av `-z` flaggan för att göra avmonteringen *"lazy"*, då kommer `fusermount3`
+avmontera volymen på direkten utan att kolla om några processer använder den.
