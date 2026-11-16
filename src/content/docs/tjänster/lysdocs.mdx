@@ -4,7 +4,7 @@ sidebar:
   label: LysDocs
 ---
 
-import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+import { Aside, Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 
 På LysDocs hittar du information om Lysators tjänster,
 guider för diverse teknik och tips för hur man kommer igång som ny medlem.
@@ -44,6 +44,10 @@ LysDocs utvecklas på
     ```bash
     npm run dev
     ```
+
+    <Aside type="tip" label="Utveckling från en fjärrserver">
+        `npm run dev:host` kan användas för att öppna upp utvecklingsservern till andra enheter.
+    </Aside>
 
 4. Öppna nu din webbläsare och navigera till http://localhost:4321/ för att se sidan lokalt
 
