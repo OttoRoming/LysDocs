@@ -20,5 +20,4 @@ compose.yml
 flake.lock
 flake.nix
 rumdl.toml
-ryl.toml
 
