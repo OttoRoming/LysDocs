@@ -1,0 +1,20 @@
+[tools]
+biome = "2.6.8"
+node = "24"
+rumdl = "latest"
+# "cargo:https://github.com/biomejs/biome" = "tag:biomejs/biome@2.6.8"
+
+[tasks]
+"check:astro" = "npx astro check"
+"check:biome" = "biome check"
+"check:rumdl" = "rumdl check"
+
+"fix:biome" = "biome check --write"
+"fix:rumdl" = "rumdl check --fix"
+
+[tasks.check]
+depends = ["check:astro", "check:biome", "check:rumdl"]
+
+[tasks.fix]
+depends = ["fix:biome", "fix:rumdl"]
+
