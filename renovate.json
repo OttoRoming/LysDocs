@@ -1,0 +1,66 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [
+		"config:recommended",
+		":timezone(Europe/Stockholm)",
+		"helpers:pinGitHubActionDigests"
+	],
+	"minimumReleaseAge": "1 day",
+	"osvVulnerabilityAlerts": true,
+	"vulnerabilityAlerts": {
+		"minimumReleaseAge": "1 day"
+	},
+	"automerge": true,
+	"platformAutomerge": false,
+	"lockFileMaintenance": {
+		"enabled": true,
+		"schedule": ["before 7am"]
+	},
+	"packageRules": [
+		{
+			"description": "Stora versioner får alltid en manuell granskning",
+			"matchUpdateTypes": ["major"],
+			"automerge": false
+		},
+		{
+			"description": "Mindre uppdateringar av npm-paketen i en gemensam PR, inte en per paket",
+			"matchManagers": ["npm"],
+			"matchUpdateTypes": ["minor", "patch"],
+			"groupName": "frontend-beroenden"
+		},
+		{
+			"description": "En minor-höjning av en 0.x är brytande i semver (0.2 → 0.4). Den får en egen PR som väntar på en människa, så att den inte håller kvar de säkra uppdateringarna",
+			"matchManagers": ["npm"],
+			"matchCurrentVersion": "<1.0.0",
+			"matchUpdateTypes": ["minor"],
+			"groupName": null,
+			"automerge": false
+		},
+		{
+			"description": "Actions i .forgejo/workflows i en PR",
+			"matchManagers": ["github-actions"],
+			"groupName": "CI-actions"
+		},
+		{
+			"description": "Images i Dockerfilen i en PR",
+			"matchManagers": ["dockerfile"],
+			"groupName": "images"
+		},
+		{
+			"description": "Flake-inputsen i en PR",
+			"matchManagers": ["nix"],
+			"groupName": "nix-beroenden"
+		},
+		{
+			"description": "Images pinnade till en digest, så att en ny kommer in som en PR som väntat ett dygn. Utom Lysators egna: deras register anger ingen publiceringstid",
+			"matchDatasources": ["docker"],
+			"matchPackageNames": ["!forge.lysator.liu.se/**"],
+			"pinDigests": true
+		},
+		{
+			"description": "Lockfilsunderhåll och nya digests har ingen publiceringstid, och utan ett undantag väntar Renovate för evigt",
+			"matchUpdateTypes": ["lockFileMaintenance", "digest"],
+			"minimumReleaseAge": null
+		}
+	]
+}
