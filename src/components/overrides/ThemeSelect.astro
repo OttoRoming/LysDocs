@@ -1,10 +1,10 @@
 ---
+import { Icon } from "@astrojs/starlight/components";
 import Select from "@astrojs/starlight/components/Select.astro";
 ---
 
 <starlight-theme-select>
 	<Select
-		icon="moon"
 		label={Astro.locals.t("themeSelect.accessibleLabel")}
 		options={[
 			{
@@ -19,13 +19,33 @@ import Select from "@astrojs/starlight/components/Select.astro";
 			},
 		]}
 		width="6.25em"
-	/>
+	>
+		<Fragment slot="icon">
+			<Icon name="moon" class="sl-theme-icon-dark" />
+			<Icon name="sun" class="sl-theme-icon-light" />
+		</Fragment>
+	</Select>
 </starlight-theme-select>
 
-{/* Inlined to avoid FOUC. Uses global scope from `ThemeProvider.astro` */}
-<script is:inline>
-StarlightThemeProvider.updatePickers();
-</script>
+{/* Inlined to avoid FOUC. Uses `set:html` to avoid an incorrect type error. */}
+<script
+	is:inline
+	set:html={`(() => {
+		const theme = (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme'));
+		if (theme === 'dark' || theme === 'light') document.querySelectorAll('starlight-theme-select select').forEach((s) => { s.value = theme; });
+	})();`}
+></script>
+
+<style>
+@layer starlight.components {
+	starlight-theme-select:has([value="dark"]:not(:checked))
+		:global(.sl-theme-icon-dark),
+	starlight-theme-select:has([value="light"]:not(:checked))
+		:global(.sl-theme-icon-light) {
+		display: none;
+	}
+}
+</style>
 
 <script>
 type Theme = "dark" | "light";
@@ -52,7 +72,11 @@ function storeTheme(theme: Theme): void {
 
 /** Update select menu UI, document theme, and local storage state. */
 function onThemeChange(theme: Theme): void {
-	StarlightThemeProvider.updatePickers(theme);
+	document
+		.querySelectorAll<HTMLSelectElement>("starlight-theme-select select")
+		.forEach((select) => {
+			select.value = theme;
+		});
 	document.documentElement.dataset.theme = theme;
 	storeTheme(theme);
 }
