@@ -10,7 +10,7 @@ RUN npm ci
 COPY --exclude=httpd.conf . .
 RUN npm run build
 
-FROM busybox:1-musl AS runner
+FROM busybox:1-musl@sha256:80e38f9a1b39188b8bdb28879178edb322a4402b081a9aedda1924609decd6f6 AS runner
 
 RUN addgroup -g 1001 -S abc && \
     adduser -u 1001 -S abc -G abc
