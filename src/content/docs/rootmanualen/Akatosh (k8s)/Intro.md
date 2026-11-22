@@ -8,25 +8,30 @@ Akatosh är ett Kubernetes-kluster (k8s) som kör diverse tjänster.
 
 ## Översikt
 
-Klustret består av kontrollplan, lagring (Ceph) och arbetsnoder.
-Tillsammans utgör de ett kluster byggt för high availability i kontrollplanet, lagringen och arbetsnoderna.
+Klustret består av kontrollplan, lagring (Ceph) och arbetsnoder. Tillsammans
+utgör de ett kluster byggt för high availability i kontrollplanet, lagringen och
+arbetsnoderna.
 
 ### Kontrollplan
 
-Kontrollplanet består av tre dedikerade noder, akatosh-01, akatosh-02 och akatosh-03 (se [Hårdvara](./Hårdvara.md)).
-Där körs Kubernetes egna komponenter, de som håller reda på klustrets tillstånd och bestämmer vad som ska köras var.
-Med tre noder behåller klustret majoritet (quorum) även om en nod går ner, så kontrollplanet fortsätter att fungera.
+Kontrollplanet består av tre dedikerade noder, akatosh-01, akatosh-02 och
+akatosh-03 (se [Hårdvara](/rootmanualen/akatosh-k8s/hårdvara/)). Där körs
+Kubernetes egna komponenter, de som håller reda på klustrets tillstånd och
+bestämmer vad som ska köras var. Med tre noder behåller klustret majoritet
+(quorum) även om en nod går ner, så kontrollplanet fortsätter att fungera.
 
-Utöver Kubernetes egna komponenter körs här även sådant som resten av klustret är beroende av, eller som behövs för att administrera det.
-Eftersom de inte delar noder med vanliga tjänster påverkas de inte av last eller problem på arbetsnoderna.
-Dessutom körs Postgres för diverse tjänster för att utnyttja den snabbare lagringen som finns på kontrollplansnoderna.
+Utöver Kubernetes egna komponenter körs här även sådant som resten av klustret
+är beroende av, eller som behövs för att administrera det. Eftersom de inte
+delar noder med vanliga tjänster påverkas de inte av last eller problem på
+arbetsnoderna. Dessutom körs Postgres för diverse tjänster för att utnyttja den
+snabbare lagringen som finns på kontrollplansnoderna.
 
 #### Kubernetes kontrollplan
 
 Det här är själva kontrollplanet, komponenterna som styr klustret.
 
 | Tjänst                  | Vad den gör                                                                                                          |
-|-------------------------|----------------------------------------------------------------------------------------------------------------------|
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | etcd                    | Distribuerad databas där hela klustrets tillstånd och konfiguration lagras.                                          |
 | kube-apiserver          | Klustrets API. Allt som läser eller ändrar något i klustret går via den, både kubectl, ArgoCD och noderna själva.    |
 | kube-scheduler          | Bestämmer vilken nod varje container ska köras på.                                                                   |
@@ -35,11 +40,11 @@ Det här är själva kontrollplanet, komponenterna som styr klustret.
 
 #### Infrastruktur
 
-Grundtjänster som resten av klustret är beroende av.
-Slutar de fungera påverkas alla tjänster, därför körs de i kontrollplanet och inte på arbetsnoderna.
+Grundtjänster som resten av klustret är beroende av. Slutar de fungera påverkas
+alla tjänster, därför körs de i kontrollplanet och inte på arbetsnoderna.
 
 | Tjänst                    | Vad den gör                                                                                                                 |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | Cilium                    | Nätverket mellan containrar och noder, inklusive brandväggsregler inne i klustret.                                          |
 | CoreDNS                   | Klustrets interna DNS, så att tjänster kan nå varandra via namn.                                                            |
 | metrics-server            | Samlar in CPU- och minnesanvändning per container, till exempel för `kubectl top` och Headlamp.                             |
@@ -56,17 +61,18 @@ Slutar de fungera påverkas alla tjänster, därför körs de i kontrollplanet o
 
 #### Adminverktyg
 
-Verktyg för att administrera klustret.
-De körs i kontrollplanet så att de går att nå även när det är problem på arbetsnoderna, alltså just när man behöver dem.
+Verktyg för att administrera klustret. De körs i kontrollplanet så att de går
+att nå även när det är problem på arbetsnoderna, alltså just när man behöver
+dem.
 
 | Tjänst                                               | Vad den gör                                                                                                                   |
-|------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | [ArgoCD](https://argocd.akatosh.lysator.liu.se/)     | Synkar klustret mot [git](https://forge.lysator.liu.se/lysator/k8s-lys), så att det som finns i git är det som körs (gitops). |
 | [Headlamp](https://headlamp.akatosh.lysator.liu.se/) | Webbgränssnitt för att se och hantera klustret.                                                                               |
 
 #### Tjänster
 
 | Tjänst    | Vad den gör                                                                        |
-|-----------|------------------------------------------------------------------------------------|
+| --------- | ---------------------------------------------------------------------------------- |
 | Postgres  | Postgres-kluster som sköts av CNPG-operatorn och används av tjänsterna i klustret. |
 | Authentik | Inloggning för tjänster i klustret.                                                |
