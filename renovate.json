@@ -58,8 +58,8 @@
 			"pinDigests": true
 		},
 		{
-			"description": "Lockfilsunderhåll och nya digests har ingen publiceringstid, och utan ett undantag väntar Renovate för evigt",
-			"matchUpdateTypes": ["lockFileMaintenance", "digest"],
+			"description": "Lockfilsunderhåll, pinDigest och nya digests har ingen publiceringstid, och utan ett undantag väntar Renovate för evigt",
+			"matchUpdateTypes": ["lockFileMaintenance", "digest", "pinDigest"],
 			"minimumReleaseAge": null
 		}
 	]
