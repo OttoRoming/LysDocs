@@ -33,7 +33,7 @@
 		"esbuild": true
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.6.8",
+		"@biomejs/biome": "2.6.9",
 		"rumdl": "^0.3.0"
 	}
 }
