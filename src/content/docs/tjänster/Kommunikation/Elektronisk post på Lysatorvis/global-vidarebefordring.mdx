@@ -15,6 +15,14 @@ din mail-mapp.
 För att vidarebefordra mail skriver du enkelt in adressen till den brevlåda du
 vill ha e-posten levererad till och sparar filen.
 
-`.forward` kan även skicka vidare e-post till andra ställen också, exempelvis
-mailsorteringsprogrammet procmail som bland annat kan användas för att filtrera
-bort spam-mail. Exempel på hur du använder procmail finner du i nästa avsnitt.
+`.forward` kan även skicka vidare e-post till andra ställen också, men bör
+endast användas för mailsorteringsprogrammet `procmail` som bland annat kan
+användas för att filtrera bort spam-mail.
+
+<Aside type="danger" title="endast procmail">
+    INGA EGNA KOMMANDON, PERL-HACK, EGENINSTALLERAD PROGRAMVARA ELLER LIKNANDE FÅR KÖRAS PÅ MAILSERVERN.
+
+    DET ÄR INTE TILLÅTET ATT LÅTA PROCMAIL ELLER MAILDROP EXEKEVERA ANDRA KOMMANDON. ENBART INBYGGD FILTERFUNKTIONALITET FÅR ANVÄNDAS!
+</Aside>
+
+Exempel på hur du använder `procmail` finner du i nästa avsnitt.
