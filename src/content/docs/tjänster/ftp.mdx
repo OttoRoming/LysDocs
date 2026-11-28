@@ -1,0 +1,79 @@
+---
+title: "FTP"
+---
+
+import { Icon } from '@astrojs/starlight/components';
+
+Lysator erbjuder spegling av många olika projekt för att erbjuda snabb
+nedladdning för lysiter och andra. FTP går att nå på
+
+- http://ftp.lysator.liu.se/
+- https://ftp.lysator.liu.se/
+- http://lysator7eknrfl47rlyxvgeamrv7ucefgrrlhk7rouv3sna25asetwid.onion/
+
+De flesta projekt hittar du under `/pub/` katalogen.
+
+## Konfigurera pakethanterare
+
+Många operativsystems paket speglas på FTP och vilket går att uttnyttja för att
+få högre nedladdningshastighet och lägre latens.
+
+Här dokumenteras en icke komplett lista över hur man konfigurerar pakethanterare
+på olika operativsystem för att använda Lysator FTP.
+
+### Alpine Linux
+
+ersätt `[GREN]` med till exempel `v3.24` eller `edge`. Testing repostitoryt
+finns endast tillgängligt på `edge` grenen
+
+i `/etc/apk/repositories`
+
+```txt
+https://ftp.lysator.liu.se/pub/alpine/[GREN]/main
+https://ftp.lysator.liu.se/pub/alpine/[GREN]/community
+@testing https://ftp.lysator.liu.se/pub/alpine/edge/testing
+```
+
+### Android
+
+#### F-Droid
+
+Öppna F-Droid applikationen och navigera i grafiska menyn till
+
+*paket ikonen* **>** *F-Droid* **>** *Official mirrors*
+
+Aktivera `ftp.lysator.liu.se`
+
+### Arch Linux
+
+i `/etc/pacman.d/mirrorlist`
+
+```txt
+Server = https://ftp.lysator.liu.se/pub/archlinux/$repo/os/$arch
+```
+
+### Debian Linux
+
+ersätt `[UTGÅVA]` med till exempel `trixie`.
+
+i `/etc/apt/sources.list`
+
+```txt
+deb http://ftp.lysator.liu.se/debian/ [UTGÅVA] main non-free-firmware non-free
+deb-src http://ftp.lysator.liu.se/debian/ [UTGÅVA] main non-free-firmware non-free
+
+deb http://ftp.lysator.liu.se/debian-security/ [UTGÅVA]-security main non-free-firmware non-free
+deb-src http://ftp.lysator.liu.se/debian-security/ [UTGÅVA]-security main non-free-firmware non-free
+
+deb http://ftp.lysator.liu.se/debian/ [UTGÅVA]-updates main non-free-firmware non-free
+deb-src http://ftp.lysator.liu.se/debian/ [UTGÅVA]-updates main non-free-firmware non-free
+```
+
+### Gentoo Linux
+
+Installera och kör kommandoradsprogrammet `mirrorselect`
+
+```bash
+emerge app-portage/mirrorselect
+mirrorselect
+```
