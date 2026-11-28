@@ -23,4 +23,4 @@ COPY --from=builder --chown=abc:abc /app/dist .
 USER abc
 
 EXPOSE 3000
-CMD ["httpd", "-f", "-p", "0.0.0.0:3000"]
+CMD ["httpd", "-fvv", "-p", "0.0.0.0:3000"]
